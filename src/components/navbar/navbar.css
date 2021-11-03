@@ -1,0 +1,105 @@
+* {
+    border: solid black 2px;
+}
+
+
+nav{
+    background: rgba(220, 249, 237, 0.25);
+    padding: 20px;
+    height: 15em;   
+}
+
+
+ul{
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    
+}
+
+ul li{
+    list-style: none; 
+    border:solid black 2px; 
+
+}
+
+a{
+    color: black;
+    font-weight: bolder;
+    text-decoration: none;
+
+}
+
+button{
+    
+    width: 141px;
+    height: 68px;
+    color:white;
+
+    background: rgba(220, 249, 237, 0.65);
+    /* Shadow */
+    box-shadow: 5px 5px 4px rgba(20, 94, 140, 0.25);
+    border-radius: 90px;
+    font-family: Oswald;
+    font-weight: 500;
+    font-size: 24px;
+    
+
+}
+
+.log{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: flex-start;
+    background: #3EACC2;
+    border:solid rgb(235, 30, 30) 9px; 
+}
+
+
+.button{
+    display: flex;
+    justify-content: flex-end;
+   
+
+}
+
+.logo{
+    
+    left: 630px;
+    top: 75px;
+    border-radius: 90px;
+    width: 166px;
+    height: 167px;
+    border-radius: 90px;
+    border:solid  rgb(230, 15, 15) 2px;
+
+    
+}
+
+.title{
+    /* Website name */
+    font-family: Oswald;
+    font-style: normal;
+    color:white;
+
+}
+
+.logo-title{
+    background-color: burlywood;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: stretch;
+    
+}
+
+.button-container{
+    display: flex;
+    flex-direction: row;
+    margin-left:20em;
+}
+
+

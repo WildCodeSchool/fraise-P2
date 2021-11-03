@@ -1,0 +1,6 @@
+.filter-button-on, .filter-button-off {
+    width: 50px;
+    height: 10px;
+    border-radius: 20px;
+    background-color: blue;
+}

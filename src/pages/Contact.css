@@ -1,0 +1,76 @@
+.contactform {
+  text-align: center;
+  background-color: #dcf9ed;
+}
+.h2-contact {
+  color: #071536;
+  font-size: 5rem;
+  padding: 1rem;
+}
+
+.h3-contact {
+  color: #071536;
+  font-size: 3rem;
+  padding: 2rem;
+}
+
+label {
+  line-height: 2;
+  color: #145e8c;
+  font-weight: bold;
+  font-size: 1, 5rem;
+}
+.check {
+  color: #3eacc2;
+  padding: 1rem;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 40%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 2rem;
+  background-color: #3eacc2;
+  border: none;
+  box-shadow: 5px 5px 4px rgba(20, 94, 140, 0.25);
+}
+::placeholder {
+  color: black;
+}
+
+textarea {
+  resize: none;
+  width: 40%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 2rem;
+  box-shadow: 5px 5px 4px rgba(20, 94, 140, 0.25);
+}
+
+input[type="submit"] {
+  background: #3eacc2;
+  color: black;
+  border: 3px solid black;
+  border-radius: 4rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border: none;
+}
+
+input[type="submit"]:hover {
+  background-color: #86e3d5;
+  transition: 1s;
+}
+
+@media screen and (max-width: 900px) {
+  .h2-contact {
+    font-size: 1.5rem;
+  }
+  .h3-contact {
+    font-size: 1rem;
+    padding: 0;
+    padding-bottom: 1rem;
+  }
+}

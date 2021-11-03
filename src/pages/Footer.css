@@ -1,0 +1,9 @@
+.footer {
+  background-color: #f2f2f2;
+}
+
+.nutrition a li {
+  color: black;
+  flex-direction: column;
+  flex-flow: column wrap;
+}
