@@ -1,18 +1,4 @@
 import React from "react";
-import Category from '../components/category';
-
-const arrayRegime = [
-  { colorB: "my-profil", regime: "Mon profil perso" },
-  { colorB: "dark_blue", regime: "Intolérence au gluten" },
-  { colorB: "creme_blue", regime: "Intolérence au lactose" },
-  { colorB: "blue", regime: "Intolérence FodMap" },
-  { colorB: "dark_blue", regime: "Allergie fruits à coque" },
-  { colorB: "creme_blue", regime: "Allergie aux oeufs" },
-  { colorB: "blue", regime: "Allergie crustacés" },
-  { colorB: "dark_blue", regime: "régime : sportif" },
-  { colorB: "creme_blue", regime: "Régime : végétarien" },
-  { colorB: "blue", regime: "Endométriose" }
-]
 
 function Home() {
   return (
@@ -20,7 +6,16 @@ function Home() {
       <h2>Home</h2>
 
       <div className="basique">
-        {arrayRegime.map(({ colorB, regime }) => (<Category colorB={colorB} regime={regime} />))}
+        <div className="my-profil">mon profil perso</div>
+        <div className="dark_blue">Intolérence au gluten</div>
+        <div className="creme_blue">Intolérence au lactose</div>
+        <div className="blue">Intolérence FodMap</div>
+        <div className="dark_blue">Allergie fruits à coque</div>
+        <div className="creme_blue">Allergie aux oeufs</div>
+        <div className="blue">Allergie crustacés</div>
+        <div className="dark_blue">régime : sportif</div>
+        <div className="creme_blue">Régime : végétarien</div>
+        <div className="blue">Endométriose</div>
       </div>
     </div>
   );
