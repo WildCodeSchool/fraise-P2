@@ -1,19 +1,25 @@
 import React from "react";
+import Category from '../components/category';
+
+const regimeProfile = [
+  { color: "my-profil", regime: "Mon profil perso" },
+  { color: "dark_blue", regime: "Intolérence au gluten" },
+  { color: "creme_blue", regime: "Intolérence au lactose" },
+  { color: "blue", regime: "Intolérence FodMap" },
+  { color: "dark_blue", regime: "Allergie fruits à coque" },
+  { color: "creme_blue", regime: "Allergie aux oeufs" },
+  { color: "blue", regime: "Allergie crustacés" },
+  { color: "dark_blue", regime: "régime : sportif" },
+  { color: "creme_blue", regime: "Régime : végétarien" },
+  { color: "blue", regime: "Endométriose" }
+]
 
 const Home = () => {
   return (
     <main className="container-home">
       <div className="card-my-profil">mon profil perso</div>
       <section className="container-profil-cards">
-        <div className="profil-card dark_blue">Intolérence au gluten</div>
-        <div className="profil-card creme_blue">Intolérence au lactose</div>
-        <div className="profil-card blue">Intolérence FodMap</div>
-        <div className="profil-card dark_blue">Allergie fruits à coque</div>
-        <div className="profil-card creme_blue">Allergie aux oeufs</div>
-        <div className="profil-card blue">Allergie crustacés</div>
-        <div className="profil-card dark_blue">régime : sportif</div>
-        <div className="profil-card creme_blue">Régime : végétarien</div>
-        <div className="profil-card blue">Endométriose</div>
+        {regimeProfile.map(({ color, regime }) => (<Category className="profil-card" colorB={colorB} regime={regime} />))}
       </section>
     </main>
   );
