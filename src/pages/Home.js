@@ -1,23 +1,21 @@
 import React from "react";
 
-function Home() {
+const Home = () => {
   return (
-    <div className="container">
-      <h2>Home</h2>
-
-      <div className="basique">
-        <div className="my-profil">mon profil perso</div>
-        <div className="dark_blue">Intolérence au gluten</div>
-        <div className="creme_blue">Intolérence au lactose</div>
-        <div className="blue">Intolérence FodMap</div>
-        <div className="dark_blue">Allergie fruits à coque</div>
-        <div className="creme_blue">Allergie aux oeufs</div>
-        <div className="blue">Allergie crustacés</div>
-        <div className="dark_blue">régime : sportif</div>
-        <div className="creme_blue">Régime : végétarien</div>
-        <div className="blue">Endométriose</div>
-      </div>
-    </div>
+    <main className="container-home">
+      <div className="card-my-profil">mon profil perso</div>
+      <section className="container-profil-cards">
+        <div className="profil-card dark_blue">Intolérence au gluten</div>
+        <div className="profil-card creme_blue">Intolérence au lactose</div>
+        <div className="profil-card blue">Intolérence FodMap</div>
+        <div className="profil-card dark_blue">Allergie fruits à coque</div>
+        <div className="profil-card creme_blue">Allergie aux oeufs</div>
+        <div className="profil-card blue">Allergie crustacés</div>
+        <div className="profil-card dark_blue">régime : sportif</div>
+        <div className="profil-card creme_blue">Régime : végétarien</div>
+        <div className="profil-card blue">Endométriose</div>
+      </section>
+    </main>
   );
 }
 

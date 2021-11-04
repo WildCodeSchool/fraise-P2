@@ -54,7 +54,6 @@ function Contact() {
       <input id="buttonContact"
         type="submit"
         value="Submit"/>
-   
 </div>
   );
 }

@@ -2,10 +2,11 @@
   text-align: center;
   background-color: #dcf9ed;
 }
-input[type="name"],
-input[type="email"],
-input[type="password"],
-textarea {
+
+.connexion input[type="name"],
+.connexion input[type="email"],
+.connexion input[type="password"],
+.connexion textarea {
   width: 40%;
   padding: 1rem;
   margin-bottom: 1rem;
@@ -15,7 +16,7 @@ textarea {
   box-shadow: 5px 5px 4px rgba(20, 94, 140, 0.25);
 }
 
-input[type="signup"] {
+.connexion input[type="signup"] {
   background: #3eacc2;
   color: black;
   border: 3px solid black;
@@ -24,7 +25,8 @@ input[type="signup"] {
   margin-bottom: 1rem;
   border: none;
 }
-input[type="connexion"]:hover {
+
+.connexion input[type="connexion"]:hover {
   background-color: #86e3d5;
   transition: 1s;
 }

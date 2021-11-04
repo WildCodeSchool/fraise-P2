@@ -1,28 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from "../../images/logo.png"
+import logo from "../../images/logo-ramentafraise.png"
+import "./navbar.css"
 
 const NavBar = () => {
   return (
-    <>
-      <div className="log">
-        <div className="logo-title">
+    <header>
+      <section className="header-banner">
+        <div className="title-logo-container">
           <img className="logo" src={logo} alt=""/>
-          <div>
-          <h1 >GreenBeens</h1>
-          <h2 >"Everything you like in 1 click"</h2>
+          <div className="header-title">
+            <h1>GreenBeens</h1>
+            <h2>"Everything you like in 1 click"</h2>
           </div>
         </div> 
         <div className="button-container">
-          <div className="button">
             <button>Login</button>
-          </div> 
-          <div className="button">
             <button>MySpace</button>
-          </div>
         </div>    
-      </div>
-      <nav>
+      </section>
+      <nav className="nav-general">
         <ul>
           <li>
             <Link to="/Home">Home</Link>
@@ -44,7 +41,7 @@ const NavBar = () => {
           </li>
         </ul>
       </nav>
-    </>
+    </header>
   );
 };
 

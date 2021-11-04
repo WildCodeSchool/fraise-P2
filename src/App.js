@@ -8,7 +8,7 @@ import PageLactose from "./pages/PageLactose";
 import PageEggs from "./pages/PageEggs";
 import PageGluten from "./pages/PageGluten";
 import Connexion from "./pages/Connexion";
-import Footer from "./pages/Footer";
+import Footer from "./components/footer/Footer";
   
 const App = () => {
   return (
@@ -17,7 +17,7 @@ const App = () => {
         <NavBar />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/home" component={Home} />
+          <Route path="/Home" component={Home} />
           <Route path="/PageLactose" component={PageLactose} />
           <Route path="/PageGluten" component={PageGluten} />
           <Route path="/PageEggs" component={PageEggs} />
@@ -25,8 +25,8 @@ const App = () => {
           <Route path="/Connexion" component={Connexion} />
         </Switch>
         <Footer />
-    </div>
-  </BrowserRouter>
+      </div>
+    </BrowserRouter>
   )};
 
 export default App;
