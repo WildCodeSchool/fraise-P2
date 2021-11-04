@@ -1,10 +1,15 @@
-.basique {
+.container-home {
   display: flex;
-  justify-content: space-around;
   flex-direction: column;
-  margin-right: 20%;
-  margin-left: 20%;
+  align-items: center;
+  margin: 3rem 10vw;
   font-size: 20px;
+}
+
+.container-profil-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
 
 .home-card {
@@ -12,66 +17,42 @@
   align-items: center;
 }
 
-.my-profil {
-  background-color: #3eacc2;
+.card-my-profil {
   border-radius: 50%;
-  height: 8rem;
-  width: 8rem;
-  text-align: center;
-  margin-top: 5%;
-  margin-left: auto;
-  margin-right: auto;
-  font-weight: 600;
+  height: 10rem;
+  width: 10rem;
+  padding: 3rem 1rem;
+  margin: 3rem; 
+  box-shadow: 6px 5px 5px #00000025;
   color: #145e8c;
-  box-shadow: 10px 5px 5px gray;
-  align-items: center;
-  padding: 12% 0;
+  background-color: #3eacc2;
+  text-align: center;
+}
+
+.profil-card {
+  height: 15rem;
+  width: 12rem;
+  margin: 1rem;
+  padding: 4rem 1rem;
+  box-shadow: 6px 5px 5px #00000025;
 }
 
 .dark_blue {
-  vertical-align: middle;
   background-color: #145e8c;
-  text-align: center;
-  height: 6rem;
-  width: 100%;
-  margin-top: 5%;
-  font-weight: 600;
-  padding-right: 3rem;
-  padding-left: 3rem;
   color: white;
-  box-shadow: 10px 5px 5px gray;
-  padding: 10% 0;
 }
 
 .creme_blue {
   background-color: #dcf9ed;
-  text-align: center;
-  height: 6rem;
-  width: 100%;
-  margin-top: 5%;
   color: #145e8c;
-  font-weight: 600;
-  padding-right: 3rem;
-  padding-left: 3rem;
-  box-shadow: 10px 5px 5px gray;
-  padding: 10% 0;
 }
 
 .blue {
   background-color: #3eacc2;
-  text-align: center;
-  height: 6rem;
-  width: 100%;
-  margin-top: 5%;
-  font-weight: 600;
-  padding-right: 3rem;
-  padding-left: 3rem;
   color: white;
-  box-shadow: 10px 5px 5px gray;
-  padding: 10% 0;
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   .basique {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -102,4 +83,4 @@
     height: 12rem;
     width: 100%;
   }
-}
+} */

@@ -1,28 +1,27 @@
 import React from "react";
 import Category from '../components/category';
 
-const arrayRegime = [
-  { colorB: "my-profil", regime: "Mon profil perso" },
-  { colorB: "dark_blue", regime: "Intolérence au gluten" },
-  { colorB: "creme_blue", regime: "Intolérence au lactose" },
-  { colorB: "blue", regime: "Intolérence FodMap" },
-  { colorB: "dark_blue", regime: "Allergie fruits à coque" },
-  { colorB: "creme_blue", regime: "Allergie aux oeufs" },
-  { colorB: "blue", regime: "Allergie crustacés" },
-  { colorB: "dark_blue", regime: "régime : sportif" },
-  { colorB: "creme_blue", regime: "Régime : végétarien" },
-  { colorB: "blue", regime: "Endométriose" }
+const regimeProfile = [
+  { color: "my-profil", regime: "Mon profil perso" },
+  { color: "dark_blue", regime: "Intolérence au gluten" },
+  { color: "creme_blue", regime: "Intolérence au lactose" },
+  { color: "blue", regime: "Intolérence FodMap" },
+  { color: "dark_blue", regime: "Allergie fruits à coque" },
+  { color: "creme_blue", regime: "Allergie aux oeufs" },
+  { color: "blue", regime: "Allergie crustacés" },
+  { color: "dark_blue", regime: "régime : sportif" },
+  { color: "creme_blue", regime: "Régime : végétarien" },
+  { color: "blue", regime: "Endométriose" }
 ]
 
-function Home() {
+const Home = () => {
   return (
-    <div className="container">
-      <h2>Home</h2>
-
-      <div className="basique">
-        {arrayRegime.map(({ colorB, regime }) => (<Category colorB={colorB} regime={regime} />))}
-      </div>
-    </div>
+    <main className="container-home">
+      <div className="card-my-profil">mon profil perso</div>
+      <section className="container-profil-cards">
+        {regimeProfile.map(({ color, regime }) => (<Category className="profil-card" colorB={colorB} regime={regime} />))}
+      </section>
+    </main>
   );
 }
 

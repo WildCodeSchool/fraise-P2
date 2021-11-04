@@ -1,17 +1,14 @@
 import React from "react";
 import "./Connexion.css";
 
-function Connexion() {
+const Connexion = () => {
   return (
     <div className="connexion">
       <h2 className="h2-contact">Sign up information</h2>
-
       <input type="name" id="name" name="name" placeholder="Username" />
       <br />
-
       <input type="email" id="email" name="email" placeholder="email adress" />
       <br />
-
       <input
         type="password"
         id="password"

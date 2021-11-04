@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import axios from "axios"
 import DietCard from '../dietCard/DietCard';
-import "./gluten.scss";
+// import "./Gluten.css";
 
 
 const Gluten = () =>{
@@ -20,9 +20,7 @@ const Gluten = () =>{
     },[]);
 
     return (
-        
         <div className="data-container">
-        
             <ul className="products-list">
                 {dataProducts.map((element,index) => (
                     <DietCard 
@@ -32,14 +30,10 @@ const Gluten = () =>{
                     categories={element.categories}
                     ingredients_text={element.ingredients_text}
                     />
-
                 ))}
-
             </ul>
         </div>
-
     );
-    
 };
 
 export default Gluten;
