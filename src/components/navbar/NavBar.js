@@ -7,22 +7,23 @@ const NavBar = () => {
   return (
     
       <>
-      <div className="log">
+      <div className="login">
 
         <div className="logo-title">
           <img className="logo" src={logo} alt=""/>
-          <div>
-          <h1 >GreenBeens</h1>
-          <h2 >"Everything you like in 1 click"</h2>
-          </div>
-        </div> 
 
-        <div className="button-container">
-          <div className="button">
-          <button>Login</button>
-        </div>
-          
-          <div className="button">
+          <div>
+          <h2 className="title">GreenBeens</h2>
+          <h2 className="slogan">"Everything you like in 1 click"</h2>
+          </div>
+
+        </div> 
+            <div className="button-container">
+            <div className="button">
+            <button>Login</button>
+
+          </div>
+            <div className="button">
             <button>MySpace</button>
           </div>
         </div>
