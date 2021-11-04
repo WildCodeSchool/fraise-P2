@@ -1,7 +1,9 @@
-Clone the project
+- Clone the project
 
-Launch :
+- Launch :
 
-npm i to install the dependencies
+- ``` npm i``` to install the dependencies
 
-npm run dev to launch the app
+- ``` npm run dev  ``` to launch the app
+
+
