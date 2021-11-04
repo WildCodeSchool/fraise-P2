@@ -1,5 +1,5 @@
 import React from 'react';
-import "./dietCard.scss";
+import "./DietCard.css";
 
 const DietCard = ({brands,image_front_small_url,categories,ingredients_text}) => {
 

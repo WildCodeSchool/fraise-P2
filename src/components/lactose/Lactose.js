@@ -1,14 +1,10 @@
 import React,{useState,useEffect} from 'react';
-
 import axios, { Axios } from "axios"
 import DietCard from '../dietCard/DietCard';
-import "./lactose.scss";
-
-
+import "./Lactose.css";
 import Alert from "../Alert";
 import InfoDetails from "../lactose/InfoDetails";
 import { v4 as uuidv4 } from "uuid";
-
 
 const Lactose = () =>{
     const [dataProducts,setDataProducts] = useState([])
@@ -21,18 +17,14 @@ const Lactose = () =>{
     //const url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=allergens&tag_contains_0=does_not_contain&tag_0=${query}&additives=without&page_size=60&&page=3&json=true`
     
     const getData = async () => {
-
         if (query !== ""){
             const result = await axios.get(url)
             if(!result.data.products){
                 return setAlert("No food with such name")
             }
- 
-
             console.log(result)
             setDataProducts(result.data.products)
             setDetails(result.data.products)
-
             }else{
                 setAlert("Please fill the form")
         }
@@ -47,29 +39,25 @@ const Lactose = () =>{
         };
         
     return (
-        
         <div className="data-container">
-         <form onSubmit={onSubmit} className="search-form">
-        {alert !== "" && <Alert alert={alert} />}
-            <input
-          type="text"
-          name="query"
-          onChange={onChange}
-          value={query}
-          autoComplete="on"
-          placeholder="dietary requirement"
-        />
-            <input type="submit" value="Find products" />
-        </form>
-
+            <form onSubmit={onSubmit} className="search-form">
+            {alert !== "" && <Alert alert={alert} />}
+                <input
+                type="text"
+                name="query"
+                onChange={onChange}
+                value={query}
+                autoComplete="on"
+                placeholder="dietary requirement"
+                />
+                <input type="submit" value="Find products" />
+            </form>
             <div className="recipes">
-            {details !== [] &&
-            details.map(info => <InfoDetails key={uuidv4()} ingredients={info} />)}
-      </div>
+                {details !== [] &&
+                details.map(info => <InfoDetails key={uuidv4()} ingredients={info} />)}
+            </div>
         </div>
-
-    );
-    
+    ); 
 };
 
 export default Lactose;
