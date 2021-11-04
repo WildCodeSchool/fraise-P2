@@ -75,18 +75,6 @@
     cursor: pointer;
 }
 
-/* .nav-general button {
-    width: 141px;
-    height: 68px;
-    color:white;
-    background: rgba(220, 249, 237, 0.65);
-    /* Shadow */
-    /* box-shadow: 5px 5px 4px rgba(20, 94, 140, 0.25);
-    border-radius: 90px;
-    font-family: Oswald;
-    font-weight: 500;
-    font-size: 24px; */
-
 /*
 ** HEADER
 ***
@@ -128,4 +116,3 @@ nav {
     font-weight: bolder;
     text-decoration: underline #145E8C;
 }
-

@@ -30,13 +30,13 @@ const Lactose = () =>{
         }
     };
         // onChange input value get value
-        const onChange = e => setQuery(e.target.value);
+    const onChange = e => setQuery(e.target.value);
 
-        // on click get data with conditions
-        const onSubmit = e => {
-            e.preventDefault();
-            getData();
-        };
+    // on click get data with conditions
+    const onSubmit = e => {
+        e.preventDefault();
+        getData();
+    };
         
     return (
         <div className="data-container">
