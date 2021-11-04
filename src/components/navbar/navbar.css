@@ -1,105 +1,96 @@
-* {
-    border: solid black 2px;
-}
-
-
+/*NavBar elements*/
 nav{
     background: rgba(220, 249, 237, 0.25);
     padding: 20px;
-    height: 15em;   
-}
-
-
-ul{
+    height: 15em;
     display: flex;
-    justify-content: flex-end;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;    
+}
+
+nav ul{
+    display: flex;
+    justify-content:center;
     position: absolute;
-    
+    border:solid black 2px;
+    padding: 20px;
+    width: 50em; 
 }
 
-ul li{
-    list-style: none; 
-    border:solid black 2px; 
-
+li{
+    list-style: none;
 }
 
-a{
-    color: black;
-    font-weight: bolder;
-    text-decoration: none;
-
-}
-
-button{
-    
+button{ 
     width: 141px;
     height: 68px;
     color:white;
-
     background: rgba(220, 249, 237, 0.65);
-    /* Shadow */
     box-shadow: 5px 5px 4px rgba(20, 94, 140, 0.25);
     border-radius: 90px;
     font-family: Oswald;
     font-weight: 500;
     font-size: 24px;
-    
-
 }
 
-.log{
+/*Header Elements*/
+
+.login{
     display: flex;
 	flex-direction: row;
-	flex-wrap: wrap;
 	align-content: flex-start;
-    background: #3EACC2;
-    border:solid rgb(235, 30, 30) 9px; 
-}
-
-
-.button{
-    display: flex;
-    justify-content: flex-end;
-   
-
+    background: #3EACC2;  
 }
 
 .logo{
-    
-    left: 630px;
-    top: 75px;
     border-radius: 90px;
-    width: 166px;
-    height: 167px;
+    width: 120px;
+    height: 127px;
     border-radius: 90px;
     border:solid  rgb(230, 15, 15) 2px;
-
-    
-}
-
-.title{
-    /* Website name */
-    font-family: Oswald;
-    font-style: normal;
-    color:white;
-
+    margin-right:20px;
+    margin-left:20px; 
 }
 
 .logo-title{
-    background-color: burlywood;
     display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: flex-start;
 	align-items: center;
 	align-content: stretch;
-    
+    margin-left:40px; 
+}
+
+.logo-title .title{
+    font-family: Oswald;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 53px;
+    color:white;
+}
+
+.logo-title .slogan{
+    font-family: Oswald;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 41px;
+    align-items: center;
+    text-align: center;
+    color: #DCF9ED;
 }
 
 .button-container{
     display: flex;
-    flex-direction: row;
-    margin-left:20em;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-content: center;
+    width: 40em;
+    margin-left:50em; 
 }
-
-

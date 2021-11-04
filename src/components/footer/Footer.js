@@ -1,7 +1,7 @@
 import React from "react";
-import Facebook from "../Assets/facebook.png";
-import Twitter from "../Assets/twitter.png";
-import Instagram from "../Assets/instagram.png";
+import Facebook from "../../Assets/facebook.png";
+import Twitter from "../../Assets/twitter.png";
+import Instagram from "../../Assets/instagram.png";
 
 const Footer = () => {
   return (
@@ -53,7 +53,6 @@ const Footer = () => {
               <a href="https://foodmap.fr/">Fodmap"</a>
             </li>
           </ul>
-
           <ul className="social_list">
             <li className="social_list_li">
               <img
