@@ -1,25 +1,24 @@
-import React,{useState,useEffect} from 'react';
+import React ,{useState,useEffect} from "react";
 import axios from "axios"
 import DietCard from '../dietCard/DietCard';
-// import "./Gluten.css";
+import "./Eggs.css";
 
-
-const Gluten = () =>{
+const Eggs = () =>{
     const [dataProducts,setDataProducts] = useState([])
-    const dietProduct = "gluten"
+    const egg = "egg"
 
     useEffect(()=> {
         axios
-        .get(`https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=allergens&tag_contains_0=does_not_contain&tag_0=${dietProduct}&sort_by=unique_scans_n&page_size=20&page=3&sort_by=unique_scans_n&json=true`)
+        .get(`https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=allergens&tag_contains_0=does_not_contain&tag_0=${egg}&sort_by=unique_scans_n&page_size=20&page=3&sort_by=unique_scans_n&json=true`)
         .then(res => {
-            setDataProducts(res.data.products)
+            setDataProducts(res.data.products)  
         })
         .catch(err=> {
             console.log(err)
         })
     },[]);
 
-    return (
+    return ( 
         <div className="data-container">
             <ul className="products-list">
                 {dataProducts.map((element,index) => (
@@ -33,7 +32,7 @@ const Gluten = () =>{
                 ))}
             </ul>
         </div>
-    );
+    );  
 };
 
-export default Gluten;
+export default Eggs;

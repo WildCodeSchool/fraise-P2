@@ -1,22 +1,6 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700&display=swap");
-
 .data-container .products-list {
   display: flex;
-  flex-wrap: wrap;       
-}
-
-html {
-  font-size: 62.5%;
-}
-
-h1 {
-  font-size: 8rem;
-  letter-spacing: 0.1rem;
-  font-style: italic;
-  color: #40b48e;
-  text-shadow: 0 0.2rem 5rem rgb(119, 115, 115);
-  text-transform: uppercase;
-  margin: 4rem 0;
+  flex-wrap: wrap; 
 }
 
 .search-form {

@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import axios, { Axios } from "axios"
 import DietCard from '../dietCard/DietCard';
-import "./Lactose.scss";
+import "./Lactose.css";
 import Alert from "../Alert";
 import InfoDetails from "../lactose/InfoDetails";
 import { v4 as uuidv4 } from "uuid";
@@ -25,8 +25,8 @@ const Lactose = () =>{
             console.log(result)
             setDataProducts(result.data.products)
             setDetails(result.data.products)
-        }else{
-            setAlert("Please fill the form")
+            }else{
+                setAlert("Please fill the form")
         }
     };
         // onChange input value get value
@@ -53,11 +53,11 @@ const Lactose = () =>{
                 <input type="submit" value="Find products" />
             </form>
             <div className="recipes">
-            {details !== [] &&
-            details.map(info => <InfoDetails key={uuidv4()} ingredients={info} />)}
+                {details !== [] &&
+                details.map(info => <InfoDetails key={uuidv4()} ingredients={info} />)}
             </div>
         </div>
-    );  
+    ); 
 };
 
 export default Lactose;

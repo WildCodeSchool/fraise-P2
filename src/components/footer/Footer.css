@@ -1,9 +1,51 @@
-.footer {
-  background-color: #f2f2f2;
+footer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 4rem 3rem;
+  background-color: #145E8C;
+  color: white;
+  font-size: 0.9rem;
+  line-height: 1.5rem;
 }
 
-.nutrition a li {
-  color: black;
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #DCF9ED;
+  text-decoration: underline #3EACC2;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+footer h3 {
+  padding-bottom: 0.7rem; 
+}
+
+footer li {
   flex-direction: column;
   flex-flow: column wrap;
+  list-style-type: none; /* Remove bullets */
+  padding-left: 0.5rem;
+  margin: 0; /* Remove margins */
+}
+
+.footer-arrow {
+  color: #3EACC2;
+}
+
+.footer-links {
+  margin: 0 2rem;
+}
+
+.social-medias {
+  display: flex;
+  justify-content: space-between;
+}
+
+.social-medias li {
+  margin: 0 0.2rem;
 }

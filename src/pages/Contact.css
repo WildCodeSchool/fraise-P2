@@ -2,6 +2,7 @@
   text-align: center;
   background-color: #dcf9ed;
 }
+
 .h2-contact {
   color: #071536;
   font-size: 5rem;
@@ -14,20 +15,21 @@
   padding: 2rem;
 }
 
-label {
+.contactform label {
   line-height: 2;
   color: #145e8c;
   font-weight: bold;
   font-size: 1, 5rem;
 }
+
 .check {
   color: #3eacc2;
   padding: 1rem;
 }
 
-input[type="text"],
-input[type="email"],
-textarea {
+.contactform input[type="text"],
+.contactform input[type="email"],
+.contactform textarea {
   width: 40%;
   padding: 1rem;
   margin-bottom: 1rem;
@@ -36,11 +38,12 @@ textarea {
   border: none;
   box-shadow: 5px 5px 4px rgba(20, 94, 140, 0.25);
 }
-::placeholder {
+
+.contactform textarea::placeholder {
   color: black;
 }
 
-textarea {
+.contactform textarea {
   resize: none;
   width: 40%;
   padding: 1rem;
@@ -49,7 +52,7 @@ textarea {
   box-shadow: 5px 5px 4px rgba(20, 94, 140, 0.25);
 }
 
-input[type="submit"] {
+.contactform input[type="submit"] {
   background: #3eacc2;
   color: black;
   border: 3px solid black;
@@ -59,7 +62,7 @@ input[type="submit"] {
   border: none;
 }
 
-input[type="submit"]:hover {
+.contactform input[type="submit"]:hover {
   background-color: #86e3d5;
   transition: 1s;
 }
