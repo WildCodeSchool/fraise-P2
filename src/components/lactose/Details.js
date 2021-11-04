@@ -6,7 +6,6 @@ const Details = ({ ingredients }) => {
     return (
       <ul key={uuidv4()} className="ingredient-list">
         <li className="ingredient-text">{ingredient}</li>
-        
       </ul>
     );
   });

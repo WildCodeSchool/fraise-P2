@@ -1,5 +1,5 @@
 import React from "react";
-import Category from '../components/category';
+import Category from '../components/Category';
 
 const arrayRegime = [
   { colorB: "my-profil", regime: "Mon profil perso" },
@@ -14,11 +14,10 @@ const arrayRegime = [
   { colorB: "blue", regime: "Endométriose" }
 ]
 
-function Home() {
+const Home = () => {
   return (
     <div className="container">
       <h2>Home</h2>
-
       <div className="basique">
         {arrayRegime.map(({ colorB, regime }) => (<Category colorB={colorB} regime={regime} />))}
       </div>
