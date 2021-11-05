@@ -9,7 +9,7 @@ import "./index.css";
 import NutriPageLactose from "./pages/NutriPageLactose";
 import NutriPageEggs from "./pages/NutriPageEggs";
 import NutriPageGluten from "./pages/NutriPageGluten";
-import Connexion from "./pages/Connexion";
+import Connexion from "./pages/connexion";
 import Footer from "./pages/Footer";
 
 

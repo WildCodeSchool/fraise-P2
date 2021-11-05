@@ -1,7 +1,26 @@
 .contactform {
   text-align: center;
   background-color: #dcf9ed;
+  line-height: 2;
+  color: #145e8c;
+  font-weight: bold;
+  font-size: 1,5rem;
 }
+
+.contactform input[type="text"],
+.contactform input[type="email"],
+.contactform textarea {
+  width: 40%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 2rem;
+  background-color: #3eacc2;
+  border: none;
+  box-shadow: 5px 5px 4px rgba(20, 94, 140, 0.25);
+}
+
+
+
 .h2-contact {
   color: #071536;
   font-size: 5rem;
@@ -14,28 +33,13 @@
   padding: 2rem;
 }
 
-label {
-  line-height: 2;
-  color: #145e8c;
-  font-weight: bold;
-  font-size: 1, 5rem;
-}
+
 .check {
   color: #3eacc2;
   padding: 1rem;
 }
 
-input[type="text"],
-input[type="email"],
-textarea {
-  width: 40%;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 2rem;
-  background-color: #3eacc2;
-  border: none;
-  box-shadow: 5px 5px 4px rgba(20, 94, 140, 0.25);
-}
+
 ::placeholder {
   color: black;
 }
@@ -47,6 +51,7 @@ textarea {
   margin-bottom: 1rem;
   border-radius: 2rem;
   box-shadow: 5px 5px 4px rgba(20, 94, 140, 0.25);
+  background-color: #3eacc2;
 }
 
 input[type="submit"] {
@@ -56,7 +61,8 @@ input[type="submit"] {
   border-radius: 4rem;
   padding: 1rem;
   margin-bottom: 2rem;
-  border: none;
+  border: 1px solid black;
+  align-items: center;
 }
 
 input[type="submit"]:hover {
@@ -72,5 +78,64 @@ input[type="submit"]:hover {
     font-size: 1rem;
     padding: 0;
     padding-bottom: 1rem;
+  }
+}
+.form-message {
+  margin-top: 10px;
+  padding: 12px;
+  opacity: 0;
+  transition: 0.2s ease;
+  color: black;
+  border-radius: 4px;
+  box-shadow: 0 0 2px rgba(51, 51, 51, 0.3);
+}
+
+.error::placeholder {
+  color: #ff4d4d;
+}
+
+#not-mail {
+  display: none;
+  position: absolute;
+  top: 4px;
+  color: #ff4d4d;
+  right: 0;
+  transform-origin: 50% 50%;
+  opacity: 0;
+}
+
+@keyframes dongle {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  10% {
+    transform: translate(-10px, 0px);
+  }
+  20% {
+    transform: translate(10px, 0px);
+  }
+  30% {
+    transform: translate(-10px, 0px);
+  }
+  40% {
+    transform: translate(10px, 0px);
+  }
+  50% {
+    transform: translate(-10px, 0px);
+  }
+  60% {
+    transform: translate(10px, 0px);
+  }
+  70% {
+    transform: translate(-10px, 0px);
+  }
+  80% {
+    transform: translate(10px, 0px);
+  }
+  90% {
+    transform: translate(-10px, 0px);
+  }
+  100% {
+    transform: translate(0px, 0px);
   }
 }

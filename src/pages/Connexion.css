@@ -2,6 +2,7 @@
   text-align: center;
   background-color: #dcf9ed;
 }
+
 input[type="name"],
 input[type="email"],
 input[type="password"],
@@ -10,9 +11,11 @@ textarea {
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 2rem;
-  background-color: white;
   border: none;
+  background-color:white;
   box-shadow: 5px 5px 4px rgba(20, 94, 140, 0.25);
+  
+  
 }
 
 input[type="signup"] {
