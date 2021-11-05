@@ -17,7 +17,7 @@ const regimeProfile = [
 const Home = () => {
   return (
     <main className="container-home">
-      <div className="card-my-profil">mon profil perso</div>
+      
       <section className="container-profil-cards">
         {regimeProfile.map(({ color, regime }) => (<Category className="profil-card" key={regime} color={color} regime={regime} />))}
       </section>
