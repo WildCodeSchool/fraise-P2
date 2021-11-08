@@ -9,6 +9,7 @@ import PageEggs from "./pages/PageEggs";
 import PageGluten from "./pages/PageGluten";
 import Connexion from "./pages/Connexion";
 import Footer from "./components/footer/Footer";
+import NutriPage from "./pages/NutriPage";
   
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/PageEggs" component={PageEggs} />
           <Route path="/Contact" component={Contact} />
           <Route path="/Connexion" component={Connexion} />
+          <Route path="/NutriPage" component={NutriPage} />
         </Switch>
         <Footer />
       </div>

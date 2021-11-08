@@ -1,4 +1,4 @@
-.data-container .products-list {
+.diet-cards .products-list {
     display: flex;
     flex-wrap: wrap;
 }

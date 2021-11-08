@@ -1,5 +1,6 @@
 import React from "react";
 import Category from '../components/category';
+import SpecialDiets from "../components/specialdiets/SpecialDiets";
 
 const regimeProfile = [
   { color: "dark_blue", regime: "Intolérence au gluten" },
