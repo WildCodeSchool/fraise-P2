@@ -1,9 +1,9 @@
 import React ,{useState,useEffect} from "react";
 import axios from "axios"
 import DietCard from '../dietCard/DietCard';
-import "./Eggs.css";
+import "./Eggs.scss";
 
-const Eggs = () =>{
+const Eggs = () => {
     const [dataProducts,setDataProducts] = useState([])
     const egg = "egg"
 
