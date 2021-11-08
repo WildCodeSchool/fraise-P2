@@ -26,15 +26,6 @@ const NavBar = () => {
             <Link to="/Home">Home</Link>
           </li>
           <li>
-            <Link to="/PageEggs">PageEggs</Link>
-          </li>
-          <li>
-            <Link to="/PageGluten">PageGluten</Link>
-          </li>
-          <li>
-            <Link to="/PageLactose">PageLactose</Link>
-          </li>
-          <li>
             <Link to="/Contact">Contact</Link>
           </li>
           <li>
