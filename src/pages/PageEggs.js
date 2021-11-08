@@ -1,5 +1,5 @@
 import React from 'react';
-import Eggs from "../components/eggs/Eggss"
+import Eggs from "../components/eggs/Eggs"
 
 
 const PageEggs = () => (
