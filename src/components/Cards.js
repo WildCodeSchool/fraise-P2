@@ -1,8 +1,7 @@
 import React from "react";
 import Card from "./Card";
 
-
-const array = [
+const vegetables = [
     {
         name: "haricot",
         color: "vert",
@@ -24,7 +23,7 @@ function Cards () {
     return (
         <div>
             <h2>coucou</h2>
-            {array.map((product, index) => (
+            {vegetables.map((product, index) => (
                 <Card 
                     key={index}
                     name={product.name}

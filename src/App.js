@@ -1,42 +1,32 @@
-
-
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NavBar from "./components/navbar/NavBar";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import "./index.css";
-import NutriPageLactose from "./pages/NutriPageLactose";
-import NutriPageEggs from "./pages/NutriPageEggs";
-import NutriPageGluten from "./pages/NutriPageGluten";
+import PageLactose from "./pages/PageLactose";
+import PageEggs from "./pages/PageEggs";
+import PageGluten from "./pages/PageGluten";
 import Connexion from "./pages/Connexion";
-import Footer from "./pages/Footer";
-
-
+import Footer from "./components/footer/Footer";
   
-    const App = () => {
-      return (
-
+const App = () => {
+  return (
     <BrowserRouter>
       <div>
         <NavBar />
-
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/home" component={Home} />
-          <Route path="/nutriPageLactose" component={NutriPageLactose} />
-          <Route path="/nutriPageGluten" component={NutriPageGluten} />
-          <Route path="/nutriPageEggs" component={NutriPageEggs} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/connexion" component={Connexion} />
+          <Route path="/Home" component={Home} />
+          <Route path="/PageLactose" component={PageLactose} />
+          <Route path="/PageGluten" component={PageGluten} />
+          <Route path="/PageEggs" component={PageEggs} />
+          <Route path="/Contact" component={Contact} />
+          <Route path="/Connexion" component={Connexion} />
         </Switch>
-
         <Footer />
       </div>
     </BrowserRouter>
-      )
-      
-      };
-
+  )};
 
 export default App;

@@ -1,24 +1,48 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
+import Category from '../components/category';
+import useCustomHook from "../components/useCustomHook";
+import DietCard from "../components/dietCard/DietCard";
+import "../components/dietCard/DietCard.css";
 
-function Home() {
+
+const regimeProfile = [
+  { color: "dark_blue", regime: "Intolérence au gluten" },
+  { color: "creme_blue", regime: "Intolérence au lactose" },
+  { color: "blue", regime: "Intolérence FodMap" },
+  { color: "dark_blue", regime: "Allergie fruits à coque" },
+  { color: "creme_blue", regime: "Allergie aux oeufs" },
+  { color: "blue", regime: "Allergie crustacés" },
+  { color: "dark_blue", regime: "Régime : sportif" },
+  { color: "creme_blue", regime: "Régime : végétarien" },
+  { color: "blue", regime: "Endométriose" }
+]
+
+const Home = () => {
+  const {dataProducts} = useCustomHook(`https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=allergens&tag_contains_0=does_not_contain&tag_0=egg&sort_by=unique_scans_n&page_size=20&page=3&sort_by=unique_scans_n&json=true`)
   return (
-    <div className="container">
-      <h2>Home</h2>
-
-      <div className="basique">
-        <div className="my-profil">mon profil perso</div>
-        <div className="dark_blue">Intolérence au gluten</div>
-        <div className="creme_blue">Intolérence au lactose</div>
-        <div className="blue">Intolérence FodMap</div>
-        <div className="dark_blue">Allergie fruits à coque</div>
-        <div className="creme_blue">Allergie aux oeufs</div>
-        <div className="blue">Allergie crustacés</div>
-        <div className="dark_blue">régime : sportif</div>
-        <div className="creme_blue">Régime : végétarien</div>
-        <div className="blue">Endométriose</div>
-      </div>
+    <>
+   
+    <main className="container-home">
+      <div className="card-my-profil">mon profil perso</div>
+      <section className="container-profil-cards">
+      <div className="data-container">
+    <ul className="products-list">
+        {dataProducts.map((element,index) => (
+            <DietCard 
+            key={index} 
+            image_front_small_url={element.image_front_small_url}
+            brands={element.brands}
+            categories={element.categories}
+            ingredients_text={element.ingredients_text}
+            />
+        ))}
+    </ul>
     </div>
+        {regimeProfile.map(({ color, regime }) => (<Category className="profil-card" key={regime} color={color} regime={regime} />))}
+      </section>
+    </main>
+    </>
   );
 }
 
-export default Home;
+export default Home; 
