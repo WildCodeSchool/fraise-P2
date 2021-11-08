@@ -1,9 +1,9 @@
 import React ,{useState,useEffect} from "react";
 import axios from "axios"
 import DietCard from '../dietCard/DietCard';
-import "./Eggs.scss";
+import "./FreeEggDiet.scss";
 
-const Eggs = () => {
+const FreeEggDiet = () => {
     const [dataProducts,setDataProducts] = useState([])
     const egg = "egg"
 
@@ -35,4 +35,4 @@ const Eggs = () => {
     );  
 };
 
-export default Eggs;
+export default FreeEggDiet;
