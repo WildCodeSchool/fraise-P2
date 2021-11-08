@@ -1,8 +1,8 @@
 import React from 'react';
-import FreeEggDiet from "../components/eggs/eggs"
+import FreeEggDiet from "../components/eggs/Eggss"
 
 
-const NutriPageEggs = () => (
+const PageEggs = () => (
     <main>
       <div>
         <h1>NutriPage EggsDiet</h1>
@@ -11,4 +11,4 @@ const NutriPageEggs = () => (
     </main>
   );
 
-export default NutriPageEggs;
+export default PageEggs;
