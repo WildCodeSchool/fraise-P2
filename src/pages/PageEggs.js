@@ -1,5 +1,5 @@
 import React from 'react';
-import FreeEggDiet from "../components/eggs/Eggss"
+import Eggs from "../components/eggs/Eggss"
 
 
 const PageEggs = () => (
@@ -7,7 +7,7 @@ const PageEggs = () => (
       <div>
         <h1>NutriPage EggsDiet</h1>
       </div>
-            <FreeEggDiet />
+            <Eggs />
     </main>
   );
 
