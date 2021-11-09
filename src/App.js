@@ -3,13 +3,14 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NavBar from "./components/navbar/NavBar";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
-import "./index.css";
-import PageLactose from "./pages/PageLactose";
-import PageEggs from "./pages/PageEggs";
-import PageGluten from "./pages/PageGluten";
 import Connexion from "./pages/Connexion";
 import Footer from "./components/footer/Footer";
+import "./index.css";
+import PageEggs from "./pages/PageEggs";
+import PageGluten from "./pages/PageGluten";
 import NutriPage from "./pages/NutriPage";
+import PageLactose from "./pages/PageLactose";
+
   
 const App = () => {
   return (
