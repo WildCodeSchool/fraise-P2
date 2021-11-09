@@ -9,6 +9,7 @@
 ** 
 */
 
+
 .header-banner {
     padding: 2rem 6rem;
     display: flex;
@@ -118,3 +119,25 @@ nav {
     text-decoration: underline #145E8C;
 }
 
+@media screen and (max-width: 768px) {
+    .header-title h2 {
+        display: none;
+}
+    .header-banner {
+    
+	flex-direction: column;
+	
+}
+    .title-logo-container {
+        flex-direction: column;
+}
+    .button-container button {
+    margin: auto;
+    width: 7rem;
+    
+}
+    .button-container {
+        width: 18rem;
+    }
+
+}
