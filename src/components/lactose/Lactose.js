@@ -12,23 +12,23 @@ const Lactose = () =>{
     const [details, setDetails] = useState([]);
     const [alert, setAlert] = useState("");
 
-    //  const url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=allergens&tag_contains_0=does_not_contain&tag_0=${query}&sort_by=unique_scans_n&page_size=20&page=50&sort_by=unique_scans_n&json=true` // alergen 
-     const url = `https://fr.openfoodfacts.org/cgi/search.pl?search_terms=${query}&search_simple=1&action=process&json=true`; // By product name
-    //const url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=allergens&tag_contains_0=does_not_contain&tag_0=${query}&additives=without&page_size=60&&page=3&json=true`
+    // //  const url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=allergens&tag_contains_0=does_not_contain&tag_0=${query}&sort_by=unique_scans_n&page_size=20&page=50&sort_by=unique_scans_n&json=true` // alergen 
+    //  const url = `https://fr.openfoodfacts.org/cgi/search.pl?search_terms=${query}&search_simple=1&action=process&json=true`; // By product name
+    // //const url = `https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=allergens&tag_contains_0=does_not_contain&tag_0=${query}&additives=without&page_size=60&&page=3&json=true`
     
-    const getData = async () => {
-        if (query !== ""){
-            const result = await axios.get(url)
-            if(!result.data.products){
-                return setAlert("No food with such name")
-            }
-            console.log(result)
-            setDataProducts(result.data.products)
-            setDetails(result.data.products)
-            }else{
-                setAlert("Please fill the form")
-        }
-    };
+    // const getData = async () => {
+    //     if (query !== ""){
+    //         const result = await axios.get(url)
+    //         if(!result.data.products){
+    //             return setAlert("No food with such name")
+    //         }
+    //         console.log(result)
+    //         setDataProducts(result.data.products)
+    //         setDetails(result.data.products)
+    //         }else{
+    //             setAlert("Please fill the form")
+    //     }
+    // };
         // onChange input value get value
     const onChange = e => setQuery(e.target.value);
 
