@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../../images/logo-ramentafraise.png"
@@ -25,15 +26,6 @@ const NavBar = () => {
             <Link to="/Home">Home</Link>
           </li>
           <li>
-            <Link to="/PageEggs">PageEggs</Link>
-          </li>
-          <li>
-            <Link to="/PageGluten">PageGluten</Link>
-          </li>
-          <li>
-            <Link to="/PageLactose">PageLactose</Link>
-          </li>
-          <li>
             <Link to="/Contact">Contact</Link>
           </li>
           <li>
@@ -44,5 +36,6 @@ const NavBar = () => {
     </header>
   );
 };
+
 
 export default NavBar;
