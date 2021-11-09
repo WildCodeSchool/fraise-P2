@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 3rem 10vw;
+  margin: 0 10vw 3rem;
   font-size: 20px;
 }
 
@@ -30,6 +30,9 @@
 }
 
 .profil-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: 15rem;
   width: 12rem;
   margin: 1rem;
