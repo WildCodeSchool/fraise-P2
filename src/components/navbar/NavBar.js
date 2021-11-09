@@ -9,7 +9,7 @@ const NavBar = () => {
     <header>
       <section className="header-banner">
         <div className="title-logo-container">
-          <img className="logo" src={logo} alt=""/>
+        <Link to="/Home"><img className="logo" src={logo} alt=""/></Link>
           <div className="header-title">
             <h1>GreenBeens</h1>
             <h2>"Everything you like in 1 click"</h2>

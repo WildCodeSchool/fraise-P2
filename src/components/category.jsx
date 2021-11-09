@@ -3,13 +3,12 @@ import "../pages/home.css";
 import { Link } from 'react-router-dom';
 
 
-function Category({color, regime,linkTo}) {
+function Category({color, specialDiet, description}) {
     return (
-        <Link to={linkTo}>
-        <div className={`profil-card ${color}`}>
-
-        <p>{regime}</p>
-        </div>
+        <Link to="/NutriPage">
+            <div className={`profil-card ${color}`}>
+                <p>{description}</p>
+            </div>
         </Link> 
     ) 
 }
