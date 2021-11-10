@@ -15,17 +15,20 @@ const dietProfile = [
   { color: "blue", specialDiet:"endometriose", description: "Endométriose" }
 ]
 
+const [homeDisplayed, setHomeDisplayed] = useState(true);
+
 const Home = () => {
+  
   const [homeDisplayed, setHomeDisplayed] = useState(true);
-  const [nutriPageDisplayed, setNutriPageDisplayed] = useState(false);
   const [chosenDiet, setChosenDiet] = useState();
 
-  const handleClick = (e) => {
+  const handleClick = (value) => {
     setHomeDisplayed(false);
-    setNutriPageDisplayed(true);
     console.log("La valeur de la catégorie est :")
-    console.log(e.target.value);
-    setChosenDiet(e.target.value);
+    console.log(value);
+    setChosenDiet(value);
+    console.log("the chosen diet is:")
+    console.log(chosenDiet);
   };
 
   return (
@@ -42,14 +45,15 @@ const Home = () => {
               specialDiet={diet.specialDiet}
               description={diet.description} 
               value={diet}
-              onClick={handleClick} 
+              handleClick={handleClick}
+              setChosenDiet={setChosenDiet}
               />)
           })
           }
         </section>
       </div>
-      <div className={nutriPageDisplayed ? "nutri-page" : "hidden"}>
-        <NutriPage chosenDiet={chosenDiet}/>
+      <div className={!homeDisplayed ? "nutri-page" : "hidden"}>
+        <NutriPage description={chosenDiet?.description} specialDiet={chosenDiet?.specialDiet}/>
       </div>
     </main>
   );

@@ -7,10 +7,8 @@ import SpecialDiets from '../components/specialdiets/SpecialDiets';
 import FilterButton from '../components/FilterButton/FilterButton';
 import useCustomHook from "../components/useCustomHook";
 
-const NutriPage = ({specialDiet, description}) => {
+const NutriPage = ({description, specialDiet}) => {
     const {dataProducts} = useCustomHook(`https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=allergens&tag_contains_0=does_not_contain&tag_0=egg&sort_by=unique_scans_n&page_size=20&page=3&sort_by=unique_scans_n&json=true`);
-
-    console.log(specialDiet);
 
     return (
     <>

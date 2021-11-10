@@ -5,11 +5,15 @@ import logo from "../../images/logo-ramentafraise.png"
 import "./navbar.css"
 
 const NavBar = () => {
+  const handleClick = () => {
+    setHomeDisplayed(true);
+  }
+
   return (
     <header>
       <section className="header-banner">
         <div className="title-logo-container">
-        <Link to="/Home"><img className="logo" src={logo} alt=""/></Link>
+        <Link to="/Home" onClick={handleClick}><img className="logo" src={logo} alt=""/></Link>
           <div className="header-title">
             <h1>GreenBeens</h1>
             <h2>"Everything you like in 1 click"</h2>

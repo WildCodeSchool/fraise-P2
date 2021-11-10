@@ -11,8 +11,10 @@ import PageGluten from "./pages/PageGluten";
 import NutriPage from "./pages/NutriPage";
 import PageLactose from "./pages/PageLactose";
 
-  
+
 const App = () => {
+  
+
   return (
     <BrowserRouter>
       <div>
