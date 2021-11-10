@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import axios from "axios"
 import DietCard from '../dietCard/DietCard';
-// import "./Gluten.css";
 
 
 const Gluten = ({specialDiet}) =>{

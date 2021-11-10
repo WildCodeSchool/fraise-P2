@@ -15,8 +15,6 @@ const dietProfile = [
   { color: "blue", specialDiet:"endometriose", description: "Endométriose" }
 ]
 
-const [homeDisplayed, setHomeDisplayed] = useState(true);
-
 const Home = () => {
   
   const [homeDisplayed, setHomeDisplayed] = useState(true);
