@@ -5,14 +5,14 @@ import NutriPage from './NutriPage';
 
 const dietProfile = [
   { color: "dark_blue", specialDiet:"gluten", description: "Intolérence au gluten" },
-  { color: "creme_blue", specialDiet:"lactose", description: "Intolérence au lactose" },
-  { color: "blue", specialDiet:"fodmap", description: "Intolérence FodMap" },
-  { color: "dark_blue", specialDiet:"nuts", description: "Allergie fruits à coque" },
+  { color: "creme_blue", specialDiet:"milk", description: "Intolérence au lactose" },
+  // { color: "blue", specialDiet:"fodmap", description: "Intolérence FodMap" },
+  // { color: "dark_blue", specialDiet:"nuts", description: "Allergie fruits à coque" },
   { color: "creme_blue", specialDiet:"eggs", description: "Allergie aux oeufs" },
-  { color: "blue", specialDiet:"seaFood", description: "Allergie crustacés" },
-  { color: "dark_blue", specialDiet:"sport", description: "Régime : sportif" },
-  { color: "creme_blue", specialDiet:"veggie", description: "Régime : végétarien" },
-  { color: "blue", specialDiet:"endometriose", description: "Endométriose" }
+  // { color: "blue", specialDiet:"seaFood", description: "Allergie crustacés" },
+  // { color: "dark_blue", specialDiet:"sport", description: "Régime : sportif" },
+  // { color: "creme_blue", specialDiet:"veggie", description: "Régime : végétarien" },
+  // { color: "blue", specialDiet:"endometriose", description: "Endométriose" }
 ]
 
 const Home = () => {

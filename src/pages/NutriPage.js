@@ -116,14 +116,17 @@ const NutriPage = ({description, specialDiet}) => {
 
   if (error) return <p>Error!</p>;
   if (loading) return <p>Loading...</p>;
-
+  
    // //=========== without eggs ================
    const sortedListProd = data.filter((prod)=> {if(
-    !prod.allergens.includes("gluten") && 
-    !prod.allergens_from_ingredients.includes("gluten")&&
-    !prod.allergens_hierarchy.includes("gluten")
+    !prod.allergens.includes(`${specialDiet}`) && 
+    !prod.allergens_from_ingredients.includes(`${specialDiet}`)&&
+    !prod.allergens_hierarchy.includes(`${specialDiet}`)
     ){ 
-      console.log(prod)
+      
+      console.log(prod.brands)
+      console.log(prod.allergens)
+
       return prod
     }});
       
