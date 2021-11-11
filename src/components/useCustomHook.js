@@ -8,7 +8,7 @@ const useCustomHook = (url) => {
         .get(url)
         .then(res => {
             setDataProducts(res.data.products) 
-            console.log(res.data.products) 
+            // console.log(res.data.products) 
         })
         .catch(err=> {
             console.log(err)

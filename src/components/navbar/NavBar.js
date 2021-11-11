@@ -5,18 +5,19 @@ import logo from "../../images/logo-ramentafraise.png"
 import "./navbar.css"
 
 const NavBar = () => {
+
   return (
     <header>
       <section className="header-banner">
         <div className="title-logo-container">
-          <img className="logo" src={logo} alt=""/>
+        <Link to="/Home"><img className="logo" src={logo} alt=""/></Link>
           <div className="header-title">
             <h1>GreenBeens</h1>
             <h2>"Everything you like in 1 click"</h2>
           </div>
         </div> 
         <div className="button-container">
-            <button>Login</button>
+            <button><Link to="/Connexion">Login</Link></button>
             <button>MySpace</button>
         </div>    
       </section>
@@ -31,11 +32,13 @@ const NavBar = () => {
           <li>
             <Link to="/Cards">Cards</Link>
           </li>
+          <li>
+            <Link to="/NutriPage">NutriPage</Link>
+          </li>
         </ul>
       </nav>
     </header>
   );
 };
-
 
 export default NavBar;
