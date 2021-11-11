@@ -56,7 +56,7 @@
   color: white;
 }
 
-
+/* !!!!! REVOIR LE HOVER QUI EST PAS ASSEZ PRECIS PEUT ETRE À CAUSE DE LA TAILLE DE L'ELEMENT*/ 
 @media screen and (min-width: 768px) {
   .profil-card:hover {
   height: 16rem;

@@ -1,40 +1,202 @@
-import React from 'react';
+import React,{useState} from 'react';
 import NutriTitle from '../components/nutrititle/NutriTitle'
 import './NutriPage.css'
-import DietCards from '../components/dietcards/DietCards';
-import DietCard from "../components/dietCard/DietCard";
-import SpecialDiets from '../components/specialdiets/SpecialDiets';
+import DietCard from '../components/dietCard/DietCard';
+// import SpecialDiets from '../components/specialdiets/SpecialDiets';
 import FilterButton from '../components/FilterButton/FilterButton';
-import useCustomHook from "../components/useCustomHook";
+import useFetch from '../components/useFetch';
 
 const NutriPage = ({description, specialDiet}) => {
-    const {dataProducts} = useCustomHook(`https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=allergens&tag_contains_0=does_not_contain&tag_0=egg&sort_by=unique_scans_n&page_size=20&page=3&sort_by=unique_scans_n&json=true`);
+  // const [rangeValue, setRangeValue] = useState(10);
+  // const [query, setQuery] = useState("");
 
-    return (
-    <>
-      <section className="diet-filters">
-        {/* {SpecialDiets.map((diet, index) => ( <FilterButton key={index} label={diet.specialDiet} /> ))} */}
-        <FilterButton label={specialDiet} />
+  // const  { loading, error, data = [] } = useFetch(
+  //   `https://fr.openfoodfacts.org/cgi/search.pl?search_terms=${query}&search_simple=1&action=process&page_size=100&json=true`
+  // );
+
+  // if (error) return <p>Error!</p>;
+  // if (loading) return <p>Loading...</p>;
+
+  //   // onChange input value get query value
+  //   const onChange = e => {
+  //     setQuery(e.target.value);
+  //   };
+
+
+  //   // on click post data from query
+  //     const onSubmit = e => {
+  //     e.preventDefault();
         
-      </section>
-      <section className="filters-result">
-        < NutriTitle description={description} />
-        < DietCards specialDiet={specialDiet} />
-      </section>
+  //   };
 
-      {/* Changes taken from Rodolphe : */}
-      {/* <section>
-      {dataProducts.map((element,index) => (
+  //   // //=========== Diet Requirement ================
+  //   const sortedListProd = data.filter((prod)=> {if(
+  //     !prod.allergens.includes("milk") && 
+  //     !prod.allergens_from_ingredients.includes("milk")&&
+  //     !prod.allergens_hierarchy.includes("milk")
+  //     ){ 
+  //       console.log(prod)
+  //       return prod
+  //     }});
+        
+  //   sortedListProd.length = rangeValue;
+
+  //   return (
+  //   <>
+  //     <section className="diet-filters">
+  //       {/* {SpecialDiets.map((diet, index) => ( <FilterButton key={index} label={diet.specialDiet} /> ))} */}
+  //       <FilterButton label={specialDiet} />
+        
+  //     </section>
+  //     <section>
+  //     <input
+  //         type="range"
+  //         min="1"
+  //         max="10"
+  //         value={rangeValue}
+  //         onChange={(e) => setRangeValue(e.target.value)}
+  //       />
+  //     </section>
+  //     <section className="filters-result">
+  //       < NutriTitle description={description} />
+  //       < DietCards specialDiet={specialDiet} />
+  //     </section>
+
+  //   <input
+  //     type="range"
+  //     min="1"
+  //     max="10"
+  //     value={rangeValue}
+  //     onChange={(e) => setRangeValue(e.target.value)}
+  //   />
+
+  //     <form 
+  //       onSubmit={onSubmit} 
+  //       className="search-form">
+
+  //     <input
+  //       type="text"
+  //       name="query"
+  //       onChange={onChange}
+  //       value={query}
+  //       autoComplete="on"
+  //       placeholder="find your product"
+  //     />
+
+  //     <input 
+  //       type="submit" 
+  //       value="Search" 
+  //     />
+
+  //     </form>
+
+  //     <ul>
+  //     {sortedListProd.map((element,index) => (
+  //     <DietCard 
+  //       key={index} 
+  //       image_front_small_url={element.image_front_small_url}
+  //       brands={element.brands}
+  //       categories={element.categories}
+  //       // ingredients_text={element.ingredients_text}
+  //       // add product's name / nutriscore with css style
+  //     />
+
+  //     ))}
+
+  //     </ul>
+  //   </>
+  // )};
+
+  const [rangeValue, setRangeValue] = useState(10);
+  const [query, setQuery] = useState("");
+ 
+  const  { loading, error, data = [] } = useFetch(
+    `https://fr.openfoodfacts.org/cgi/search.pl?search_terms=${query}&search_simple=1&action=process&page_size=100&json=true`
+  );
+
+  if (error) return <p>Error!</p>;
+  if (loading) return <p>Loading...</p>;
+
+   // //=========== without eggs ================
+   const sortedListProd = data.filter((prod)=> {if(
+    !prod.allergens.includes("gluten") && 
+    !prod.allergens_from_ingredients.includes("gluten")&&
+    !prod.allergens_hierarchy.includes("gluten")
+    ){ 
+      console.log(prod)
+      return prod
+    }});
+      
+    sortedListProd.length = rangeValue;
+   
+
+      // onChange input value get query value
+      const onChange = e => {
+      setQuery(e.target.value);
+    };
+
+
+    // on click post data from query
+      const onSubmit = e => {
+      e.preventDefault();
+      
+      
+        
+    };
+  
+   
+  
+
+  return (
+    <div>
+    
+     <input
+          type="range"
+          min="1"
+          max="10"
+          value={rangeValue}
+          onChange={(e) => setRangeValue(e.target.value)}
+        />
+
+
+        <form 
+            onSubmit={onSubmit} 
+            className="search-form">
+       
+
+            <input
+                type="text"
+                name="query"
+                onChange={onChange}
+                value={query}
+                autoComplete="on"
+                placeholder="find your product"
+            />
+
+        </form>
+
+      <ul>
+        {sortedListProd.map((element,index) => (
           <DietCard 
           key={index} 
           image_front_small_url={element.image_front_small_url}
           brands={element.brands}
           categories={element.categories}
           ingredients_text={element.ingredients_text}
+          // product name / nutriscore 
           />
+          
       ))}
-      </section> */}
-    </>
-  )};
+      
+  </ul>
+  </div>
+  
+  );
+
+
+  }
+
+  
+
 
 export default NutriPage;

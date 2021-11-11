@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import useCustomHook from "../components/useCustomHook";
+import useCustomHook from "../components/useFetch";
 import DietCard from "../components/dietCard/DietCard";
 import "../components/dietCard/DietCard.css";
 
@@ -9,7 +9,7 @@ import "../components/dietCard/DietCard.css";
 const PageEggs = () => {
   //**** */ probablement appeler le customhook avec useEffect ****
   useEffect(() => {
-    const {dataProducts} = useCustomHook(`https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=allergens&tag_contains_0=does_not_contain&tag_0=egg&sort_by=unique_scans_n&page_size=20&page=3&sort_by=unique_scans_n&json=true`)
+    // const {dataProducts} = useCustomHook(`https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=allergens&tag_contains_0=does_not_contain&tag_0=egg&sort_by=unique_scans_n&page_size=20&page=3&sort_by=unique_scans_n&json=true`)
     return (
       <div className="data-container">
       <ul className="products-list">
