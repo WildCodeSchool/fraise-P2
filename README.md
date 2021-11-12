@@ -10,10 +10,9 @@
 
 Package to install for stars range component:
 
-npm i styled-components
-
 npm install react-icons --save
-
+npm install styled-components
+npm install classnames
 =============================================
 
 
