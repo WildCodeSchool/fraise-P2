@@ -5,8 +5,13 @@ import DietCard from '../components/dietCard/DietCard';
 // import SpecialDiets from '../components/specialdiets/SpecialDiets';
 import FilterButton from '../components/FilterButton/FilterButton';
 import useFetch from '../components/useFetch';
+import StarRange from '../components/dietCard/StarRange';
+
+
 
 const NutriPage = ({description, specialDiet}) => {
+ 
+
   // const [rangeValue, setRangeValue] = useState(10);
   // const [query, setQuery] = useState("");
 
@@ -147,10 +152,9 @@ const NutriPage = ({description, specialDiet}) => {
         
     };
   
-   
-  
-
   return (
+
+
     <div>
     
      <input
@@ -160,7 +164,6 @@ const NutriPage = ({description, specialDiet}) => {
           value={rangeValue}
           onChange={(e) => setRangeValue(e.target.value)}
         />
-
 
         <form 
             onSubmit={onSubmit} 
@@ -177,6 +180,7 @@ const NutriPage = ({description, specialDiet}) => {
             />
 
         </form>
+       
 
       <ul>
         {sortedListProd.map((element,index) => (
@@ -188,11 +192,15 @@ const NutriPage = ({description, specialDiet}) => {
           ingredients_text={element.ingredients_text}
           // product name / nutriscore 
           />
-          
-      ))}
-      
-  </ul>
+        
+      ))} 
+     
+       
+    </ul>
+   
+ 
   </div>
+  
   
   );
 

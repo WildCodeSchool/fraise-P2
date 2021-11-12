@@ -3,6 +3,9 @@ import SpecialDiets from "../components/specialdiets/SpecialDiets";
 import { useState } from 'react';
 import NutriPage from './NutriPage';
 
+
+
+
 const dietProfile = [
   { color: "dark_blue", specialDiet:"gluten", description: "Intolérence au gluten" },
   { color: "creme_blue", specialDiet:"milk", description: "Intolérence au lactose" },
@@ -17,9 +20,10 @@ const dietProfile = [
 
 const Home = () => {
   
+  
   const [homeDisplayed, setHomeDisplayed] = useState(true);
   const [chosenDiet, setChosenDiet] = useState();
-
+ 
   const handleClick = (value) => {
     setHomeDisplayed(false);
     console.log("La valeur de la catégorie est :")
@@ -31,9 +35,13 @@ const Home = () => {
 
   return (
     <main>
+        
+      
       <div className={homeDisplayed ? "container-home" : "hidden"}>
+      
         <div className="card-my-profil">mon profil perso</div>
         <section className="container-profil-cards">
+      
           {dietProfile.map((diet) => {
 
             return (
@@ -46,8 +54,11 @@ const Home = () => {
               handleClick={handleClick}
               setChosenDiet={setChosenDiet}
               />)
+              
           })
+          
           }
+          
         </section>
       </div>
       <div className={!homeDisplayed ? "nutri-page" : "hidden"}>

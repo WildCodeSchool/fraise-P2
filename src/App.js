@@ -12,6 +12,7 @@ import NutriPage from "./pages/NutriPage";
 import PageLactose from "./pages/PageLactose";
 
 
+
 const App = () => {
   
 
@@ -19,6 +20,7 @@ const App = () => {
     <BrowserRouter>
       <div>
         <NavBar />
+       
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/Home" component={Home} />

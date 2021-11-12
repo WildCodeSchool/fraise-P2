@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import "./Contact.css";
 import{ init } from 'emailjs-com';
 
+
 init("user_mHtCtPRmfXansncIGdpdq");
 
 const Contact = () => {
@@ -111,6 +112,7 @@ const Contact = () => {
           value="Submit">Send</button>
       </form>
     </section>
+   
   </main>
   );
 }
