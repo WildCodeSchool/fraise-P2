@@ -1,42 +1,42 @@
-import React, {useState} from 'react';
+import React from 'react';
 import "./Contact.css";
-import{ init } from 'emailjs-com';
+import {useForm} from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
+import { init } from 'emailjs-com';
 init("user_mHtCtPRmfXansncIGdpdq");
 
-const Contact = () => {
-  const [lastName, setLastName] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+const schema = yup.object({
+  lastName: yup.string().max(20).required("Last Name is required"),
+  firstName: yup.string().max(20).required("First Name is required"),
+  email: yup.string().email('Must be a valid email').max(255).required('Email is required'),
+  message: yup.string().max(200).required("This Message is required"),
+}).required();
+
+
+const  Contact = () => {
+
+  const { register, formState: {errors}, handleSubmit } = useForm({
+    resolver: yupResolver(schema)
+  });
+  const onSubmit = (data, r) => {
+    alert("🥕Your message has been sent and will be processed as soon as possible! 🥕");
+    const templateId = 'template_8ed58w8';
+    const serviceId = "service_lu1lv3a";
+    sendFeedback(serviceId, templateId, {lastName: data.lastName, firstName: data.firstName, email: data.email, sickness: data.sickness, intolerence: data.intolerence, diet: data.diet, other: data.other, message: data.message, reply_to: r.target.reset()})
+  }
+
+  const sendFeedback = (serviceId, templateId, variables) => {
+
+    emailjs
+    .send(serviceId, templateId, variables)
+    .then(res => {
+      console.log('Succes')
+    })
+    .catch(err => console.error('oups'))
+  };
  
-  const handleSubmit = (e) => {
-   e.preventDefault();
- 
-   sendFeedback("template_8ed58w8", {
-     lastName,
-     firstName,
-     email,
-     message,
-   });
- };
- 
-  
- const sendFeedback = (templateId, variables) => {
- 
-   emailjs
-     .send("service_lu1lv3a", templateId, variables)
-     .then((res) => {
-       console.log('success !');
-       setLastName("");
-       setFirstName("");
-       setEmail("");
-       setMessage("");
-     })
-     .catch(
-       (err) =>
-         document.querySelector('.form-message').innerHTML =
-           "Une erreur s'est produite, veuillez réessayer.")
- };
+
 
   return (
   <main className="main-contact">
@@ -44,31 +44,30 @@ const Contact = () => {
     <section className="contactform">
       <h2 className="h2-contact">Contact Us</h2>
       <p className="p-contact">Our team will be happy to answer your suggestions!</p>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>  
         <div className="form-entry">
           <label htmlFor="name">Last Name :</label>
           <input
             type="text"
             id="name"
-            name="name"
-            onChange={(e) => setLastName(e.target.value)}
+            name="lastname"
             placeholder="lastName *"
-            value={lastName}
             autoComplete="off"
+            {...register("lastName")}
           />
+          {errors.lastName && <p id="p-yup">{errors.lastName.message}</p>}
         </div>
         <div className="form-entry">
             <label htmlFor="name">First Name :</label>
             <input
             type="text"
             id="name"
-            name="name"
-            onChange={(e) => setFirstName(e.target.value)}
+            name="firstname"
             placeholder="firstName *"
-            value={firstName}
             autoComplete="off"
-            r
+            {...register("firstName")}
           />
+          {errors.firstName && <p id="p-yup">{errors.firstName.message}</p>}
         </div>
         <div className="form-entry">
           <div>
@@ -76,39 +75,41 @@ const Contact = () => {
             <p id="not-mail">! Email non valide !</p>
           </div>
           <input
-            type="email"
+            type="text"
             id="email"
             name="email"
-            onChange={(e) => setEmail(e.target.value)}
             placeholder="email *"
-            value={email}
             autoComplete="off"
+            {...register("email", {pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/})}
           />
+          {errors.email && <p id="p-yup">{errors.email.message}</p>}
         </div>
         <div className="form-suggestion">
           <h4>Suggestions :</h4>
-          <input id="check-sickness" type="radio" name="sickness" />
-          <label className="check"  for="check-sickness">Sickness</label>
+          <input id="check-sickness" type="radio" name="sickness" checked {...register("sickness")}/>
+          <label className="check"  htmlFor="check-sickness">Sickness</label>
 
-          <input id="check-intolerence" type="radio" name="intolerence" />
-          <label className="check"  for="check-intolerence">Intolerence</label>
+          <input id="check-intolerence" type="radio" name="intolerence" {...register("intolerence")} />
+          <label className="check"  htmlFor="check-intolerence">Intolerence</label>
 
-          <input id="check-diet" type="radio" name="diet" />
-          <label className="check"  for="check-diet"> Diet</label>
+          <input id="check-diet" type="radio" name="diet"{...register("diet")}/>
+          <label className="check"  htmlFor="check-diet"  > Diet</label>
+          
 
-          <input id="check-other" type="radio" name="other" />
+          <input id="check-other" type="radio" name="other" {...register("other")} />
           <label className="check"  htmlFor="check-other">Other</label>
         </div>
         <div className="form-message">
           <label htmlFor="message"> Votre message :</label>
-          <textarea placeholder="Please fill in your questions or comments" id="messagecontact" name="message"
-          onChange={(e) => setMessage(e.target.value)}
-          value={message}></textarea>
+          <textarea placeholder="Please fill in your questions or comments" id="messagecontact" name="message" {...register("message")}
+          ></textarea>
+          {errors.message && <p id="p-yup">{errors.message.message}</p>}
         </div>
         <button id="buttonContact"
           type="submit"
           value="Submit">Send</button>
       </form>
+      <div className="form-message-contact"></div>
     </section>
   </main>
   );

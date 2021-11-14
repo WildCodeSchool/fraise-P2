@@ -4,6 +4,12 @@
 
 - ``` npm i``` to install the dependencies
 
+- ``` npm install emailjs-com --save-dev``` to install emailjs
+
+- ``` npm install react-hook-form --save-dev``` to install react hook form
+
 - ``` npm run dev  ``` to launch the app
+
+
 
 
