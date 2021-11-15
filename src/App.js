@@ -17,8 +17,6 @@ const StyleApp = styled.div`
 
 `;
 
-
-
 const App = () => {
   const [theme,setTheme] = useState("dark");
   const [isToggled,setIsToggled] = useState(false)
