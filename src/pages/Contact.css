@@ -74,49 +74,6 @@
   align-items: baseline;
 }
 
-#not-mail {
-  color: tomato;
-  font-size: 0.8rem;
-  opacity: 0;
-}
-
-@keyframes dongle {
-  0% {
-    transform: translate(0px, 0px);
-  }
-  10% {
-    transform: translate(-10px, 0px);
-  }
-  20% {
-    transform: translate(10px, 0px);
-  }
-  30% {
-    transform: translate(-10px, 0px);
-  }
-  40% {
-    transform: translate(10px, 0px);
-  }
-  50% {
-    transform: translate(-10px, 0px);
-  }
-  60% {
-    transform: translate(10px, 0px);
-  }
-  70% {
-    transform: translate(-10px, 0px);
-  }
-  80% {
-    transform: translate(10px, 0px);
-  }
-  90% {
-    transform: translate(-10px, 0px);
-  }
-  100% {
-    transform: translate(0px, 0px);
-  }
-}
-
-
 .form-suggestion input {
   min-width: auto;
 }
@@ -160,26 +117,6 @@
 
 #p-yup::before {
   display: inline;
-  content: "⚠ ";
+  content: "⚠";
 }
 
-.form-message-contact {
-  margin-top: 10px;
-  padding: 12px;
-  opacity: 0;
-  transition: 0.2s ease;
-  color: black;
-  border-radius: 4px;
-  box-shadow: 0 0 2px rgba(51, 51, 51, 0.3);
-}
-
-/* @media screen and (max-width: 900px) {
-  .h2-contact {
-    font-size: 1.5rem;
-  }
-  .h3-contact {
-    font-size: 1rem;
-    padding: 0;
-    padding-bottom: 1rem;
-  }
-} */

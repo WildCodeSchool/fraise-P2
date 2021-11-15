@@ -7,10 +7,10 @@ import { init } from 'emailjs-com';
 init("user_mHtCtPRmfXansncIGdpdq");
 
 const schema = yup.object({
-  lastName: yup.string().max(20).required("Last Name is required"),
-  firstName: yup.string().max(20).required("First Name is required"),
-  email: yup.string().email('Must be a valid email').max(255).required('Email is required'),
-  message: yup.string().max(200).required("This Message is required"),
+  lastName: yup.string().max(20).required("Please enter your last name"),
+  firstName: yup.string().max(20).required("Please enter your first name"),
+  email: yup.string().email('Must be a valid email').max(255).required('Please enter a valid email address'),
+  message: yup.string().max(200).required("Please enter a message"),
 }).required();
 
 
