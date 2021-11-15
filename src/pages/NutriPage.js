@@ -5,7 +5,7 @@ import DietCard from '../components/dietCard/DietCard';
 // import SpecialDiets from '../components/specialdiets/SpecialDiets';
 import FilterButton from '../components/FilterButton/FilterButton';
 import useFetch from '../components/useFetch';
-import StarRange from '../components/dietCard/StarRange';
+
 
 
 
@@ -122,6 +122,7 @@ const NutriPage = ({description, specialDiet}) => {
   if (error) return <p>Error!</p>;
   if (loading) return <p>Loading...</p>;
   
+    console.log(data)
    // //=========== without eggs ================
    const sortedListProd = data.filter((prod)=> {if(
     !prod.allergens.includes(`${specialDiet}`) && 
@@ -190,7 +191,9 @@ const NutriPage = ({description, specialDiet}) => {
           brands={element.brands}
           categories={element.categories}
           ingredients_text={element.ingredients_text}
-          // product name / nutriscore 
+          generic_name_fr={element.generic_name_fr}
+          nutrition_grade_fr={element.nutrition_grade_fr}
+         
           />
         
       ))} 
