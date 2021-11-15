@@ -28,22 +28,22 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
     const [filterEndometriose, setFilterEndometriose] = useState(false);
 
     const handleClick = (e) => {
-        if (e.target.value == "Gluten"){ console.log("clicked on gluten")}
-        if (e.target.value == "Lactose"){ setFilterLactose(!filterLactose)}
-        if (e.target.value == "Fodmap"){ setFilterFodmap(!filterFodmap)}
-        if (e.target.value == "Nuts"){ setFilterNuts(!filterNuts)}
-        if (e.target.value == "Eggs"){ setFilterEggs(!filterEggs)}
-        if (e.target.value == "Seafood"){ setFilterSeafood(!filterSeafood)}
-        if (e.target.value == "Sport"){ setFilterSport(!filterSport)}
-        if (e.target.value == "Veggie"){ setFilterVeggie(!filterVeggie)}
-        if (e.target.value == "Endometriose"){ setFilterEndometriose(!filterEndometriose)}
+        if (e.target.id == "filter-Gluten"){ setFilterGluten(!filterGluten)}
+        if (e.target.id == "filter-Lactose"){ setFilterLactose(!filterLactose)}
+        if (e.target.id == "filter-Fodmap"){ setFilterFodmap(!filterFodmap)}
+        if (e.target.id == "filter-Nuts"){ setFilterNuts(!filterNuts)}
+        if (e.target.id == "filter-Eggs"){ setFilterEggs(!filterEggs)}
+        if (e.target.id == "filter-SeaFood"){ setFilterSeafood(!filterSeafood)}
+        if (e.target.id == "filter-Sport"){ setFilterSport(!filterSport)}
+        if (e.target.id == "filter-Veggie"){ setFilterVeggie(!filterVeggie)}
+        if (e.target.id == "filter-Endometriose"){ setFilterEndometriose(!filterEndometriose)}
     }
 
     return (
     <>
       <section className="diet-filters">
         {labelsArray.map(label => (
-          <FilterButton key={label} label={label} handleClick={handleClick} filterGluten={filterGluten}/>
+          <FilterButton key={label} label={label} handleClick={handleClick} setFilterGluten={setFilterGluten} filterGluten={filterGluten}/>
         ))} 
       </section>
       <section className="filters-result">

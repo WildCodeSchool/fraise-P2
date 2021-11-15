@@ -2,15 +2,16 @@ import React, {useState} from 'react'
 import "./FilterButton.css"
 
 const FilterButton = ({label, handleClick, filterGluten}) => {
+
     return (
-    <div className="filter-button-countainer" value={label} onClick={handleClick}>
-        <input type="checkbox" className="filter-button" />
-        <label className="button-label" htmlFor="filter-button">
+    <div className="filter-button-countainer">
+        <input type="checkbox" id={`filter-${label}`} onClick={handleClick}/>
+        <label className="button-label" htmlFor={`filter-${label}`}>
             <div className="knob"></div>
             <div className="button-on">On</div>
             <div className="button-off">Off</div>
         </label>
-        {filterGluten ? (<p>{label} on</p>) : (<p>{label} off</p>)}
+        <p>{label}</p>
     </div>
 )}
 
