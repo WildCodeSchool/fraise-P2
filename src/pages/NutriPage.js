@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useContext} from 'react';
 import NutriTitle from '../components/nutrititle/NutriTitle'
 import './NutriPage.css'
 import DietCards from '../components/dietcards/DietCards';
@@ -6,9 +6,16 @@ import DietCard from "../components/dietCard/DietCard";
 import SpecialDiets from '../components/specialdiets/SpecialDiets';
 import FilterButton from '../components/FilterButton/FilterButton';
 import useCustomHook from "../components/useCustomHook";
+import { ProductsContext } from '../context/ProductsContext';
 
 const NutriPage = ({description, specialDiet, labelsArray}) => {
-    const {dataProducts} = useCustomHook(`https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=allergens&tag_contains_0=does_not_contain&tag_0=egg&sort_by=unique_scans_n&page_size=20&page=3&sort_by=unique_scans_n&json=true`);
+    // const {dataProducts} = useCustomHook(`https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=allergens&tag_contains_0=does_not_contain&tag_0=egg&sort_by=unique_scans_n&page_size=20&page=3&sort_by=unique_scans_n&json=true`);
+    // ===============================================
+
+    const {productsList} = useContext(ProductsContext)
+    const [rangeValue, setRangeValue] = useState(10);
+    const [query, setQuery] = useState("");
+    //================================================
 
     const [filterGluten, setFilterGluten] = useState(false);
     const [filterLactose, setFilterLactose] = useState(false);
@@ -40,8 +47,8 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         ))} 
       </section>
       <section className="filters-result">
-        < NutriTitle description={description} />
-        < DietCards specialDiet={specialDiet} />
+        <NutriTitle description={description} />
+        <DietCards specialDiet={specialDiet} />
       </section>
 
       {/* Changes taken from Rodolphe : */}
