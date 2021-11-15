@@ -12,7 +12,7 @@ import PageEggs from "./pages/PageEggs";
 import PageGluten from "./pages/PageGluten";
 import NutriPage from "./pages/NutriPage";
 import PageLactose from "./pages/PageLactose";
-import Toggle from "./components/Toggle.js";
+import Toggle from "./components/toggle/Toggle.js";
 
 
 const StyleApp = styled.div`

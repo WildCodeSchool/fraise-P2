@@ -22,17 +22,15 @@ const DietCard = ({
             <div className="product-informations">
                 <h2>{generic_name_fr}</h2>
                 <h3>{brands}</h3>
-                <h3>{ingredients_text}</h3>
-                <h3>{nutrition_grade_fr}</h3>
 
-                
                 <p className={isClicked ? "hidden" : "product-tags"}>
-                
                 </p>
-                <p className={!isClicked ? "hidden" : "product-description"}>{categories}
-                <StarRange/>
-                
-                </p>
+                <div className={!isClicked ? "hidden" : "product-description"}>
+                    <p>{categories}</p>
+                    <p>{ingredients_text}</p>
+                    <p>{nutrition_grade_fr}</p>
+                    <StarRange/>
+                </div>
                
             </div>
             

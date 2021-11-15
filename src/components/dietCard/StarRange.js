@@ -1,14 +1,12 @@
 import React, {useState} from 'react';
-
 import { FaStar } from "react-icons/fa";
-import "./styleStars.css"
+import "./StarRange.css"
 
 const StarRange = () => {
     const [rating, setRating] = useState(null);
     const [hover, setHover] = useState(null);
 
-    return (
-        
+    return (     
         <div className="starContainer ">
         {[...Array(5)].map((star, i) => {
           const ratingValue = i + 1;
@@ -21,6 +19,7 @@ const StarRange = () => {
                 onClick={() => setRating(ratingValue)}
               />
               <FaStar
+                key={i}
                 size={30}
                 color={ratingValue <= (hover || rating) ? "ffc107" : "e4E5E9"}
                 onMouseEnter={() => setHover(ratingValue)}
@@ -28,12 +27,8 @@ const StarRange = () => {
               />
             </label>
           );
-        })}
-       
-      </div>
-        
-            
-        
+        })} 
+      </div>  
     );
 };
 

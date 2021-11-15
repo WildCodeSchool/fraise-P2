@@ -17,20 +17,3 @@ const FilterButton = ({label, handleClick, filterGluten}) => {
 
 
 export default FilterButton
-
-    {/* Ternaire pour plus tard :
-    // status == on ? (
-    //     <div className="filter-button-on">
-    //         <div className="button-on">
-    //             <div className="button-cercle"></div>
-    //         </div>
-    //         <p>{label}</p>
-    //     </div>
-    // ) : (
-    //     <div className="filter-button-off">
-    //         <div className="button-off">
-    //             <div className="button-cercle"></div>
-    //         </div>
-    //         <p>{label}</p>
-    //     </div>
-    // ) */}

@@ -14,3 +14,8 @@
     justify-content: space-between;
     width: 100%;
 }
+
+.diet-cards {
+    width: 65%;
+    padding: 0 5vw;
+}
