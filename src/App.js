@@ -1,5 +1,7 @@
-import React from "react";
+import React,{useState} from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import styled,{ ThemeProvider } from "styled-components";
+import {lightTheme,darkTheme,GlobalStyles} from "./themes.js";
 import NavBar from "./components/navbar/NavBar";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
@@ -10,13 +12,34 @@ import PageEggs from "./pages/PageEggs";
 import PageGluten from "./pages/PageGluten";
 import NutriPage from "./pages/NutriPage";
 import PageLactose from "./pages/PageLactose";
+import Toggle from "./components/Toggle.js";
 
+
+const StyleApp = styled.div`
+  color: ${props => props.theme.fontColor}
+
+`;
 
 const App = () => {
+  const [theme,setTheme] = useState("dark");
+  const [isToggled,setIsToggled] = useState(false)
+
+  const themeToggler = () => {
+    theme === "light" ? setTheme("dark") : setTheme("light");
+
+  };
   
 
   return (
     <BrowserRouter>
+
+      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <GlobalStyles/>
+      <StyleApp>
+      <Toggle rounded={true} isToggled={isToggled} onToggle={() => setIsToggled(!isToggled)}  themeToggler={ () =>themeToggler()}/>
+      </StyleApp>
+      </ThemeProvider>
+     
       <div>
         <NavBar />
         <Switch>
