@@ -1,7 +1,7 @@
 import React,{useContext, useState} from 'react';
 import NutriTitle from '../components/nutrititle/NutriTitle'
 import './NutriPage.css'
-import DietCard from '../components/dietCard/DietCard';
+import DietCard from "../components/dietCard/DietCard"
 // import SpecialDiets from '../components/specialdiets/SpecialDiets';
 import FilterButton from '../components/FilterButton/FilterButton';
 
