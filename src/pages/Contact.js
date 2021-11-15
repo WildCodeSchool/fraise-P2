@@ -87,17 +87,24 @@ const Contact = () => {
         </div>
         <div className="form-suggestion">
           <h4>Suggestions :</h4>
+          <div>
+            
           <input id="check-sickness" type="radio" name="sickness" />
           <label className="check"  for="check-sickness">Sickness</label>
-
+            
+            
           <input id="check-intolerence" type="radio" name="intolerence" />
           <label className="check"  for="check-intolerence">Intolerence</label>
-
+            
+            </div>
+          <div>
           <input id="check-diet" type="radio" name="diet" />
           <label className="check"  for="check-diet"> Diet</label>
-
+          
           <input id="check-other" type="radio" name="other" />
           <label className="check"  htmlFor="check-other">Other</label>
+          </div>
+
         </div>
         <div className="form-message">
           <label htmlFor="message"> Votre message :</label>

@@ -118,13 +118,14 @@
   padding: 1rem;
 }
 
-/* @media screen and (max-width: 900px) {
-  .h2-contact {
-    font-size: 1.5rem;
+@media screen and (max-width: 768px) {
+  .lightgreen-bloc {
+    display: none;
   }
-  .h3-contact {
-    font-size: 1rem;
-    padding: 0;
-    padding-bottom: 1rem;
+  .form-suggestion {
+    display: flex;
+    flex-direction: column;
+
   }
-} */
+}
+
