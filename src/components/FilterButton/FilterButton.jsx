@@ -1,18 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "./FilterButton.css"
 
-const FilterButton = ({label}) => {
-    
+const FilterButton = ({label, handleClick, filterGluten}) => {
     return (
-    <div className="filter-button">
-        <input type="checkbox" id="filter-button" />
-        <label id="button" htmlFor="filter-button">
-            <div id="knob"></div>
-            <div id="button-on">On</div>
-            <div id="button-off">Off</div>
+    <div className="filter-button-countainer" value={label} onClick={handleClick}>
+        <input type="checkbox" className="filter-button" />
+        <label className="button-label" htmlFor="filter-button">
+            <div className="knob"></div>
+            <div className="button-on">On</div>
+            <div className="button-off">Off</div>
         </label>
-
-        <p>{label}</p>
+        {filterGluten ? (<p>{label} on</p>) : (<p>{label} off</p>)}
     </div>
 )}
 

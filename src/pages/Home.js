@@ -4,16 +4,18 @@ import { useState } from 'react';
 import NutriPage from './NutriPage';
 
 const dietProfile = [
-  { color: "dark_blue", specialDiet:"gluten", description: "Intolérence au gluten" },
-  { color: "creme_blue", specialDiet:"lactose", description: "Intolérence au lactose" },
-  { color: "blue", specialDiet:"fodmap", description: "Intolérence FodMap" },
-  { color: "dark_blue", specialDiet:"nuts", description: "Allergie fruits à coque" },
-  { color: "creme_blue", specialDiet:"eggs", description: "Allergie aux oeufs" },
-  { color: "blue", specialDiet:"seaFood", description: "Allergie crustacés" },
-  { color: "dark_blue", specialDiet:"sport", description: "Régime : sportif" },
-  { color: "creme_blue", specialDiet:"veggie", description: "Régime : végétarien" },
-  { color: "blue", specialDiet:"endometriose", description: "Endométriose" }
+  { color: "dark_blue", specialDiet:"Gluten", description: "Intolérence au gluten" },
+  { color: "creme_blue", specialDiet:"Lactose", description: "Intolérence au lactose" },
+  { color: "blue", specialDiet:"Fodmap", description: "Intolérence FodMap" },
+  { color: "dark_blue", specialDiet:"Nuts", description: "Allergie fruits à coque" },
+  { color: "creme_blue", specialDiet:"Eggs", description: "Allergie aux oeufs" },
+  { color: "blue", specialDiet:"SeaFood", description: "Allergie crustacés" },
+  { color: "dark_blue", specialDiet:"Sport", description: "Régime : sportif" },
+  { color: "creme_blue", specialDiet:"Veggie", description: "Régime : végétarien" },
+  { color: "blue", specialDiet:"Endometriose", description: "Endométriose" }
 ]
+
+const labelsArray = (dietProfile.map(diet => diet.specialDiet));
 
 const Home = () => {
   
@@ -51,7 +53,7 @@ const Home = () => {
         </section>
       </div>
       <div className={!homeDisplayed ? "nutri-page" : "hidden"}>
-        <NutriPage description={chosenDiet?.description} specialDiet={chosenDiet?.specialDiet}/>
+        <NutriPage description={chosenDiet?.description} specialDiet={chosenDiet?.specialDiet} labelsArray={labelsArray}/>
       </div>
     </main>
   );
