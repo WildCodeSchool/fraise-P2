@@ -1,69 +1,65 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { useAuth } from "../components/privateroute/Auth";
+import React, { useEffect, useState, useContext } from "react";
+import Auth from "../contexte/Auth";
 import "./Login.css";
 
-function Login() {
-  const [isLoggedIn, setLoggedIn] = useState(false);
-  const [isError, setIsError] = useState(false);
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const { setAuthTokens } = useAuth();
-
-  function postLogin() {
-    axios
-      .post("https://www.somePlace.com/auth/login", {
-        userName,
-        password,
-      })
-      .then((result) => {
-        if (result.status === 200) {
-          setAuthTokens(result.data);
-          setLoggedIn(true);
-        } else {
-          setIsError(true);
-        }
-      })
-      .catch((e) => {
-        setIsError(true);
-      });
-  }
-
-  if (isLoggedIn) {
-    return <Redirect to="/" />;
-  }
-
+const Login = ({ history }) => {
+  const { isAuthenticated, setIsAuthenticated } = useContext(Auth);
+  const [username, setUsername] = useState({
+    username: "",
+    password: "",
+  });
+  const handleChange = ({ currentTarget }) => {
+    const { username, value } = currentTarget;
+    setUsername({ ...user, [username]: value });
+  };
+  const handleSubmit = async (event) => {
+    console.log(event);
+    event.preventDefault();
+    try {
+      const response = await login(username);
+      setIsAuthenticated(response);
+      history.replace("/Home");
+    } catch ({ response }) {
+      console.log(response);
+    }
+  };
+  useEffect(() => {
+    if (isAuthenticated) {
+      history.replace("/Home");
+    }
+  }, [history, isAuthenticated]);
   return (
-    <div>
-      <Form>
-        <Input
-          class="name"
-          type="username"
-          value={userName}
-          onChange={(e) => {
-            setUserName(e.target.value);
-          }}
-          placeholder="email"
-        />
-        <Input
-          class="password"
-          type="password"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-          placeholder="password"
-        />
-        <Button class="sign" onClick={postLogin}>
-          Sign In
-        </Button>
-      </Form>
-      <Link to="/signup">Don't have an account?</Link>
-      {isError && (
-        <Error>The username or password provided were incorrect!</Error>
-      )}
+    <div className="login">
+      <h2 className="h2-contact">Login</h2>
+
+      <input
+        class="name"
+        type="name"
+        id="name"
+        name="username"
+        placeholder="username"
+        onChange={handleChange}
+      />
+      <br />
+      <input
+        class="password"
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Password"
+        onChange={handleChange}
+      />
+      <br />
+      <label for="forgot">Forgot your password?</label>
+      <br />
+      <input
+        class="sign"
+        id="buttonsignup"
+        type="submit"
+        value="Sign in"
+        onSubmit={handleSubmit}
+      />
     </div>
   );
-}
-
+};
 export default Login;

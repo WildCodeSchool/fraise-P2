@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo-ramentafraise.png";
+import Auth from "../../contexte/Auth";
 import "./navbar.css";
+import { logout } from "../../services/AuthApi";
 
 const NavBar = () => {
+  const { isAuthenticated, setIsAuthenticated } = useContext(Auth);
+
+  const handleLogout = () => {
+    logout();
+    setIsAuthenticated(false);
+  };
+
   return (
     <header>
       <section className="header-banner">
@@ -15,10 +24,22 @@ const NavBar = () => {
           </div>
         </div>
         <div className="button-container">
-          <Link to="/Login">
-            <button>Login</button>
-          </Link>
-          <button>MySpace</button>
+          {(!isAuthenticated && (
+            <>
+              <Link to="/Login">
+                <button>Login</button>
+              </Link>
+              <Link to="/Connexion">
+                <button>Inscription</button>
+              </Link>
+            </>
+          )) || (
+            <>
+              <Link to="/Home">
+                <button onClick={handleLogout}>Logout</button>
+              </Link>
+            </>
+          )}
         </div>
       </section>
       <nav className="nav-general">
@@ -46,5 +67,4 @@ const NavBar = () => {
     </header>
   );
 };
-
 export default NavBar;
