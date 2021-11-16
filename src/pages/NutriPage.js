@@ -114,7 +114,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
 
      
 
-      const filterByDiet = productsList.filter((prod) => {
+      /*const filterByDiet = productsList.filter((prod) => {
          return !mainFilter.includes(prod.allergens_hierarchy) 
 
 
@@ -122,14 +122,18 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         // }).filter((prod)=> {
         //   return  !mainFilter.includes(prod.allergens_from_ingredients)
              
-
+        
 
 
         // }).filter((prod)=> {
         //   return !mainFilter.includes(prod.allergens_hierarchy)
 
 
-         });
+         });*/
+        
+      const filterByDiet = productsList.filter((prod) => {
+       return !prod.allergens_hierarchy.some((allergen) => mainFilter.includes(allergen));
+      });
 
       console.log("toggle filter",filterByDiet)
     //===================================
