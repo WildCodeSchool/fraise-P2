@@ -1,0 +1,21 @@
+.nutri-page {
+    margin: 4rem 0;
+}
+
+.diet-filters {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.filters-result{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.diet-cards {
+    width: 65%;
+    padding: 0 5vw;
+}

@@ -1,6 +1,59 @@
-.filter-button-on, .filter-button-off {
-    width: 50px;
-    height: 10px;
-    border-radius: 20px;
-    background-color: blue;
+*
+{
+    user-select: none;
+    -webkit-tap-highlight-color:transparent;
+}
+
+.filter-button-countainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0.5rem;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+ .button-label {
+  position: relative;
+  display: block;
+  width: 200px;
+  height: 100px;
+  background-color: #145E8C;
+  border-radius: 100px;
+  cursor: pointer;
+  transform: scale(0.4);
+  margin: 0.5rem;
+}
+
+.knob {
+  width: 74px;
+  height: 74px;
+  background-color: white;
+  position: relative;
+  top: 13px;
+  left: 15px;
+  border-radius: 74px;
+  transition: 0.4s ease left, 0.4s ease background-position;
+}
+
+.button-on,
+.button-off {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 30px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 138px;
+  z-index: 1;
+}
+
+.button-off {
+  margin-left: 30px;
+}
+
+.filter-button-countainer + .button-label .knob {
+  left: 106px;
 }
