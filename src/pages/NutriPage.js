@@ -60,17 +60,12 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
     const [rangeValue, setRangeValue] = useState(30);
     const [query, setQuery] = useState("");
 
-    
-
-    
     // ============SEARCH BAR ELEMENT ======================
-    
    
+    const filterProductList = productsList.filter(name => {
+        return name.brands.toLowerCase().includes(query.toLowerCase())
     
-    const mainFilter = productsList.filter(name => {
-      return name.brands.toLowerCase().includes(query.toLowerCase())
-  
-    });
+      });
 
     // onChange input value get query value
     const onChange = e => {
@@ -82,21 +77,19 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         
     };
 
-
     // =====================================================
     
 
     // ========= TEST MULTIPLE TOGGLE FILTER ==========
-    
-
-    mainFilter.filter((prod) => {
+  
+    filterProductList.filter((prod) => {
       if(
       !prod.allergens.includes(selectedDiet) && 
       !prod.allergens_from_ingredients.includes(selectedDiet)&&
       !prod.allergens_hierarchy.includes(selectedDiet)
       ){ 
         console.log(prod)
-        return prod
+        
       }});
 
     //===================================
@@ -105,7 +98,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
     // ========= SLIDER RANGE ELEMENT ============
     
 
-    mainFilter.length = rangeValue;
+    filterProductList.length = rangeValue;
       
 
     // ===========================================
@@ -166,7 +159,11 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         <NutriTitle description={description} />
         <section className="diet-cards">
             <div className="products-list">
-                {mainFilter.map((element,index) => (
+                {filterProductList.filter((element) => 
+                  !element.allergens.includes(selectedDiet) && 
+                  !element.allergens_from_ingredients.includes(selectedDiet)&&
+                  !element.allergens_hierarchy.includes(selectedDiet)
+                  ).map((element,index) => (
                 <DietCard 
                 key={index} 
                 image_front_small_url={element.image_front_small_url}
