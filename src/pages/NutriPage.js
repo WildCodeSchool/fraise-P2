@@ -12,6 +12,8 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
     // ===============================================
 
     const {productsList} = useContext(ProductsContext)
+     
+    console.log(productsList)
    
     //================================================
 
@@ -64,8 +66,8 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
     // ============SEARCH BAR ELEMENT ======================
    
     const filterProductList = productsList.filter(name => {
-        return name.brands.toLowerCase().includes(query.toLowerCase())
-    
+        // return name.brands.toLowerCase().includes(query.toLowerCase())
+        return name
       });
 
     // ====== onChange input value get query value ======
@@ -91,6 +93,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
       !prod.allergens_hierarchy.includes(selectedDiet)
       ){ 
         console.log(prod)
+        return prod;
         
       }});
 
@@ -100,7 +103,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
     // ========= SLIDER RANGE ELEMENT ============
     
 
-    filterProductList.length = rangeValue;
+   filterProductList.length = rangeValue;
       
 
     // ===========================================
@@ -161,11 +164,23 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         <NutriTitle description={description} />
         <section className="diet-cards">
             <div className="products-list">
-                {filterProductList.filter((element) => 
+                {filterProductList.filter((element) => {
+                  if(selectedDiet.length > 0){
+
+                return(
                   !element.allergens.includes(selectedDiet) && 
                   !element.allergens_from_ingredients.includes(selectedDiet)&&
                   !element.allergens_hierarchy.includes(selectedDiet)
-                  ).map((element,index) => (
+                )}else {
+                  return true;
+
+
+
+
+                }})
+                
+                .map((element,index) => (
+
                 <DietCard 
                 key={index} 
                 image_front_small_url={element.image_front_small_url}
