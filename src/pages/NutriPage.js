@@ -70,7 +70,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
 
     const [selectedDiet,setSelectedDiet] = useState('')
     const toggleChoice = ["gluten","lactose","eggs"]
-    const [rangeValue, setRangeValue] = useState(5);
+    const [rangeValue, setRangeValue] = useState(10);
     const [query, setQuery] = useState("");
 
     // ============SEARCH BAR ELEMENT ======================
@@ -97,39 +97,18 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
 
     // ========= TEST MULTIPLE TOGGLE FILTER ==========
   
-    // productsList.filter((prod) => {
-    //   if(
-    //   !prod.allergens.includes(selectedDiet) && 
-    //   !prod.allergens_from_ingredients.includes(selectedDiet)&&
-    //   !prod.allergens_hierarchy.includes(selectedDiet)
-    //   ){ 
-    //     console.log(prod)
-    //     return prod;
-        
-    //   }});
-
-      // var arr1 = [1,2,3,4],arr2 = [2,4],
-      // res = arr1.filter(item => !arr2.includes(item));
-      // console.log(res);
+   
+    
 
      
 
-      const filterByDiet = productsList.filter((prod) => {
-         return !mainFilter.includes(prod.allergens_hierarchy) 
-
-
+    const filterByDiet = productsList.filter((prod) => {
+      return !prod.allergens_hierarchy.some((allergen) => mainFilter.includes(allergen));
+    });
         
-        // }).filter((prod)=> {
-        //   return  !mainFilter.includes(prod.allergens_from_ingredients)
-             
+       
 
-
-
-        // }).filter((prod)=> {
-        //   return !mainFilter.includes(prod.allergens_hierarchy)
-
-
-         });
+         
 
       console.log("toggle filter",filterByDiet)
     //===================================
@@ -209,28 +188,9 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         <NutriTitle description={description} />
         <section className="diet-cards">
             <div className="products-list">
-                {filterProductList.filter((element) => {
-                  if(filterByDiet.length > 0){
-                    filterByDiet.forEach(diet=> {
-                      return(
-                      !element.allergens.includes(diet) && 
-                      !element.allergens_from_ingredients.includes(diet)&&
-                      !element.allergens_hierarchy.includes(diet)
-
-                    )})
-
-                {/* return(
-                  !element.allergens.includes(selectedDiet) && 
-                  !element.allergens_from_ingredients.includes(selectedDiet)&&
-                  !element.allergens_hierarchy.includes(selectedDiet)
-                )}else { */}
-                  
-                  return true;
-
-
-                }})
+                {
                 
-                .map((element,index) => (
+                filterByDiet.map((element,index) => (
 
                 <DietCard 
                 key={index} 
