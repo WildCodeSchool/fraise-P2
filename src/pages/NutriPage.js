@@ -111,6 +111,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
     return (
     <>
       <section className="diet-filters">
+
         {/* {labelsArray.map(label => (
           <FilterButton key={label} label={label} handleClick={handleClick} setFilterGluten={setFilterGluten} filterGluten={filterGluten}/>
         ))}  */}
@@ -159,6 +160,17 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         {/* <h3>Le key word est:</h3>
         <p>{keyWordDiet}</p>
         {filterGluten ? (<p>Gluten is on</p>) : (<p>Gluten is off</p>)} */}
+
+        {/* {labelsArray.map(label => (
+          <FilterButton key={label}
+           label={label} 
+           handleClick={handleClick} 
+           setFilterGluten={setFilterGluten} 
+           filterGluten={filterGluten}/>
+        ))}  */}
+
+        
+
       </section>
       <section className="filters-result">
         <NutriTitle description={description} />
