@@ -11,44 +11,6 @@ import Contact from "./pages/Contact";
 import Connexion from "./pages/Connexion";
 import Login from "./pages/Login";
 import Footer from "./components/footer/Footer";
-<<<<<<< HEAD
-
-const App = (props) => {
-  const existingTokens = JSON.parse(localStorage.getItem("tokens"));
-  const [authTokens, setAuthTokens] = useState(existingTokens);
-
-  const setTokens = (data) => {
-    localStorage.setItem("tokens", JSON.stringify(data));
-    setAuthTokens(data);
-  };
-
-  return (
-    <Auth.Provider
-      value={{ authTokens, setAuthTokens: setTokens }}
-    ></Auth.Provider>
-  );
-};
-return (
-  <BrowserRouter>
-    <div>
-      <NavBar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/Home" component={Home} />
-        <Route path="/PageLactose" component={PageLactose} />
-        <Route path="/PageGluten" component={PageGluten} />
-        <Route path="/PageEggs" component={PageEggs} />
-        <Route path="/Contact" component={Contact} />
-        <Route path="/Login" component={Login} />
-        <Route path="/PrivateRoute" component={PrivateRoute} />
-
-        <Route path="/Connexion" component={Connexion} />
-      </Switch>
-      <Footer />
-    </div>
-  </BrowserRouter>
-);
-=======
 import "./index.css";
 import NutriPage from "./pages/NutriPage";
 import Toggle from "./components/toggle/Toggle.js";
@@ -92,6 +54,6 @@ const App = () => {
       </div>
     </BrowserRouter>
   )};
->>>>>>> feature/karim
+
 
 export default App;
