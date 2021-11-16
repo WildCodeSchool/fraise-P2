@@ -8,10 +8,7 @@ import Contact from "./pages/Contact";
 import Connexion from "./pages/Connexion";
 import Footer from "./components/footer/Footer";
 import "./index.css";
-import PageEggs from "./pages/PageEggs";
-import PageGluten from "./pages/PageGluten";
 import NutriPage from "./pages/NutriPage";
-import PageLactose from "./pages/PageLactose";
 import Toggle from "./components/toggle/Toggle.js";
 
 
@@ -45,9 +42,6 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/Home" component={Home} />
-          <Route path="/PageLactose" component={PageLactose} />
-          <Route path="/PageGluten" component={PageGluten} />
-          <Route path="/PageEggs" component={PageEggs} />
           <Route path="/Contact" component={Contact} />
           <Route path="/Connexion" component={Connexion} />
           <Route path="/NutriPage" component={NutriPage} />
