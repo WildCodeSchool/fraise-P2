@@ -1,25 +1,26 @@
-import React, {useState,useContext, useEffect} from 'react';
+
+import React, {useState,useContext} from 'react';
 import NutriTitle from '../components/nutrititle/NutriTitle'
 import './NutriPage.css'
 import DietCard from "../components/dietCard/DietCard";
 import SpecialDiets from '../components/specialdiets/SpecialDiets';
 import FilterButton from '../components/FilterButton/FilterButton';
-import useCustomHook from "../components/useCustomHook";
 import { ProductsContext } from '../context/ProductsContext';
 
 const NutriPage = ({description, specialDiet, labelsArray}) => {
    
-    // ===============================================
+    const {productsList,onCheck,setOncheck} = useContext(ProductsContext)
 
-    const {productsList} = useContext(ProductsContext)
-     
+    const handleCheckToggle = (e)=> {
+      setOncheck(prevCheck => !prevCheck)
     
-    //================================================
-
-   
+    }
 
     const [mainFilter,setMainFilter]=useState([]);
+   
 
+
+    // On toggle click set diet value in array Mainfilter of allergens
     const handleClick = (e) => {
       console.log(e.target.id)
         const allerg = e.target.id.split('-')[1]
@@ -27,14 +28,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
           setMainFilter([...mainFilter,`en:${allerg}`])
       
         }
-
-        
     }
-
-    const [keyWordDiet, setKeyWordDiet] = useState("key word");
-    const [isClicked, setIsClicked] = useState(false);
-
-   
 
     const [selectedDiet,setSelectedDiet] = useState('')
     const toggleChoice = ["gluten","lactose","eggs"]
@@ -60,8 +54,6 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         
     };
 
-    // =====================================================
-    
     // ========= TEST MULTIPLE TOGGLE FILTER ==========
   
     const filterByDiet = productsList.filter((prod) => {
@@ -124,14 +116,13 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         
       </section>
       <section className="test">
-        <h3>Le key word est:</h3>
-        <p>{keyWordDiet}</p>
-
-
+     
          {labelsArray.map(label => (
           <FilterButton key={label}
            label={label} 
-           handleClick={handleClick} 
+           handleClick={handleClick}
+           value={onCheck}
+           handleCheck={handleCheckToggle}
         
           />
         ))} 

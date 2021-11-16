@@ -5,7 +5,7 @@ export const ProductsContext = createContext();
 const ProductsContextProvider = ({ children }) => {
 
 const [productsList,setProductsList] = useState([])
-// const [query, setQuery] = useState("");
+const [onCheck,setOncheck]= useState(false)
 
     useEffect(() => {
       (async () => {
@@ -17,7 +17,7 @@ const [productsList,setProductsList] = useState([])
     }, [])
 
   return (
-    <ProductsContext.Provider value={{productsList}}> 
+    <ProductsContext.Provider value={{productsList,onCheck,setOncheck}}> 
       {children}
     </ProductsContext.Provider>
   );

@@ -1,7 +1,9 @@
+import React,{useContext,useState} from "react";
 import Category from '../components/category';
 import SpecialDiets from "../components/specialdiets/SpecialDiets";
 import { useState } from 'react';
 import NutriPage from './NutriPage';
+import { ProductsContext } from '../context/ProductsContext';
 
 const dietProfile = [
   { color: "dark_blue", specialDiet:"gluten", description: "Intolérence au gluten" },
@@ -18,7 +20,11 @@ const dietProfile = [
 const labelsArray = (dietProfile.map(diet => diet.specialDiet));
 
 const Home = () => {
+
+  const {onCheck,setOncheck} = useContext(ProductsContext)
   
+
+
   const [homeDisplayed, setHomeDisplayed] = useState(true);
   const [chosenDiet, setChosenDiet] = useState();
 
@@ -29,6 +35,9 @@ const Home = () => {
     setChosenDiet(value);
     console.log("the chosen diet is:")
     console.log(chosenDiet);
+    //==================
+
+    setOncheck(prevCheck => !prevCheck)
   };
 
   return (
@@ -37,7 +46,6 @@ const Home = () => {
         <div className="card-my-profil">mon profil perso</div>
         <section className="container-profil-cards">
           {dietProfile.map((diet) => {
-
             return (
             <Category 
               key={diet.specialDiet} 
