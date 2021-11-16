@@ -72,7 +72,6 @@ const  Contact = () => {
         <div className="form-entry">
           <div>
             <label htmlFor="email">Email :</label>
-            <p id="not-mail">! Email non valide !</p>
           </div>
           <input
             type="text"
