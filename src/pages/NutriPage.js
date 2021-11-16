@@ -13,7 +13,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
 
     const {productsList} = useContext(ProductsContext)
      
-    console.log(productsList)
+    
    
     //================================================
 
@@ -27,23 +27,33 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
     const [filterVeggie, setFilterVeggie] = useState(false);
     const [filterEndometriose, setFilterEndometriose] = useState(false);
 
-    // const handleClick = (e) => {
-    //     if (e.target.id == "filter-Gluten"){ setFilterGluten(!filterGluten); setIsClicked(!isClicked)}
-    //     if (e.target.id == "filter-Lactose"){ setFilterLactose(!filterLactose); setIsClicked(!isClicked)}
-    //     if (e.target.id == "filter-Fodmap"){ setFilterFodmap(!filterFodmap); setIsClicked(!isClicked)}
-    //     if (e.target.id == "filter-Nuts"){ setFilterNuts(!filterNuts); setIsClicked(!isClicked)}
-    //     if (e.target.id == "filter-Eggs"){ setFilterEggs(!filterEggs); setIsClicked(!isClicked)}
-    //     if (e.target.id == "filter-SeaFood"){ setFilterSeafood(!filterSeafood); setIsClicked(!isClicked)}
-    //     if (e.target.id == "filter-Sport"){ setFilterSport(!filterSport); setIsClicked(!isClicked)}
-    //     if (e.target.id == "filter-Veggie"){ setFilterVeggie(!filterVeggie); setIsClicked(!isClicked)}
-    //     if (e.target.id == "filter-Endometriose"){ setFilterEndometriose(!filterEndometriose); setIsClicked(!isClicked)}
-    // }
+    const [mainFilter,setMainFilter]=useState([]);
 
-    // const [keyWordDiet, setKeyWordDiet] = useState("key word");
-    // const [isClicked, setIsClicked] = useState(false);
+    const handleClick = (e) => {
+      console.log(e.target.id)
+        const allerg = e.target.id.split('-')[1]
+        if(!mainFilter.includes(allerg)){
+          setMainFilter([...mainFilter,`en:${allerg}`])
+         
+
+        }
+
+        if (e.target.id == "filter-gluten"){ setFilterGluten(!filterGluten); setIsClicked(!isClicked)}
+        if (e.target.id == "filter-milk"){ setFilterLactose(!filterLactose); setIsClicked(!isClicked)}
+        if (e.target.id == "filter-fodmap"){ setFilterFodmap(!filterFodmap); setIsClicked(!isClicked)}
+        if (e.target.id == "filter-Nuts"){ setFilterNuts(!filterNuts); setIsClicked(!isClicked)}
+        if (e.target.id == "filter-Eggs"){ setFilterEggs(!filterEggs); setIsClicked(!isClicked)}
+        if (e.target.id == "filter-SeaFood"){ setFilterSeafood(!filterSeafood); setIsClicked(!isClicked)}
+        if (e.target.id == "filter-Sport"){ setFilterSport(!filterSport); setIsClicked(!isClicked)}
+        if (e.target.id == "filter-Veggie"){ setFilterVeggie(!filterVeggie); setIsClicked(!isClicked)}
+        if (e.target.id == "filter-Endometriose"){ setFilterEndometriose(!filterEndometriose); setIsClicked(!isClicked)}
+    }
+
+    const [keyWordDiet, setKeyWordDiet] = useState("key word");
+    const [isClicked, setIsClicked] = useState(false);
 
     // useEffect(() => {
-    //   if (filterGluten) { 
+    //     if (filterGluten) { 
     //     setKeyWordDiet("gluten")
     //   } else if (filterLactose) { 
     //     setKeyWordDiet("lactose")
@@ -60,14 +70,15 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
 
     const [selectedDiet,setSelectedDiet] = useState('')
     const toggleChoice = ["gluten","lactose","eggs"]
-    const [rangeValue, setRangeValue] = useState(30);
+    const [rangeValue, setRangeValue] = useState(5);
     const [query, setQuery] = useState("");
 
     // ============SEARCH BAR ELEMENT ======================
    
     const filterProductList = productsList.filter(name => {
-        // return name.brands.toLowerCase().includes(query.toLowerCase())
-        return name
+      // console.log(name.brands.toLowerCase().includes(query.toLowerCase()))
+        return name.brands.toLowerCase().includes(query.toLowerCase())
+       
       });
 
     // ====== onChange input value get query value ======
@@ -86,24 +97,48 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
 
     // ========= TEST MULTIPLE TOGGLE FILTER ==========
   
-    productsList.filter((prod) => {
-      if(
-      !prod.allergens.includes(selectedDiet) && 
-      !prod.allergens_from_ingredients.includes(selectedDiet)&&
-      !prod.allergens_hierarchy.includes(selectedDiet)
-      ){ 
-        console.log(prod)
-        return prod;
+    // productsList.filter((prod) => {
+    //   if(
+    //   !prod.allergens.includes(selectedDiet) && 
+    //   !prod.allergens_from_ingredients.includes(selectedDiet)&&
+    //   !prod.allergens_hierarchy.includes(selectedDiet)
+    //   ){ 
+    //     console.log(prod)
+    //     return prod;
         
-      }});
+    //   }});
 
+      // var arr1 = [1,2,3,4],arr2 = [2,4],
+      // res = arr1.filter(item => !arr2.includes(item));
+      // console.log(res);
+
+     
+
+      const filterByDiet = productsList.filter((prod) => {
+         return !mainFilter.includes(prod.allergens_hierarchy) 
+
+
+        
+        // }).filter((prod)=> {
+        //   return  !mainFilter.includes(prod.allergens_from_ingredients)
+             
+
+
+
+        // }).filter((prod)=> {
+        //   return !mainFilter.includes(prod.allergens_hierarchy)
+
+
+         });
+
+      console.log("toggle filter",filterByDiet)
     //===================================
 
 
     // ========= SLIDER RANGE ELEMENT ============
     
 
-   filterProductList.length = rangeValue;
+   filterByDiet.length = rangeValue;
       
 
     // ===========================================
@@ -111,10 +146,6 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
     return (
     <>
       <section className="diet-filters">
-
-        {/* {labelsArray.map(label => (
-          <FilterButton key={label} label={label} handleClick={handleClick} setFilterGluten={setFilterGluten} filterGluten={filterGluten}/>
-        ))}  */}
 
         <form 
             onSubmit={onSubmit} 
@@ -137,7 +168,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
           onChange={(e) => setRangeValue(e.target.value)}
         />
 
-        <ul>
+        {/* <ul>
           {toggleChoice.map(radio => {
             return(
             <li key={radio}>
@@ -152,22 +183,24 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
 
           );
           })}
-        </ul>
+        </ul> */}
         {selectedDiet && <h5 onClick={()=> setSelectedDiet("")}>annuler recherche</h5> }
         
       </section>
       <section className="test">
-        {/* <h3>Le key word est:</h3>
+        <h3>Le key word est:</h3>
         <p>{keyWordDiet}</p>
-        {filterGluten ? (<p>Gluten is on</p>) : (<p>Gluten is off</p>)} */}
 
-        {/* {labelsArray.map(label => (
+
+        {filterGluten ? (<p>Gluten is on</p>) : (<p>Gluten is off</p>)} 
+
+         {labelsArray.map(label => (
           <FilterButton key={label}
            label={label} 
            handleClick={handleClick} 
            setFilterGluten={setFilterGluten} 
            filterGluten={filterGluten}/>
-        ))}  */}
+        ))} 
 
         
 
@@ -177,16 +210,22 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         <section className="diet-cards">
             <div className="products-list">
                 {filterProductList.filter((element) => {
-                  if(selectedDiet.length > 0){
+                  if(filterByDiet.length > 0){
+                    filterByDiet.forEach(diet=> {
+                      return(
+                      !element.allergens.includes(diet) && 
+                      !element.allergens_from_ingredients.includes(diet)&&
+                      !element.allergens_hierarchy.includes(diet)
 
-                return(
+                    )})
+
+                {/* return(
                   !element.allergens.includes(selectedDiet) && 
                   !element.allergens_from_ingredients.includes(selectedDiet)&&
                   !element.allergens_hierarchy.includes(selectedDiet)
-                )}else {
+                )}else { */}
+                  
                   return true;
-
-
 
 
                 }})
