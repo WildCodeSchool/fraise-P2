@@ -18,8 +18,6 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
 
     const [mainFilter,setMainFilter]=useState([]);
    
-
-
     // On toggle click set diet value in array Mainfilter of allergens
     const handleClick = (e) => {
       console.log(e.target.id)
@@ -38,8 +36,8 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
     // ============SEARCH BAR ELEMENT ======================
    
     const filterProductList = productsList.filter(name => {
-      // console.log(name.brands.toLowerCase().includes(query.toLowerCase()))
-        return name.brands.toLowerCase().includes(query.toLowerCase())
+      
+        return name.product_name_fr.toLowerCase().includes(query.toLowerCase())
        
       });
 
@@ -56,17 +54,16 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
 
     // ========= TEST MULTIPLE TOGGLE FILTER ==========
   
-    const filterByDiet = productsList.filter((prod) => {
+    filterProductList.filter((prod) => {
       return !prod.allergens_hierarchy.some((allergen) => mainFilter.includes(allergen));
     });
-        
-  
-      console.log("toggle filter",filterByDiet)
-    //===================================
+   
+      console.log("toggle filter",filterProductList )
+   
 
     // ========= SLIDER RANGE ELEMENT ============
     
-   filterByDiet.length = rangeValue;
+    filterProductList.length = rangeValue;
       
 
     // ===========================================
@@ -134,7 +131,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
             <div className="products-list">
                 {
                 
-                filterByDiet.map((element,index) => (
+                  filterProductList.map((element,index) => (
 
                 <DietCard 
                 key={index} 
