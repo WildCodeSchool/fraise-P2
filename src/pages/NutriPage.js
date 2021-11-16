@@ -27,34 +27,34 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
     const [filterVeggie, setFilterVeggie] = useState(false);
     const [filterEndometriose, setFilterEndometriose] = useState(false);
 
-    const handleClick = (e) => {
-        if (e.target.id == "filter-Gluten"){ setFilterGluten(!filterGluten); setIsClicked(!isClicked)}
-        if (e.target.id == "filter-Lactose"){ setFilterLactose(!filterLactose); setIsClicked(!isClicked)}
-        if (e.target.id == "filter-Fodmap"){ setFilterFodmap(!filterFodmap); setIsClicked(!isClicked)}
-        if (e.target.id == "filter-Nuts"){ setFilterNuts(!filterNuts); setIsClicked(!isClicked)}
-        if (e.target.id == "filter-Eggs"){ setFilterEggs(!filterEggs); setIsClicked(!isClicked)}
-        if (e.target.id == "filter-SeaFood"){ setFilterSeafood(!filterSeafood); setIsClicked(!isClicked)}
-        if (e.target.id == "filter-Sport"){ setFilterSport(!filterSport); setIsClicked(!isClicked)}
-        if (e.target.id == "filter-Veggie"){ setFilterVeggie(!filterVeggie); setIsClicked(!isClicked)}
-        if (e.target.id == "filter-Endometriose"){ setFilterEndometriose(!filterEndometriose); setIsClicked(!isClicked)}
-    }
+    // const handleClick = (e) => {
+    //     if (e.target.id == "filter-Gluten"){ setFilterGluten(!filterGluten); setIsClicked(!isClicked)}
+    //     if (e.target.id == "filter-Lactose"){ setFilterLactose(!filterLactose); setIsClicked(!isClicked)}
+    //     if (e.target.id == "filter-Fodmap"){ setFilterFodmap(!filterFodmap); setIsClicked(!isClicked)}
+    //     if (e.target.id == "filter-Nuts"){ setFilterNuts(!filterNuts); setIsClicked(!isClicked)}
+    //     if (e.target.id == "filter-Eggs"){ setFilterEggs(!filterEggs); setIsClicked(!isClicked)}
+    //     if (e.target.id == "filter-SeaFood"){ setFilterSeafood(!filterSeafood); setIsClicked(!isClicked)}
+    //     if (e.target.id == "filter-Sport"){ setFilterSport(!filterSport); setIsClicked(!isClicked)}
+    //     if (e.target.id == "filter-Veggie"){ setFilterVeggie(!filterVeggie); setIsClicked(!isClicked)}
+    //     if (e.target.id == "filter-Endometriose"){ setFilterEndometriose(!filterEndometriose); setIsClicked(!isClicked)}
+    // }
 
-    const [keyWordDiet, setKeyWordDiet] = useState("key word");
-    const [isClicked, setIsClicked] = useState(false);
+    // const [keyWordDiet, setKeyWordDiet] = useState("key word");
+    // const [isClicked, setIsClicked] = useState(false);
 
-    useEffect(() => {
-      if (filterGluten) { 
-        setKeyWordDiet("gluten")
-      } else if (filterLactose) { 
-        setKeyWordDiet("lactose")
-      } else if (filterNuts) { 
-        setKeyWordDiet("nuts")
-      } else if (filterEggs) { 
-        setKeyWordDiet("eggs")
-      } else {
-        setKeyWordDiet("")
-      }
-    }, [isClicked])
+    // useEffect(() => {
+    //   if (filterGluten) { 
+    //     setKeyWordDiet("gluten")
+    //   } else if (filterLactose) { 
+    //     setKeyWordDiet("lactose")
+    //   } else if (filterNuts) { 
+    //     setKeyWordDiet("nuts")
+    //   } else if (filterEggs) { 
+    //     setKeyWordDiet("eggs")
+    //   } else {
+    //     setKeyWordDiet("")
+    //   }
+    // }, [isClicked])
 
     
 
@@ -111,7 +111,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
     return (
     <>
       <section className="diet-filters">
-        {labelsArray.map(label => (
+        {/* {labelsArray.map(label => (
           <FilterButton 
           key={label} 
           label={label} 
@@ -119,12 +119,8 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
           setFilterGluten={setFilterGluten} 
           filterGluten={filterGluten}
 
-
-
-
-
           />
-        ))} 
+        ))}  */}
 
         <form 
             onSubmit={onSubmit} 
@@ -147,22 +143,23 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
           onChange={(e) => setRangeValue(e.target.value)}
         />
 
-        {/* <ul>
+         <ul>
           {toggleChoice.map(radio => {
             return(
             <li key={radio}>
               <input 
               type="radio" 
-              value={radio} => /// filter-gluten
+              value={radio} 
               id={radio}
               checked={radio === selectedDiet} 
-              onChange={(e)=> setSelectedDiet(e.target.value,console.log(e.target.value))}/> ///// setFilterGluten(!filterGluten); setIsClicked(!isClicked)
+              onChange={(e)=> setSelectedDiet(e.target.value,console.log(e.target.value))}/>
               <label htmlFor="radio">{radio}</label>
             </li>
 
           );
           })}
-        </ul> */}
+
+        </ul> 
         {selectedDiet && <h5 onClick={()=> setSelectedDiet("")}>annuler recherche</h5> }
         
       </section>
@@ -184,9 +181,6 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
                   !element.allergens_hierarchy.includes(selectedDiet)
                 )}else {
                   return true;
-
-
-
 
                 }})
                 
