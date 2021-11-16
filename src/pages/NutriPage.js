@@ -8,7 +8,7 @@ import useCustomHook from "../components/useCustomHook";
 import { ProductsContext } from '../context/ProductsContext';
 
 const NutriPage = ({description, specialDiet, labelsArray}) => {
-    // const {dataProducts} = useCustomHook(`https://fr.openfoodfacts.org/cgi/search.pl?action=process&tagtype_0=allergens&tag_contains_0=does_not_contain&tag_0=egg&sort_by=unique_scans_n&page_size=20&page=3&sort_by=unique_scans_n&json=true`);
+   
     // ===============================================
 
     const {productsList} = useContext(ProductsContext)
@@ -54,7 +54,8 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
     //   }
     // }, [isClicked])
 
-    //========= check state with useEffect ==========
+    
+
     const [selectedDiet,setSelectedDiet] = useState('')
     const toggleChoice = ["gluten","lactose","eggs"]
     const [rangeValue, setRangeValue] = useState(30);
@@ -67,11 +68,12 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
     
       });
 
-    // onChange input value get query value
+    // ====== onChange input value get query value ======
     const onChange = e => {
       setQuery(e.target.value);
     };
-    // on click post data from query
+    // =====  on click avoid to refresh the page =======
+    
       const onSubmit = e => {
       e.preventDefault();  
         
@@ -82,7 +84,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
 
     // ========= TEST MULTIPLE TOGGLE FILTER ==========
   
-    filterProductList.filter((prod) => {
+    productsList.filter((prod) => {
       if(
       !prod.allergens.includes(selectedDiet) && 
       !prod.allergens_from_ingredients.includes(selectedDiet)&&
