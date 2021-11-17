@@ -6,6 +6,7 @@ import DietCard from "../components/dietCard/DietCard";
 import SpecialDiets from '../components/specialdiets/SpecialDiets';
 import FilterButton from '../components/filterbutton/FilterButton';
 
+
 import { ProductsContext } from '../context/ProductsContext';
 
 const NutriPage = ({description, specialDiet, labelsArray}) => {
@@ -75,7 +76,8 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
     // ===========================================
   
     return (
-    <>
+    
+       <>
       <section className="diet-filters">
       {labelsArray.map(label => (
         <FilterButton key={label}
@@ -86,6 +88,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         />
       ))} 
       </section>
+      
       
       <section className="filters-result">
         <NutriTitle description={description} />
@@ -114,7 +117,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
 
           {mainFilter.length > 0 && <h5 className="cancel-search" onClick={()=> setMainFilter([])}>Annuler la recherche</h5> }                       
         </div>
-        <div className="products-list">
+        
             {
             filterByDiet.map((element,index) => (
             <DietCard 
@@ -127,10 +130,11 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
             nutrition_grades={element.nutrition_grades}
                 />  
             ))} 
-        </div>
+            
         </section>
       </section>
-    </>
+     </>
+     
   )};
 
 export default NutriPage;

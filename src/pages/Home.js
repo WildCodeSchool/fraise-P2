@@ -5,6 +5,8 @@ import { useState } from 'react';
 import NutriPage from './NutriPage';
 import { ProductsContext } from '../context/ProductsContext';
 
+
+
 const dietProfile = [
   { color: "dark_blue", specialDiet:"gluten", description: "Intolérence au gluten" },
   { color: "creme_blue", specialDiet:"milk", description: "Intolérence au lactose" },
@@ -19,6 +21,7 @@ const dietProfile = [
 const labelsArray = (dietProfile.map(diet => diet.specialDiet));
 
 const Home = () => {
+  
 
   // use check context (conexion between home & nutripage toggle boolen)
   const {onCheck,setOncheck,mainFilter,setMainFilter} = useContext(ProductsContext);
@@ -37,7 +40,7 @@ const Home = () => {
   };
 
   return (
-    <main>
+   <>
       <div className={homeDisplayed ? "container-home" : "hidden"}>
         <div className="card-my-profil">mon profil perso</div>
         <section className="container-profil-cards">
@@ -71,10 +74,13 @@ const Home = () => {
       
         </section>
       </div>
+      
       <div className={!homeDisplayed ? "nutri-page" : "hidden"}>
         <NutriPage description={chosenDiet?.description} specialDiet={chosenDiet?.specialDiet} labelsArray={labelsArray}/>
+        
       </div>
-    </main>
+      
+     </> 
   );
 }
 

@@ -1,6 +1,11 @@
 import React, {useState} from 'react';
 import "./DietCard.css";
 import StarRange from './StarRange';
+import styled from "styled-components";
+
+const StyleApp = styled.div`
+  color: ${props => props.theme.color}
+`;
 
 const DietCard = ({
     brands,
@@ -14,9 +19,9 @@ const DietCard = ({
     const handleClick = () => setIsClicked(!isClicked);
 
     return ( 
-           
+    
     <section className="diet-card">
-        <div className={!isClicked ? `product-card` : `expended-product-card`} onClick={handleClick}>
+        <StyleApp className={!isClicked ? `product-card` : `expended-product-card`} onClick={handleClick}>
             <img src={image_front_small_url} alt-text="Logo du produit"/>
             <div className="product-informations">
                 <h2>{generic_name_fr}</h2>
@@ -29,8 +34,9 @@ const DietCard = ({
                     <StarRange/>
                 </div>
             </div>
-        </div>
+        </StyleApp>
     </section>
+     
     );
 };
 

@@ -4,13 +4,13 @@ import {lightTheme,darkTheme,GlobalStyles} from "./themes.js";
 
 export const lightTheme = {
     body:"white",
-    color: '#FAFAFA',
+    color: 'black',
 };
 
 
 export const darkTheme = {
     body:"#033554",
-    color: 'red',
+    color: 'white',
 };
 
 export const GlobalStyles = createGlobalStyle`
