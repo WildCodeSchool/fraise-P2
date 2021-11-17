@@ -10,6 +10,9 @@
 
 - ``` npm run dev  ``` to launch the app
 
+- ```  npm install @hookform/resolvers yup ``` to install yup 
+
+- ```  npm install jwt-decode ``` to install jwt decode
 
 
 
