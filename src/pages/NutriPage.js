@@ -12,7 +12,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
     const {productsList,onCheck,setOncheck} = useContext(ProductsContext)
 
     const handleCheckToggle = (e)=> {
-      setOncheck(prevCheck => !prevCheck)
+      setOncheck(e.target.value === false ? true : false)
     
     }
 
@@ -28,8 +28,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         }
     }
 
-    const [selectedDiet,setSelectedDiet] = useState('')
-    const toggleChoice = ["gluten","lactose","eggs"]
+    const [selectedDiet,setSelectedDiet] = useState('');
     const [rangeValue, setRangeValue] = useState(10);
     const [query, setQuery] = useState("");
 
@@ -54,7 +53,8 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
 
     // ========= TEST MULTIPLE TOGGLE FILTER ==========
   
-    filterProductList.filter((prod) => {
+    const filterByDiet = filterProductList.filter((prod) => {
+      console.log(!prod.allergens_hierarchy.some((allergen) => mainFilter.includes(allergen)))
       return !prod.allergens_hierarchy.some((allergen) => mainFilter.includes(allergen));
     });
    
@@ -130,9 +130,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         <section className="diet-cards">
             <div className="products-list">
                 {
-                
-                  filterProductList.map((element,index) => (
-
+                filterByDiet.map((element,index) => (
                 <DietCard 
                 key={index} 
                 image_front_small_url={element.image_front_small_url}
