@@ -15,8 +15,9 @@ import AuthenticatedRoute from "./components/AuthenticatedRoute";
 import "./index.css";
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(hasAuthenticated());
+  
   return (
-    <Auth.Provider value={{ isAuthenticated, setIsAuthenticated }}>
+    <Auth.Provider value={{ isAuthenticated, setIsAuthenticated}}>
       <BrowserRouter>
         <div>
           <NavBar />

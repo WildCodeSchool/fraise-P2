@@ -16,7 +16,7 @@
   box-shadow: 5px 5px 4px rgba(20, 94, 140, 0.25);
 }
 
-.connexion input[type="signup"] {
+.connexion input[type="submit"] {
   background: #3eacc2;
   color: black;
   border: 3px solid black;
@@ -29,4 +29,13 @@
 .connexion input[type="connexion"]:hover {
   background-color: #86e3d5;
   transition: 1s;
+}
+
+#p-yup {
+  color: tomato;
+}
+
+#p-yup::before {
+  display: inline;
+  content: "⚠";
 }

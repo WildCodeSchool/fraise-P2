@@ -1,14 +1,15 @@
 import React, { useEffect, useState, useContext } from "react";
 import Auth from "../contexte/Auth";
-import { Link } from "react-router-dom";
 import "./Login.css";
+
 
 const Login = ({ history }) => {
   const { isAuthenticated, setIsAuthenticated } = useContext(Auth);
   const [user, setUser] = useState({
     username: "",
-    password: "",
+    password: ""
   });
+
   const handleChange = ({ currentTarget }) => {
     const { name, value } = currentTarget;
     setUser({...user, [name]: value })
