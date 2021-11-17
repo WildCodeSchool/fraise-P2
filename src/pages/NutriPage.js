@@ -20,7 +20,9 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
     // On toggle click set diet value in array Mainfilter of allergens
     const handleClick = (e) => {
       console.log("Allergen selected : ",e.target.id)
+
         const allerg = e.target.id
+
         if(!mainFilter.includes(`en:${allerg}`)){
           setMainFilter([...mainFilter,`en:${allerg}`])
       
@@ -67,7 +69,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
 
     // ========= SLIDER RANGE ELEMENT ============
     
-    filterProductList.length = rangeValue;
+   filterByDiet.length = rangeValue;
       
 
     // ===========================================
