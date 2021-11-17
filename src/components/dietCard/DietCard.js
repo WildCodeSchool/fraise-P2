@@ -29,9 +29,7 @@ const DietCard = ({
         
                 </p>
                 <p className={!isClicked ? "hidden" : "product-description"}>{categories}
-                {/* <p>{ingredients_text}</p>
-                <p>{nutrition_grade_fr}</p> */}
-                <StarRange/>
+                
                 
 
                 </p>

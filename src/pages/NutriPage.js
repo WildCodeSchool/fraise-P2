@@ -93,7 +93,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         <input
           type="range"
           min="1"
-          max="20"
+          max="50"
           value={rangeValue}
           onChange={(e) => setRangeValue(e.target.value)}
         />
