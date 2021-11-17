@@ -42,7 +42,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
    
     const filterProductList = productsList.filter(name => {
       
-        return name.product_name_fr.toLowerCase().includes(query.toLowerCase())
+      return name.product_name_fr.toLowerCase().includes(query.toLowerCase())
        
       });
 
@@ -94,13 +94,13 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         <input
           type="range"
           min="1"
-          max="20"
+          max="50"
           value={rangeValue}
           onChange={(e) => setRangeValue(e.target.value)}
         />
 
      
-        {selectedDiet && <h5 onClick={()=> setSelectedDiet("")}>annuler recherche</h5> }
+        {mainFilter.length > 0 && <h5 onClick={()=> setMainFilter("")}>annuler recherche</h5> }
         
       </section>
       <section className="test">
