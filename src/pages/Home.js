@@ -51,6 +51,7 @@ const Home = () => {
               value={diet}
               handleClick={()=>
               {handleClick();
+              // Second Function
               if(!mainFilter.includes(`en:${diet.specialDiet}`)){
                 setMainFilter([...mainFilter,`en:${diet.specialDiet}`])
 

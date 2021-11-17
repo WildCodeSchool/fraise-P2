@@ -20,7 +20,9 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
     // On toggle click set diet value in array Mainfilter of allergens
     const handleClick = (e) => {
       console.log("Allergen selected : ",e.target.id)
+
         const allerg = e.target.id
+
         if(!mainFilter.includes(`en:${allerg}`)){
           setMainFilter([...mainFilter,`en:${allerg}`])
       
@@ -33,7 +35,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
     }
 
     const [selectedDiet,setSelectedDiet] = useState('');
-    const [rangeValue, setRangeValue] = useState(10);
+    const [rangeValue, setRangeValue] = useState(20);
     const [query, setQuery] = useState("");
 
     // ============SEARCH BAR ELEMENT ======================
@@ -57,7 +59,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
 
     // =========  MULTIPLE TOGGLE FILTER ==========
   
-    const filterByDiet = filterProductList.filter((prod) => {
+      const filterByDiet = filterProductList.filter((prod) => {
       console.log(!prod.allergens_hierarchy.some((allergen) => mainFilter.includes(allergen)))
       return !prod.allergens_hierarchy.some((allergen) => mainFilter.includes(allergen));
     });
@@ -67,7 +69,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
 
     // ========= SLIDER RANGE ELEMENT ============
     
-    filterProductList.length = rangeValue;
+      filterByDiet.length = rangeValue;
       
 
     // ===========================================
@@ -77,43 +79,28 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
       <section className="diet-filters">
 
         <form 
-            onSubmit={onSubmit} 
-            className="search-form">
-            <input
-                type="text"
-                name="query"
-                onChange={onChange}
-                value={query}
-                autoComplete="on"
-                placeholder="find your product"
-            />
+          onSubmit={onSubmit} 
+          className="search-form">
+          <input
+              type="text"
+              name="query"
+              onChange={onChange}
+              value={query}
+              autoComplete="on"
+              placeholder="find your product"
+          />
         </form>
 
         <input
           type="range"
           min="1"
-          max="10"
+          max="20"
           value={rangeValue}
           onChange={(e) => setRangeValue(e.target.value)}
         />
 
-        {/* <ul>
-          {toggleChoice.map(radio => {
-            return(
-            <li key={radio}>
-              <input 
-              type="radio" 
-              value={radio} 
-              id={radio}
-              checked={radio === selectedDiet} 
-              onChange={(e)=> setSelectedDiet(e.target.value,console.log(e.target.value))}/>
-              <label htmlFor="radio">{radio}</label>
-            </li>
-
-          );
-          })}
-        </ul> */}
-        {/* {selectedDiet && <h5 onClick={()=> setSelectedDiet("")}>annuler recherche</h5> } */}
+     
+        {selectedDiet && <h5 onClick={()=> setSelectedDiet("")}>annuler recherche</h5> }
         
       </section>
       <section className="test">
