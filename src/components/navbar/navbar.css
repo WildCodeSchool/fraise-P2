@@ -107,12 +107,12 @@ nav {
 }
 
 .nav-general a {
-    color: #3EACC2;
+    /* color: #3EACC2; */
     font-weight: bolder;
     text-decoration: none;
-}
+} 
 
-.nav-general a:hover {
+ .nav-general a:hover {
     color: #145E8C;
     font-weight: bolder;
     text-decoration: underline #145E8C;
