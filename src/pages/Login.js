@@ -18,7 +18,7 @@ const Login = ({ history }) => {
     console.log(e);
     e.preventDefault();
     try {
-      const response = login(username);
+      const response = "username";
       setIsAuthenticated(response);
       history.replace("/Home");
     } catch ({ response }) {
