@@ -56,7 +56,6 @@
   color: white;
 }
 
-
 @media screen and (min-width: 768px) {
   .profil-card:hover {
   height: 16rem;
