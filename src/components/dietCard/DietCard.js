@@ -7,7 +7,7 @@ const DietCard = ({
     image_front_small_url,
     categories,
     ingredients_text,
-    nutrition_grade_fr,
+    nutriscore_grade,
     generic_name_fr}) => {
     
     const [isClicked, setIsClicked] = useState(false);
@@ -22,22 +22,21 @@ const DietCard = ({
             <div className="product-informations">
                 <h2>{generic_name_fr}</h2>
                 <h3>{brands}</h3>
+                
 
 
                 <p className={isClicked ? "hidden" : "product-tags"}>
         
                 </p>
                 <p className={!isClicked ? "hidden" : "product-description"}>{categories}
-                {/* <p>{ingredients_text}</p>
-                <p>{nutrition_grade_fr}</p> */}
-                <StarRange/>
+                
                 
 
                 </p>
                 <div className={!isClicked ? "hidden" : "product-description"}>
                     <p>{categories}</p>
                     <p>{ingredients_text}</p>
-                    <p>{nutrition_grade_fr}</p>
+                    <h3>Nutriscore : {nutriscore_grade}</h3>
                     <StarRange/>
                 </div>
                
