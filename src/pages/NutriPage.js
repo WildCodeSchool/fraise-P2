@@ -35,7 +35,6 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         }
     }
 
-    const [selectedDiet,setSelectedDiet] = useState('');
     const [rangeValue, setRangeValue] = useState(20);
     const [query, setQuery] = useState("");
 
@@ -43,7 +42,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
    
     const filterProductList = productsList.filter(name => {
       
-        return name.product_name_fr.toLowerCase().includes(query.toLowerCase())
+      return name.product_name_fr.toLowerCase().includes(query.toLowerCase())
        
       });
 
@@ -101,33 +100,34 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
                 onChange={onChange}
                 value={query}
                 autoComplete="on"
-                placeholder="Find your product"
+                placeholder="find your product"
             />
           </form>
 
           <input
             type="range"
             min="1"
-            max="20"
+            max="50"
             value={rangeValue}
             onChange={(e) => setRangeValue(e.target.value)}
           />
-          {selectedDiet && <h5 onClick={()=> setSelectedDiet("")}>Annuler recherche</h5> }   
-           </div>
-            <div className="products-list">
-                {
-                filterByDiet.map((element,index) => (
-                <DietCard 
-                key={index} 
-                image_front_small_url={element.image_front_small_url}
-                brands={element.brands}
-                categories={element.categories}
-                ingredients_text={element.ingredients_text}
-                generic_name_fr={element.generic_name_fr}
-                nutriscore_grade={element.nutriscore_grade}
-                    />  
-                ))} 
-            </div>
+
+          {mainFilter.length > 0 && <h5 onClick={()=> setMainFilter([])}>annuler recherche</h5> }                       
+        </div>
+        <div className="products-list">
+            {
+            filterByDiet.map((element,index) => (
+            <DietCard 
+            key={index} 
+            image_front_small_url={element.image_front_small_url}
+            brands={element.brands}
+            categories={element.categories}
+            ingredients_text={element.ingredients_text}
+            generic_name_fr={element.generic_name_fr}
+            nutriscore_grade={element.nutriscore_grade}
+                />  
+            ))} 
+        </div>
         </section>
       </section>
     </>

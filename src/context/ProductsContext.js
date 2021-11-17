@@ -10,12 +10,12 @@ const [mainFilter,setMainFilter]=useState([]);
 
     useEffect(() => {
       (async () => {
-        const result = await fetch(`https://fr.openfoodfacts.org/cgi/search.pl?search_simple=1&action=process&page_size=100&json=true`)
+        const result = await fetch(`https://fr.openfoodfacts.org/cgi/search.pl?search_simple=1&action=process&page_size=250&page=1&json=true`)
         const data = await result.json()
         setProductsList(data.products)
         
       })()
-    }, [])
+    }, [productsList])
 
   return (
     <ProductsContext.Provider value={{
