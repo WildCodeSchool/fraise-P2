@@ -17,15 +17,15 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
    
     //================================================
 
-    const [filterGluten, setFilterGluten] = useState(false);
-    const [filterLactose, setFilterLactose] = useState(false);
+    /* const [filterGluten, setFilterGluten] = useState(false); */
+    /* const [filterLactose, setFilterLactose] = useState(false);
     const [filterEggs, setFilterEggs] = useState(false);
     const [filterFodmap, setFilterFodmap] = useState(false);
     const [filterNuts, setFilterNuts] = useState(false);
     const [filterSeafood, setFilterSeafood] = useState(false);
     const [filterSport, setFilterSport] = useState(false);
     const [filterVeggie, setFilterVeggie] = useState(false);
-    const [filterEndometriose, setFilterEndometriose] = useState(false);
+    const [filterEndometriose, setFilterEndometriose] = useState(false); */
 
     const [mainFilter,setMainFilter]=useState([]);
 
@@ -38,15 +38,15 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
 
         }
 
-        if (e.target.id == "filter-gluten"){ setFilterGluten(!filterGluten); setIsClicked(!isClicked)}
-        if (e.target.id == "filter-milk"){ setFilterLactose(!filterLactose); setIsClicked(!isClicked)}
+        /* if (e.target.id == "filter-gluten"){ setFilterGluten(!filterGluten); setIsClicked(!isClicked)} */
+        /*if (e.target.id == "filter-milk"){ setFilterLactose(!filterLactose); setIsClicked(!isClicked)}
         if (e.target.id == "filter-fodmap"){ setFilterFodmap(!filterFodmap); setIsClicked(!isClicked)}
         if (e.target.id == "filter-Nuts"){ setFilterNuts(!filterNuts); setIsClicked(!isClicked)}
         if (e.target.id == "filter-Eggs"){ setFilterEggs(!filterEggs); setIsClicked(!isClicked)}
         if (e.target.id == "filter-SeaFood"){ setFilterSeafood(!filterSeafood); setIsClicked(!isClicked)}
         if (e.target.id == "filter-Sport"){ setFilterSport(!filterSport); setIsClicked(!isClicked)}
         if (e.target.id == "filter-Veggie"){ setFilterVeggie(!filterVeggie); setIsClicked(!isClicked)}
-        if (e.target.id == "filter-Endometriose"){ setFilterEndometriose(!filterEndometriose); setIsClicked(!isClicked)}
+        if (e.target.id == "filter-Endometriose"){ setFilterEndometriose(!filterEndometriose); setIsClicked(!isClicked)} */
     }
 
     const [keyWordDiet, setKeyWordDiet] = useState("key word");
@@ -99,14 +99,21 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
   
    
     
-
+    
      
 
     const filterByDiet = productsList.filter((prod) => {
-      return !prod.allergens_hierarchy.some((allergen) => mainFilter.includes(allergen));
+      if(mainFilter.length > 1){
+        return setMainFilter([])
+        
+      }else{
+        return !prod.allergens_hierarchy.some((allergen) => mainFilter.includes(allergen));
+      }
+      //ajout ou supprimer via id (key) dans la fonction handlechange
+        
     });
         
-       
+  /* { selectedDiet && <h5 onClick={() => setSelectedDiet("")}>annuler recherche</h5> } */
 
          
 
@@ -163,7 +170,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
           );
           })}
         </ul> */}
-        {selectedDiet && <h5 onClick={()=> setSelectedDiet("")}>annuler recherche</h5> }
+        {/* {selectedDiet && <h5 onClick={()=> setSelectedDiet("")}>annuler recherche</h5> } */}
         
       </section>
       <section className="test">
@@ -171,14 +178,14 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         <p>{keyWordDiet}</p>
 
 
-        {filterGluten ? (<p>Gluten is on</p>) : (<p>Gluten is off</p>)} 
+        {/* {filterGluten ? (<p>Gluten is on</p>) : (<p>Gluten is off</p>)} */} 
 
          {labelsArray.map(label => (
           <FilterButton key={label}
            label={label} 
            handleClick={handleClick} 
-           setFilterGluten={setFilterGluten} 
-           filterGluten={filterGluten}/>
+           /* setFilterGluten={setFilterGluten} 
+           filterGluten={filterGluten} *//>
         ))} 
 
         
