@@ -4,20 +4,25 @@ import {lightTheme,darkTheme,GlobalStyles} from "./themes.js";
 
 export const lightTheme = {
     body:"white",
-    fontColor:"red",
+    color: '#FAFAFA',
 };
 
 
 export const darkTheme = {
     body:"#033554",
-    fontColor:'yellow',
+    color: 'red',
 };
 
 export const GlobalStyles = createGlobalStyle`
     body {
 
-        background-color:${(props) => props.theme.body}
+        background-color:${(props) => props.theme.body};
+        color: ${props => props.theme.color};
+       
+        
 
     }
+
+   
 
 `;

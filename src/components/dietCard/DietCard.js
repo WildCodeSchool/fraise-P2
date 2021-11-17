@@ -7,7 +7,7 @@ const DietCard = ({
     image_front_small_url,
     categories,
     ingredients_text,
-    nutriscore_grade,
+    nutrition_grades,
     generic_name_fr}) => {
     
     const [isClicked, setIsClicked] = useState(false);
@@ -24,7 +24,8 @@ const DietCard = ({
                 <div className={!isClicked ? "hidden" : "product-description"}>
                     <p>{categories}</p>
                     <p>{ingredients_text}</p>
-                    <p className="nutriscore">Nutriscore : {nutriscore_grade}</p>
+                    <img  src={`https://fr.openfoodfacts.org/images/misc/nutriscore-${nutrition_grades}.svg`} alt="" />               
+                    
                     <StarRange/>
                 </div>
             </div>

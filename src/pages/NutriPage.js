@@ -124,7 +124,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
             categories={element.categories}
             ingredients_text={element.ingredients_text}
             generic_name_fr={element.generic_name_fr}
-            nutriscore_grade={element.nutriscore_grade}
+            nutrition_grades={element.nutrition_grades}
                 />  
             ))} 
         </div>

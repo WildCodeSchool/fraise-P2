@@ -1,14 +1,18 @@
 
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../../images/logo-ramentafraise.png"
 import "./navbar.css"
+import styled from "styled-components";
 
+const StyleApp = styled.div`
+  color: ${props => props.theme.color}
+`;
 
 const NavBar = () => {
 
   return (
+    <StyleApp>
     <header>
       <section className="header-banner">
         <div className="title-logo-container">
@@ -44,6 +48,7 @@ const NavBar = () => {
         </ul>
       </nav>
     </header>
+    </StyleApp>
   );
 };
 

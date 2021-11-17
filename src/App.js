@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import styled,{ ThemeProvider } from "styled-components";
 import {lightTheme,darkTheme,GlobalStyles} from "./themes.js";
@@ -14,32 +14,31 @@ import Footer from "./components/footer/Footer";
 import "./index.css";
 import NutriPage from "./pages/NutriPage";
 import Toggle from "./components/toggle/Toggle.js";
+import { ProductsContext } from "./context/ProductsContext.js";
 
 
 const StyleApp = styled.div`
-  color: ${props => props.theme.fontColor}
+  color: ${props => props.theme.color}
 `;
 
 const App = () => {
-  const [theme,setTheme] = useState("light");
-  const [isToggled,setIsToggled] = useState(false)
+
+  const {theme,setTheme,isToggled,setIsToggled} = useContext(ProductsContext);
 
   const themeToggler = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
 
   };
   
-
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles/>
-      <StyleApp>
-      <Toggle rounded={true} isToggled={isToggled} onToggle={() => setIsToggled(!isToggled)}  themeToggler={ () =>themeToggler()}/>
-      </StyleApp>
-      </ThemeProvider>
+      
+      
      
-      <div>
+      <Toggle rounded={true} isToggled={isToggled} onToggle={() => setIsToggled(!isToggled)}  themeToggler={ () =>themeToggler()}/>
+      <StyleApp>
         <NavBar />
         <Switch>
           <Route exact path="/" component={Home} />
@@ -49,7 +48,9 @@ const App = () => {
           <Route path="/NutriPage" component={NutriPage} />
         </Switch>
         <Footer />
-      </div>
+        </StyleApp>
+        </ThemeProvider>
+       
     </BrowserRouter>
   )};
 

@@ -7,6 +7,8 @@ const ProductsContextProvider = ({ children }) => {
 const [productsList,setProductsList] = useState([])
 const [onCheck,setOncheck]= useState(false)
 const [mainFilter,setMainFilter]=useState([]);
+const [theme,setTheme] = useState("light");
+const [isToggled,setIsToggled] = useState(false)
 
     useEffect(() => {
       (async () => {
@@ -23,7 +25,13 @@ const [mainFilter,setMainFilter]=useState([]);
       onCheck,
       setOncheck,
       mainFilter,
-      setMainFilter}}> 
+      setMainFilter,
+      theme,
+      setTheme,
+      isToggled,
+      setIsToggled
+    
+      }}> 
       {children}
     </ProductsContext.Provider>
   );
