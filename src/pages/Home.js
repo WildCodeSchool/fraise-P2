@@ -39,11 +39,9 @@ const Home = () => {
     // On diet element click setDiet true
     setOncheck(prevCheck => !prevCheck)
     // And add diet to main filter
-    // const allerg = e.target.value
-    // if(!mainFilter.includes(allerg)){
-    //   setMainFilter([...mainFilter,`${allerg}`])
-  
-    // }
+   
+    
+    
   };
 
   return (
@@ -59,7 +57,13 @@ const Home = () => {
               specialDiet={diet.specialDiet}
               description={diet.description} 
               value={diet}
-              handleClick={handleClick}
+              handleClick={()=>
+              {handleClick();
+              if(!mainFilter.includes(diet.specialDiet)){
+              setMainFilter([...mainFilter,`en:${diet.specialDiet}`])
+              }
+              console.log("my target value",diet.specialDiet);
+              }}
               setChosenDiet={setChosenDiet}
               />)
           })
