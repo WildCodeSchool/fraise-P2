@@ -9,19 +9,18 @@ import { ProductsContext } from '../context/ProductsContext';
 
 const NutriPage = ({description, specialDiet, labelsArray}) => {
    
-    const {productsList,onCheck,setOncheck} = useContext(ProductsContext)
+    const {productsList,onCheck,setOncheck,mainFilter,setMainFilter} = useContext(ProductsContext)
 
     const handleCheckToggle = (e)=> {
       setOncheck(e.target.value === false ? true : false)
     
     }
 
-    const [mainFilter,setMainFilter]=useState([]);
    
     // On toggle click set diet value in array Mainfilter of allergens
     const handleClick = (e) => {
       console.log(e.target.id)
-        const allerg = e.target.id.split('-')[1]
+        const allerg = e.target.id
         if(!mainFilter.includes(allerg)){
           setMainFilter([...mainFilter,`en:${allerg}`])
       

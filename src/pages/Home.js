@@ -21,8 +21,9 @@ const dietProfile = [
 const labelsArray = (dietProfile.map(diet => diet.specialDiet));
 
 const Home = () => {
-  // use check context (conexxion between home & nutripage toggle boolen)
-  const {onCheck,setOncheck} = useContext(ProductsContext);
+
+  // use check context (conexion between home & nutripage toggle boolen)
+  const {onCheck,setOncheck,mainFilter,setMainFilter} = useContext(ProductsContext);
 
   const [homeDisplayed, setHomeDisplayed] = useState(true);
   const [chosenDiet, setChosenDiet] = useState();
@@ -35,8 +36,14 @@ const Home = () => {
     console.log("the chosen diet is:")
     console.log(chosenDiet);
     //==================
-    
+    // On diet element click setDiet true
     setOncheck(prevCheck => !prevCheck)
+    // And add diet to main filter
+    // const allerg = e.target.value
+    // if(!mainFilter.includes(allerg)){
+    //   setMainFilter([...mainFilter,`${allerg}`])
+  
+    // }
   };
 
   return (

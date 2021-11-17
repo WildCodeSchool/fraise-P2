@@ -6,6 +6,7 @@ const ProductsContextProvider = ({ children }) => {
 
 const [productsList,setProductsList] = useState([])
 const [onCheck,setOncheck]= useState(false)
+const [mainFilter,setMainFilter]=useState([]);
 
     useEffect(() => {
       (async () => {
@@ -17,7 +18,12 @@ const [onCheck,setOncheck]= useState(false)
     }, [])
 
   return (
-    <ProductsContext.Provider value={{productsList,onCheck,setOncheck}}> 
+    <ProductsContext.Provider value={{
+      productsList,
+      onCheck,
+      setOncheck,
+      mainFilter,
+      setMainFilter}}> 
       {children}
     </ProductsContext.Provider>
   );
