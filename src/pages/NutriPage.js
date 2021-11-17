@@ -1,83 +1,46 @@
-import React, {useState,useContext, useEffect} from 'react';
+
+import React, {useState,useContext} from 'react';
 import NutriTitle from '../components/nutrititle/NutriTitle'
 import './NutriPage.css'
 import DietCard from "../components/dietCard/DietCard";
 import SpecialDiets from '../components/specialdiets/SpecialDiets';
 import FilterButton from '../components/FilterButton/FilterButton';
-import useCustomHook from "../components/useCustomHook";
 import { ProductsContext } from '../context/ProductsContext';
 
 const NutriPage = ({description, specialDiet, labelsArray}) => {
    
-    // ===============================================
+    const {productsList,onCheck,setOncheck,mainFilter,setMainFilter} = useContext(ProductsContext)
 
-    const {productsList} = useContext(ProductsContext)
-     
+    const handleCheckToggle = (e)=> {
+      setOncheck(e.target.value === false ? true : false)
     
-   
-    //================================================
-
-    /* const [filterGluten, setFilterGluten] = useState(false); */
-    /* const [filterLactose, setFilterLactose] = useState(false);
-    const [filterEggs, setFilterEggs] = useState(false);
-    const [filterFodmap, setFilterFodmap] = useState(false);
-    const [filterNuts, setFilterNuts] = useState(false);
-    const [filterSeafood, setFilterSeafood] = useState(false);
-    const [filterSport, setFilterSport] = useState(false);
-    const [filterVeggie, setFilterVeggie] = useState(false);
-    const [filterEndometriose, setFilterEndometriose] = useState(false); */
-
-    const [mainFilter,setMainFilter]=useState([]);
-
-    const handleClick = (e) => {
-      console.log(e.target.id)
-        const allerg = e.target.id.split('-')[1]
-        if(!mainFilter.includes(allerg)){
-          setMainFilter([...mainFilter,`en:${allerg}`])
-         
-
-        }
-
-        /* if (e.target.id == "filter-gluten"){ setFilterGluten(!filterGluten); setIsClicked(!isClicked)} */
-        /*if (e.target.id == "filter-milk"){ setFilterLactose(!filterLactose); setIsClicked(!isClicked)}
-        if (e.target.id == "filter-fodmap"){ setFilterFodmap(!filterFodmap); setIsClicked(!isClicked)}
-        if (e.target.id == "filter-Nuts"){ setFilterNuts(!filterNuts); setIsClicked(!isClicked)}
-        if (e.target.id == "filter-Eggs"){ setFilterEggs(!filterEggs); setIsClicked(!isClicked)}
-        if (e.target.id == "filter-SeaFood"){ setFilterSeafood(!filterSeafood); setIsClicked(!isClicked)}
-        if (e.target.id == "filter-Sport"){ setFilterSport(!filterSport); setIsClicked(!isClicked)}
-        if (e.target.id == "filter-Veggie"){ setFilterVeggie(!filterVeggie); setIsClicked(!isClicked)}
-        if (e.target.id == "filter-Endometriose"){ setFilterEndometriose(!filterEndometriose); setIsClicked(!isClicked)} */
     }
 
-    const [keyWordDiet, setKeyWordDiet] = useState("key word");
-    const [isClicked, setIsClicked] = useState(false);
+   
+    // On toggle click set diet value in array Mainfilter of allergens
+    const handleClick = (e) => {
+      console.log("Allergen selected : ",e.target.id)
+        const allerg = e.target.id
+        if(!mainFilter.includes(`en:${allerg}`)){
+          setMainFilter([...mainFilter,`en:${allerg}`])
+      
+        }else if (mainFilter.includes(`en:${allerg}`)) {
+          setMainFilter(mainFilter.filter(diet => diet !== `en:${allerg}`))
 
-    // useEffect(() => {
-    //     if (filterGluten) { 
-    //     setKeyWordDiet("gluten")
-    //   } else if (filterLactose) { 
-    //     setKeyWordDiet("lactose")
-    //   } else if (filterNuts) { 
-    //     setKeyWordDiet("nuts")
-    //   } else if (filterEggs) { 
-    //     setKeyWordDiet("eggs")
-    //   } else {
-    //     setKeyWordDiet("")
-    //   }
-    // }, [isClicked])
+        }else{
+          return [...mainFilter]
+        }
+    }
 
-    
-
-    const [selectedDiet,setSelectedDiet] = useState('')
-    const toggleChoice = ["gluten","lactose","eggs"]
+    const [selectedDiet,setSelectedDiet] = useState('');
     const [rangeValue, setRangeValue] = useState(10);
     const [query, setQuery] = useState("");
 
     // ============SEARCH BAR ELEMENT ======================
    
     const filterProductList = productsList.filter(name => {
-      // console.log(name.brands.toLowerCase().includes(query.toLowerCase()))
-        return name.brands.toLowerCase().includes(query.toLowerCase())
+      
+        return name.product_name_fr.toLowerCase().includes(query.toLowerCase())
        
       });
 
@@ -92,39 +55,19 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         
     };
 
-    // =====================================================
-    
-
-    // ========= TEST MULTIPLE TOGGLE FILTER ==========
+    // =========  MULTIPLE TOGGLE FILTER ==========
   
-   
-    
-    
-     
-
-    const filterByDiet = productsList.filter((prod) => {
-      if(mainFilter.length > 1){
-        return setMainFilter([])
-        
-      }else{
-        return !prod.allergens_hierarchy.some((allergen) => mainFilter.includes(allergen));
-      }
-      //ajout ou supprimer via id (key) dans la fonction handlechange
-        
+    const filterByDiet = filterProductList.filter((prod) => {
+      console.log(!prod.allergens_hierarchy.some((allergen) => mainFilter.includes(allergen)))
+      return !prod.allergens_hierarchy.some((allergen) => mainFilter.includes(allergen));
     });
-        
-  /* { selectedDiet && <h5 onClick={() => setSelectedDiet("")}>annuler recherche</h5> } */
-
-         
-
-      console.log("toggle filter",filterByDiet)
-    //===================================
-
+   
+      console.log("filtered products List : ", filterByDiet )
+   
 
     // ========= SLIDER RANGE ELEMENT ============
     
-
-   filterByDiet.length = rangeValue;
+    filterProductList.length = rangeValue;
       
 
     // ===========================================
@@ -174,21 +117,16 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         
       </section>
       <section className="test">
-        <h3>Le key word est:</h3>
-        <p>{keyWordDiet}</p>
-
-
-        {/* {filterGluten ? (<p>Gluten is on</p>) : (<p>Gluten is off</p>)} */} 
-
+     
          {labelsArray.map(label => (
           <FilterButton key={label}
            label={label} 
-           handleClick={handleClick} 
-           /* setFilterGluten={setFilterGluten} 
-           filterGluten={filterGluten} *//>
-        ))} 
-
+           handleClick={handleClick}
+           value={onCheck}
+           handleCheck={handleCheckToggle}
         
+          />
+        ))} 
 
       </section>
       <section className="filters-result">
@@ -196,9 +134,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         <section className="diet-cards">
             <div className="products-list">
                 {
-                
                 filterByDiet.map((element,index) => (
-
                 <DietCard 
                 key={index} 
                 image_front_small_url={element.image_front_small_url}
@@ -206,7 +142,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
                 categories={element.categories}
                 ingredients_text={element.ingredients_text}
                 generic_name_fr={element.generic_name_fr}
-                nutrition_grade_fr={element.nutrition_grade_fr}
+                nutriscore_grade={element.nutriscore_grade}
                     />  
                 ))} 
             </div>
