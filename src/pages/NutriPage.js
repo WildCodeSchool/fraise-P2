@@ -34,7 +34,6 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         }
     }
 
-    const [selectedDiet,setSelectedDiet] = useState('');
     const [rangeValue, setRangeValue] = useState(20);
     const [query, setQuery] = useState("");
 
@@ -100,7 +99,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         />
 
      
-        {mainFilter.length > 0 && <h5 onClick={()=> setMainFilter("")}>annuler recherche</h5> }
+        {mainFilter.length > 0 && <h5 onClick={()=> setMainFilter([])}>annuler recherche</h5> }
         
       </section>
       <section className="test">

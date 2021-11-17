@@ -55,8 +55,8 @@ const Home = () => {
               if(!mainFilter.includes(`en:${diet.specialDiet}`)){
                 setMainFilter([...mainFilter,`en:${diet.specialDiet}`])
 
-              }else if (mainFilter.includes(`en:${allerg}`)) {
-                setMainFilter(mainFilter.filter(diet => diet !== `en:${allerg}`))
+              }else if (mainFilter.includes(`en:${diet.specialDiet}`)) {
+                setMainFilter(mainFilter.filter(diet => diet !== `en:${diet.specialDiet}`))
 
               }else{
                 return [...mainFilter]

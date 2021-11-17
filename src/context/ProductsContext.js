@@ -15,7 +15,7 @@ const [mainFilter,setMainFilter]=useState([]);
         setProductsList(data.products)
         
       })()
-    }, [])
+    }, [productsList])
 
   return (
     <ProductsContext.Provider value={{
