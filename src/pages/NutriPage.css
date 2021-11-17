@@ -23,6 +23,7 @@
 .search-bar-countainer {
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 1rem;
 }
 
@@ -36,4 +37,8 @@
 
 .search-form input::placeholder {
     color: #3eacc2;
+}
+
+.cancel-search {
+    margin: 0 1rem;
 }

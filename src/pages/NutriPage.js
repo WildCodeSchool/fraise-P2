@@ -100,7 +100,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
                 onChange={onChange}
                 value={query}
                 autoComplete="on"
-                placeholder="find your product"
+                placeholder="Find your product"
             />
           </form>
 
@@ -112,7 +112,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
             onChange={(e) => setRangeValue(e.target.value)}
           />
 
-          {mainFilter.length > 0 && <h5 onClick={()=> setMainFilter([])}>annuler recherche</h5> }                       
+          {mainFilter.length > 0 && <h5 className="cancel-search" onClick={()=> setMainFilter([])}>Annuler la recherche</h5> }                       
         </div>
         <div className="products-list">
             {
