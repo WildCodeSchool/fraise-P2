@@ -120,3 +120,14 @@
   content: "⚠";
 }
 
+@media screen and (max-width: 768px) {
+  .lightgreen-bloc {
+    display: none;
+  }
+}
+.form-suggestion {
+  display: flex;
+  flex-direction: column;
+}
+
+

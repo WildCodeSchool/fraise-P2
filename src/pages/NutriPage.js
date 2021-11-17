@@ -4,7 +4,7 @@ import NutriTitle from '../components/nutrititle/NutriTitle'
 import './NutriPage.css'
 import DietCard from "../components/dietCard/DietCard";
 import SpecialDiets from '../components/specialdiets/SpecialDiets';
-import FilterButton from '../components/filterbutton/FilterButton';
+import FilterButton from '../components/FilterButton/FilterButton'
 
 import { ProductsContext } from '../context/ProductsContext';
 
