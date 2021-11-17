@@ -29,7 +29,6 @@ const App = () => {
             <Route path="/Contact" component={Contact} />
             <Route path="/Login" component={Login} />
             <Route path="/Connexion" component={Connexion} />
-            <AuthenticatedRoute path="/Login" component={Login} />
             <AuthenticatedRoute path="/Home" component={Home} />
           </Switch>
           <Footer />

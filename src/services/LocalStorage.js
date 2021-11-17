@@ -1,11 +1,11 @@
-export function removeItem(itemToremove) {
-  window.localStorage.removeItem(itemToremove);
+export function removeItem(itemToRemove) {
+  window.localStorage.removeItem(itemToRemove);
 }
 
 export function getItem(item) {
-  return window.localStorage.getItem(item);
+   window.localStorage.getItem(item);
 }
 
 export function addItem(localStorageName, newItem) {
-  window.localStorage.setItem(localStorageName, newItem);
+  window.localStorage.setItem(localeStorageName, newItem);
 }

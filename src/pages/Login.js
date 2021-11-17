@@ -1,22 +1,23 @@
 import React, { useEffect, useState, useContext } from "react";
 import Auth from "../contexte/Auth";
+import { Link } from "react-router-dom";
 import "./Login.css";
 
 const Login = ({ history }) => {
   const { isAuthenticated, setIsAuthenticated } = useContext(Auth);
-  const [username, setUsername] = useState({
+  const [user, setUser] = useState({
     username: "",
     password: "",
   });
   const handleChange = ({ currentTarget }) => {
-    const { username, value } = currentTarget;
-    setUsername({ ...user, [username]: value });
-  };
-  const handleSubmit = async (event) => {
-    console.log(event);
-    event.preventDefault();
+    const { name, value } = currentTarget;
+    setUser({...user, [name]: value })
+  }
+  const handleSubmit =  (e) => {
+    console.log(e);
+    e.preventDefault();
     try {
-      const response = await login(username);
+      const response =  login(username);
       setIsAuthenticated(response);
       history.replace("/Home");
     } catch ({ response }) {
@@ -28,13 +29,14 @@ const Login = ({ history }) => {
       history.replace("/Home");
     }
   }, [history, isAuthenticated]);
+
   return (
     <div className="login">
       <h2 className="h2-contact">Login</h2>
-
+< form className="form-profil" onSubmit={handleSubmit}>
       <input
         class="name"
-        type="name"
+        type="text"
         id="name"
         name="username"
         placeholder="username"
@@ -53,12 +55,13 @@ const Login = ({ history }) => {
       <label for="forgot">Forgot your password?</label>
       <br />
       <input
-        class="sign"
+        className="sign"
         id="buttonsignup"
         type="submit"
         value="Sign in"
-        onSubmit={handleSubmit}
+       
       />
+      </form>
     </div>
   );
 };
