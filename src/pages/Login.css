@@ -1,0 +1,19 @@
+.login {
+  text-align: center;
+  background-color: #dcf9ed;
+}
+
+.name .password {
+  width: 40%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 2rem;
+  background-color: white;
+  border: none;
+  box-shadow: 5px 5px 4px rgba(20, 94, 140, 0.25);
+}
+
+.sign hover {
+  background-color: #86e3d5;
+  transition: 1s;
+}
