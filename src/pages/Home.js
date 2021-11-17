@@ -52,13 +52,17 @@ const Home = () => {
               handleClick={()=>
               {handleClick();
               if(!mainFilter.includes(`en:${diet.specialDiet}`)){
-              setMainFilter([...mainFilter,`en:${diet.specialDiet}`])
+                setMainFilter([...mainFilter,`en:${diet.specialDiet}`])
+
+              }else if (mainFilter.includes(`en:${allerg}`)) {
+                setMainFilter(mainFilter.filter(diet => diet !== `en:${allerg}`))
+
               }else{
                 return [...mainFilter]
               }
               console.log("Diet selected:",diet.specialDiet);
               }}
-              setChosenDiet={setChosenDiet}
+                setChosenDiet={setChosenDiet}
               />)
           })
           

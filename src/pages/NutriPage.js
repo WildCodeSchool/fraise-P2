@@ -24,6 +24,9 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         if(!mainFilter.includes(`en:${allerg}`)){
           setMainFilter([...mainFilter,`en:${allerg}`])
       
+        }else if (mainFilter.includes(`en:${allerg}`)) {
+          setMainFilter(mainFilter.filter(diet => diet !== `en:${allerg}`))
+
         }else{
           return [...mainFilter]
         }
