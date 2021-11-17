@@ -11,7 +11,7 @@ const dietProfile = [
   { color: "dark_blue", specialDiet:"nuts", description: "Allergie fruits à coque" },
   { color: "creme_blue", specialDiet:"eggs", description: "Allergie aux oeufs" },
   { color: "blue", specialDiet:"soybeans", description: "Allergie aux Soja" },
-  { color: "dark_blue", specialDiet:"Nutriscore A", description: "Régime : sportif" }
+  { color: "dark_blue", specialDiet:"sesame-seeds", description: "Allergie aux graine de sésame" }
   
 ]
 
@@ -50,7 +50,7 @@ const Home = () => {
               description={diet.description} 
               value={diet}
               handleClick={()=>
-              {handleClick();
+              {handleClick(diet);
               // Second Function
               if(!mainFilter.includes(`en:${diet.specialDiet}`)){
                 setMainFilter([...mainFilter,`en:${diet.specialDiet}`])
