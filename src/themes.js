@@ -3,14 +3,14 @@ import styled,{ ThemeProvider } from "styled-components";
 import {lightTheme,darkTheme,GlobalStyles} from "./themes.js";
 
 export const lightTheme = {
-    body:"#86E3D5",
-    fontColor:'yellow'
+    body:"white",
+    fontColor:"red",
 };
 
 
 export const darkTheme = {
-    body:"#DCF9ED",
-    fontColor:"red",
+    body:"#033554",
+    fontColor:'yellow',
 };
 
 export const GlobalStyles = createGlobalStyle`

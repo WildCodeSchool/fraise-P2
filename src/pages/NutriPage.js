@@ -4,7 +4,8 @@ import NutriTitle from '../components/nutrititle/NutriTitle'
 import './NutriPage.css'
 import DietCard from "../components/dietCard/DietCard";
 import SpecialDiets from '../components/specialdiets/SpecialDiets';
-import FilterButton from '../components/FilterButton/FilterButton';
+import FilterButton from '../components/filterbutton/FilterButton';
+
 import { ProductsContext } from '../context/ProductsContext';
 
 const NutriPage = ({description, specialDiet, labelsArray}) => {
@@ -77,48 +78,42 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
     return (
     <>
       <section className="diet-filters">
-
-        <form 
-          onSubmit={onSubmit} 
-          className="search-form">
-          <input
-              type="text"
-              name="query"
-              onChange={onChange}
-              value={query}
-              autoComplete="on"
-              placeholder="find your product"
-          />
-        </form>
-
-        <input
-          type="range"
-          min="1"
-          max="20"
-          value={rangeValue}
-          onChange={(e) => setRangeValue(e.target.value)}
+      {labelsArray.map(label => (
+        <FilterButton key={label}
+        label={label} 
+        handleClick={handleClick}
+        value={onCheck}
+        handleCheck={handleCheckToggle}
         />
-
-     
-        {selectedDiet && <h5 onClick={()=> setSelectedDiet("")}>annuler recherche</h5> }
-        
+      ))} 
       </section>
-      <section className="test">
-     
-         {labelsArray.map(label => (
-          <FilterButton key={label}
-           label={label} 
-           handleClick={handleClick}
-           value={onCheck}
-           handleCheck={handleCheckToggle}
-        
-          />
-        ))} 
-
-      </section>
+      
       <section className="filters-result">
         <NutriTitle description={description} />
         <section className="diet-cards">
+        <div className="search-bar-countainer">
+          <form 
+            onSubmit={onSubmit} 
+            className="search-form">
+            <input
+                type="text"
+                name="query"
+                onChange={onChange}
+                value={query}
+                autoComplete="on"
+                placeholder="Find your product"
+            />
+          </form>
+
+          <input
+            type="range"
+            min="1"
+            max="20"
+            value={rangeValue}
+            onChange={(e) => setRangeValue(e.target.value)}
+          />
+          {selectedDiet && <h5 onClick={()=> setSelectedDiet("")}>Annuler recherche</h5> }   
+           </div>
             <div className="products-list">
                 {
                 filterByDiet.map((element,index) => (

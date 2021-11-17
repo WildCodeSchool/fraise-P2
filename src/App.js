@@ -18,11 +18,10 @@ import Toggle from "./components/toggle/Toggle.js";
 
 const StyleApp = styled.div`
   color: ${props => props.theme.fontColor}
-
 `;
 
 const App = () => {
-  const [theme,setTheme] = useState("dark");
+  const [theme,setTheme] = useState("light");
   const [isToggled,setIsToggled] = useState(false)
 
   const themeToggler = () => {
@@ -33,7 +32,6 @@ const App = () => {
 
   return (
     <BrowserRouter>
-
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles/>
       <StyleApp>

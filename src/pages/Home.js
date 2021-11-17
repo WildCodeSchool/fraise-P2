@@ -8,10 +8,10 @@ import { ProductsContext } from '../context/ProductsContext';
 const dietProfile = [
   { color: "dark_blue", specialDiet:"gluten", description: "Intolérence au gluten" },
   { color: "creme_blue", specialDiet:"milk", description: "Intolérence au lactose" },
-  { color: "dark_blue", specialDiet:"nuts", description: "Allergie fruits à coque" },
-  { color: "creme_blue", specialDiet:"eggs", description: "Allergie aux oeufs" },
-  { color: "blue", specialDiet:"soybeans", description: "Allergie aux Soja" },
-  { color: "dark_blue", specialDiet:"Nutriscore A", description: "Régime : sportif" }
+  { color: "blue", specialDiet:"nuts", description: "Allergie fruits à coque" },
+  { color: "dark_blue", specialDiet:"eggs", description: "Allergie aux oeufs" },
+  { color: "creme_blue", specialDiet:"soybeans", description: "Allergie aux Soja" },
+  { color: "blue", specialDiet:"Nutriscore A", description: "Régime : sportif" }
   
 ]
 

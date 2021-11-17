@@ -7,7 +7,7 @@ const StarRange = () => {
     const [hover, setHover] = useState(null);
 
     return (     
-        <div className="starContainer ">
+      <div className="starContainer ">
         {[...Array(5)].map((star, i) => {
           const ratingValue = i + 1;
           return (
