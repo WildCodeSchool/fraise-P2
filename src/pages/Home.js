@@ -16,8 +16,6 @@ const dietProfile = [
 ]
 
 
-
-
 const labelsArray = (dietProfile.map(diet => diet.specialDiet));
 
 const Home = () => {
@@ -30,16 +28,10 @@ const Home = () => {
 
   const handleClick = (value) => {
     setHomeDisplayed(false);
-    console.log("La valeur de la catégorie est :")
-    console.log(value);
     setChosenDiet(value);
-    console.log("the chosen diet is:")
-    console.log(chosenDiet);
     //==================
-    // On diet element click setDiet true
+    // On diet element click setStateDiet to true 
     setOncheck(prevCheck => !prevCheck)
-    // And add diet to main filter
-   
     
     
   };
@@ -59,10 +51,12 @@ const Home = () => {
               value={diet}
               handleClick={()=>
               {handleClick();
-              if(!mainFilter.includes(diet.specialDiet)){
+              if(!mainFilter.includes(`en:${diet.specialDiet}`)){
               setMainFilter([...mainFilter,`en:${diet.specialDiet}`])
+              }else{
+                return [...mainFilter]
               }
-              console.log("my target value",diet.specialDiet);
+              console.log("Diet selected:",diet.specialDiet);
               }}
               setChosenDiet={setChosenDiet}
               />)

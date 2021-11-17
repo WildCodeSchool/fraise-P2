@@ -19,11 +19,13 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
    
     // On toggle click set diet value in array Mainfilter of allergens
     const handleClick = (e) => {
-      console.log(e.target.id)
+      console.log("Allergen selected : ",e.target.id)
         const allerg = e.target.id
-        if(!mainFilter.includes(allerg)){
+        if(!mainFilter.includes(`en:${allerg}`)){
           setMainFilter([...mainFilter,`en:${allerg}`])
       
+        }else{
+          return [...mainFilter]
         }
     }
 
@@ -50,14 +52,14 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         
     };
 
-    // ========= TEST MULTIPLE TOGGLE FILTER ==========
+    // =========  MULTIPLE TOGGLE FILTER ==========
   
     const filterByDiet = filterProductList.filter((prod) => {
       console.log(!prod.allergens_hierarchy.some((allergen) => mainFilter.includes(allergen)))
       return !prod.allergens_hierarchy.some((allergen) => mainFilter.includes(allergen));
     });
    
-      console.log("toggle filter",filterProductList )
+      console.log("filtered products List : ", filterByDiet )
    
 
     // ========= SLIDER RANGE ELEMENT ============
@@ -137,7 +139,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
                 categories={element.categories}
                 ingredients_text={element.ingredients_text}
                 generic_name_fr={element.generic_name_fr}
-                nutrition_grade_fr={element.nutrition_grade_fr}
+                nutriscore_grade={element.nutriscore_grade}
                     />  
                 ))} 
             </div>
