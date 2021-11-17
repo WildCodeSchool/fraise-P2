@@ -14,7 +14,7 @@ const dietProfile = [
   { color: "blue", specialDiet:"sesame-seeds", description: "Allergie aux graines sésames" }
   
 ]
-
+ 
 
 const labelsArray = (dietProfile.map(diet => diet.specialDiet));
 
