@@ -14,10 +14,11 @@ const Login = ({ history }) => {
     setUser({...user, [name]: value })
   }
   const handleSubmit =  (e) => {
+    console.log("this is the event: ")
     console.log(e);
     e.preventDefault();
     try {
-      const response =  login(username);
+      const response = login(username);
       setIsAuthenticated(response);
       history.replace("/Home");
     } catch ({ response }) {
@@ -33,34 +34,33 @@ const Login = ({ history }) => {
   return (
     <div className="login">
       <h2 className="h2-contact">Login</h2>
-< form className="form-profil" onSubmit={handleSubmit}>
-      <input
-        class="name"
-        type="text"
-        id="name"
-        name="username"
-        placeholder="username"
-        onChange={handleChange}
-      />
-      <br />
-      <input
-        class="password"
-        type="password"
-        id="password"
-        name="password"
-        placeholder="Password"
-        onChange={handleChange}
-      />
-      <br />
-      <label for="forgot">Forgot your password?</label>
-      <br />
-      <input
-        className="sign"
-        id="buttonsignup"
-        type="submit"
-        value="Sign in"
-       
-      />
+      <form className="form-profil" onSubmit={handleSubmit}>
+        <input
+          className="name"
+          type="text"
+          id="name"
+          name="username"
+          placeholder="username"
+          onChange={handleChange}
+        />
+        <br />
+        <input
+          className="password"
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          onChange={handleChange}
+        />
+        <br />
+        <label htmlFor="forgot">Forgot your password?</label>
+        <br />
+        <input
+          className="sign"
+          id="buttonsignup"
+          type="submit"
+          value="Sign in"
+        />
       </form>
     </div>
   );
