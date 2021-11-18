@@ -3,7 +3,7 @@ footer {
   align-items: flex-start;
   justify-content: space-between;
   padding: 4rem 3rem;
-  background-color: #145E8C;
+  background-color: #145e8c;
   color: white;
   font-size: 0.9rem;
   line-height: 1.5rem;
@@ -15,26 +15,26 @@ footer a {
 }
 
 footer a:hover {
-  color: #DCF9ED;
-  text-decoration: underline #3EACC2;
+  color: #dcf9ed;
+  text-decoration: underline #3eacc2;
   font-weight: bolder;
   cursor: pointer;
 }
 
 footer h3 {
-  padding-bottom: 0.7rem; 
+  padding-bottom: 0.7rem;
 }
 
 footer li {
   flex-direction: column;
   flex-flow: column wrap;
-  list-style-type: none; 
+  list-style-type: none;
   padding-left: 0.5rem;
-  margin: 0; 
+  margin: 0;
 }
 
 .footer-arrow {
-  color: #3EACC2;
+  color: #3eacc2;
 }
 
 .footer-links {
@@ -53,13 +53,12 @@ footer li {
   margin: 0 0.2rem;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
   footer {
     flex-direction: column;
     padding-left: 10%;
-    
   }
   .footer-links {
     padding-bottom: 2rem;
+  }
 }
-} 

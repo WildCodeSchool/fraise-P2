@@ -9,6 +9,11 @@ const [onCheck,setOncheck]= useState(false)
 const [mainFilter,setMainFilter]=useState([]);
 const [theme,setTheme] = useState("light");
 const [isToggled,setIsToggled] = useState(false)
+const [homeDisplayed, setHomeDisplayed] = useState(true);
+
+const handleClickHome = () => {if(homeDisplayed == false) {
+      setHomeDisplayed(true)
+    }}
 
     useEffect(() => {
       (async () => {
@@ -29,7 +34,10 @@ const [isToggled,setIsToggled] = useState(false)
       theme,
       setTheme,
       isToggled,
-      setIsToggled
+      setIsToggled,
+      homeDisplayed,
+      setHomeDisplayed,
+      handleClickHome
     
       }}> 
       {children}

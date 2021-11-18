@@ -7,6 +7,7 @@ import SpecialDiets from '../components/specialdiets/SpecialDiets';
 import FilterButton from '../components/FilterButton/FilterButton'
 import styled,{ ThemeProvider } from "styled-components";
 
+
 const StyleApp = styled.div
   `color: ${props => props.theme.color}`
 ;
@@ -23,7 +24,6 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
     
     }
 
-   
     // On toggle click set diet value in array Mainfilter of allergens
     const handleClick = (e) => {
       console.log("Allergen selected : ",e.target.id)
@@ -111,7 +111,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
                 placeholder="Find your product"
             />
           </form>
-
+        
           <input
             type="range"
             min="1"

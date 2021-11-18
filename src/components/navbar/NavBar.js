@@ -4,9 +4,12 @@ import logo from "../../images/logo-ramentafraise.png";
 import Auth from "../../contexte/Auth";
 import "./navbar.css";
 import { logout } from "../../services/AuthApi";
+import { ProductsContext } from "../../context/ProductsContext";
+
 
 const NavBar = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(Auth);
+  const { handleClickHome } = useContext(ProductsContext)
 
   const handleLogout = () => {
     logout();
@@ -17,7 +20,7 @@ const NavBar = () => {
     <header>
       <section className="header-banner">
         <div className="title-logo-container">
-          <Link to="/Home">
+          <Link to="/Home" onClick={handleClickHome}>
             <img className="logo" src={logo} alt="" />
           </Link>
 
@@ -57,7 +60,7 @@ const NavBar = () => {
       </section>
       <nav className="nav-general">
         <ul>
-          <Link to="/Home">Home</Link>
+          <Link to="/Home" onClick={handleClickHome}>Home</Link>
 
           <li>
             <Link to="/Contact">Contact</Link>

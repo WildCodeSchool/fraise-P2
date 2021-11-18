@@ -24,10 +24,12 @@ const Home = () => {
   
 
   // use check context (conexion between home & nutripage toggle boolen)
-  const {onCheck,setOncheck,mainFilter,setMainFilter} = useContext(ProductsContext);
+  const {onCheck,setOncheck,mainFilter,setMainFilter,homeDisplayed,setHomeDisplayed} = useContext(ProductsContext);
 
-  const [homeDisplayed, setHomeDisplayed] = useState(true);
+  
   const [chosenDiet, setChosenDiet] = useState();
+
+  
 
   const handleClick = (value,e) => {
     setHomeDisplayed(false);
@@ -38,11 +40,10 @@ const Home = () => {
    
   
   };
-
+  
   return (
    <>
       <div className={homeDisplayed ? "container-home" : "hidden"}>
-        <div className="card-my-profil">mon profil perso</div>
         <section className="container-profil-cards">
           {dietProfile.map((diet) => {
             return (
