@@ -130,7 +130,7 @@
 }
 .form-suggestion {
   display: flex;
-  
+  flex-direction: column;
 }
 
 
