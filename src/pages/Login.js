@@ -1,69 +1,94 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { useAuth } from "../components/privateroute/Auth";
+import React, { useEffect, useState, useContext } from "react";
+import Auth from "../contexte/Auth";
 import "./Login.css";
+import {useForm} from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
 
-function Login() {
-  const [isLoggedIn, setLoggedIn] = useState(false);
-  const [isError, setIsError] = useState(false);
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const { setAuthTokens } = useAuth();
+const schema = yup.object({
+  username: yup.string().max(20).required("Please enter your User Name"),
+  password: yup.string().max(200).required("Please enter a password"),
+}).required();
 
-  function postLogin() {
-    axios
-      .post("https://www.somePlace.com/auth/login", {
-        userName,
-        password,
-      })
-      .then((result) => {
-        if (result.status === 200) {
-          setAuthTokens(result.data);
-          setLoggedIn(true);
-        } else {
-          setIsError(true);
-        }
-      })
-      .catch((e) => {
-        setIsError(true);
-      });
+
+const Login = ({ history }) => {
+  const { isAuthenticated, setIsAuthenticated } = useContext(Auth);
+  const [user, setUser] = useState({
+    username: "",
+    password: ""
+  });
+
+  const handleChange = ({ currentTarget }) => {
+    const { name, value } = currentTarget;
+    setUser({...user, [name]: value })
   }
 
-  if (isLoggedIn) {
-    return <Redirect to="/" />;
-  }
+  const handleSubmited =  () => {
+    
+    try {
+      const response = "username";
+      setIsAuthenticated(response);
+      history.replace("/Home");
+    } catch ({ response }) {
+      console.log(response);
+    }
+  
+  };
+  useEffect(() => {
+    if (isAuthenticated) {
+      history.replace("/Home");
+    }
+  }, [history, isAuthenticated]);
 
+  const { register, formState: {errors}, handleSubmit } = useForm({
+    resolver: yupResolver(schema)
+  });
+  //const onSubmit = (data) => {
+   // alert("👍You are connected👍");
+ // }
+const onSubmit = (data, e) => console.log(data, e);
+ const onError = (errors, e) => console.log(errors, e);
   return (
-    <div>
-      <Form>
-        <Input
-          class="name"
-          type="username"
-          value={userName}
-          onChange={(e) => {
-            setUserName(e.target.value);
-          }}
-          placeholder="email"
+    <div className="login">
+      <h2 className="h2-contact">Login</h2>
+      <form className="form-profil" onSubmit={(e) => {
+        e.preventDefault();
+       handleSubmit(handleSubmited, onError)()
+        }}>
+
+        <input
+          className="name"
+          type="text"
+          id="name"
+          name="username"
+          placeholder="username"
+          onChange={handleChange}
+          {...register("username")}
         />
-        <Input
-          class="password"
+        {errors.username && <p id="p-yup">{errors.username.message}</p>}
+        <br />
+        <input
+          className="password"
           type="password"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-          placeholder="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          onChange={handleChange}
+          {...register("password")}
         />
-        <Button class="sign" onClick={postLogin}>
-          Sign In
-        </Button>
-      </Form>
-      <Link to="/signup">Don't have an account?</Link>
-      {isError && (
-        <Error>The username or password provided were incorrect!</Error>
-      )}
+        {errors.password && <p id="p-yup">{errors.password.message}</p>}
+        <br />
+        <label htmlFor="forgot">Forgot your password?</label>
+        <br />
+        <input
+          className="sign"
+          id="buttonsignup"
+          type="submit"
+          value="Sign in"
+         
+        />
+      </form>
     </div>
   );
-}
-
+};
 export default Login;
