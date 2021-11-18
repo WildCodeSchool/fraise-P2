@@ -1,17 +1,18 @@
-
-import React from 'react';
-import { Link } from 'react-router-dom';
-import logo from "../../images/logo-ramentafraise.png"
-import "./navbar.css"
-
-import styled from "styled-components";
-
-const StyleApp = styled.header`
-  color: ${props => props.theme.color}
-`;
-
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import logo from "../../images/logo-ramentafraise.png";
+import Auth from "../../contexte/Auth";
+import "./navbar.css";
+import { logout } from "../../services/AuthApi";
+import {user} from "../../pages/Login"
 
 const NavBar = () => {
+  const { isAuthenticated, setIsAuthenticated } = useContext(Auth);
+
+  const handleLogout = () => {
+    logout();
+    setIsAuthenticated(false);
+  };
 
   return (
    
@@ -27,17 +28,31 @@ const NavBar = () => {
           </div>
         </div>
         <div className="button-container">
-
-            <button><Link to="/Connexion">Login</Link></button>
-            <button>MySpace</button>
-        </div>    
-
+          {(!isAuthenticated && (
+            <>
+              <Link to="/Login">
+                <button>Login</button>
+              </Link>
+              <Link to="/Connexion">
+                <button>Inscription</button>
+              </Link>
+            </>
+          )) || (
+            <>
+            <h4> {`Bienvenue ${user}`} </h4>
+            <button> My Space </button>
+              <Link to="/Home">
+                <button onClick={handleLogout}>Logout</button>
+              </Link>
+              
+            </>
+          )}
+        </div>
       </section>
       <nav className="nav-general">
         <ul>
-          <StyleApp>
             <Link to="/Home">Home</Link>
-          </StyleApp>
+          
           <li>
             <Link to="/Contact">Contact</Link>
           </li>
@@ -48,5 +63,4 @@ const NavBar = () => {
    
   );
 };
-
 export default NavBar;
