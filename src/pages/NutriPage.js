@@ -7,17 +7,22 @@ import SpecialDiets from '../components/specialdiets/SpecialDiets';
 import FilterButton from '../components/FilterButton/FilterButton'
 import styled,{ ThemeProvider } from "styled-components";
 
-import { ProductsContext } from '../context/ProductsContext';
-
 const StyleApp = styled.div
   `color: ${props => props.theme.color}`
 ;
+
+
+import { ProductsContext } from '../context/ProductsContext';
 
 const NutriPage = ({description, specialDiet, labelsArray}) => {
    
     const {productsList,onCheck,setOncheck,mainFilter,setMainFilter} = useContext(ProductsContext)
 
-   
+    const handleCheckToggle = (e)=> {
+      setOncheck(e.target.value === false ? true : false)
+    
+    }
+
    
     // On toggle click set diet value in array Mainfilter of allergens
     const handleClick = (e) => {
@@ -33,21 +38,8 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
 
         }else{
           return [...mainFilter]
-          
         }
-        
-       
-      
-        
     }
-
-    const handleCheckToggle = ()=> {
-      setOncheck(prevCheck => !prevCheck)
-    
-    }
-
-    
-
 
     const [rangeValue, setRangeValue] = useState(20);
     const [query, setQuery] = useState("");
@@ -95,12 +87,9 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
       {labelsArray.map(label => (
         <FilterButton key={label}
         label={label} 
-        value={onCheck}
         handleClick={handleClick}
+        value={onCheck}
         handleCheck={handleCheckToggle}
-        rounded={onCheck}
-        isToggled={onCheck}
-     
         />
       ))} 
       </section>
