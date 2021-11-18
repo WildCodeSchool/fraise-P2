@@ -30,10 +30,10 @@ const NavBar = () => {
         <div className="button-container">
           {(!isAuthenticated && (
             <>
-              <Link to="/Login">
-                <button>Login</button>
+              <Link to="/Login" style={{ textDecoration: 'none' }} >
+                <button >Login</button>
               </Link>
-              <Link to="/Connexion">
+              <Link to="/Connexion" style={{ textDecoration: 'none' }} >
                 <button>Inscription</button>
               </Link>
             </>
@@ -41,7 +41,7 @@ const NavBar = () => {
             <>
             <h4 className="button-container">{`Welcome ${isAuthenticated}`}</h4>
             <button> My Space </button>
-              <Link to="/Home">
+              <Link to="/Home" style={{ textDecoration: 'none' }} >
                 <button onClick={handleLogout}>Logout</button>
               </Link>
               

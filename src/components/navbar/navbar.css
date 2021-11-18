@@ -50,6 +50,7 @@
     justify-content: space-around;
     width: 15rem;
     padding: 1rem;
+    text-decoration: none;
 }
 
 .button-container button {
@@ -67,6 +68,7 @@
     border-radius: 90px;
     font-size: 1.1rem;
     border: none;
+    text-decoration: none;
 }
 
 .button-container h4 {
@@ -80,6 +82,7 @@
     color:white;
     font-size: 1,1rem;
     height: 2.5rem;
+    text-decoration: none;
    
 }
 
