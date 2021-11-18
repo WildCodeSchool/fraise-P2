@@ -28,3 +28,12 @@
   background-color: #86e3d5;
   transition: 1s;
 }
+
+#p-yup {
+  color: tomato;
+}
+
+#p-yup::before {
+  display: inline;
+  content: "⚠";
+}

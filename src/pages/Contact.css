@@ -73,14 +73,10 @@
   display: flex;
   align-items: baseline;
 }
-
-.form-entry div p {
-  color: orangered;
-  font-size: 0.8rem;
+.form-suggestion{
+  display: flex;
+  
 }
-
-
-
 .form-suggestion input {
   min-width: auto;
 }
@@ -115,16 +111,26 @@
 
 .check {
   color: #3eacc2;
-  padding: 1rem;
+  padding: 5%;
 }
 
-/* @media screen and (max-width: 900px) {
-  .h2-contact {
-    font-size: 1.5rem;
+#p-yup {
+  color: tomato;
+}
+
+#p-yup::before {
+  display: inline;
+  content: "⚠";
+}
+
+@media screen and (max-width: 768px) {
+  .lightgreen-bloc {
+    display: none;
   }
-  .h3-contact {
-    font-size: 1rem;
-    padding: 0;
-    padding-bottom: 1rem;
-  }
-} */
+}
+.form-suggestion {
+  display: flex;
+  flex-direction: column;
+}
+
+

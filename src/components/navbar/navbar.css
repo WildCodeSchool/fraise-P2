@@ -8,6 +8,7 @@
 ** 
 */
 
+
 .header-banner {
     padding: 2rem 6rem;
     display: flex;
@@ -68,6 +69,20 @@
     border: none;
 }
 
+.button-container h4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Oswald;
+    padding: 0.5rem 1.5rem;
+    margin: 0 1rem;
+    width: fit-content;
+    color:white;
+    font-size: 1,1rem;
+    height: 2.5rem;
+   
+}
+
 .button-container button:hover {
     background: rgba(20, 94, 140);
     box-shadow: 5px 5px 4px rgba(20, 94, 140, 0.80);
@@ -87,8 +102,8 @@
 
 nav {
     background: #DCF9ED90;;
-    padding-top: 3em;
-    padding-bottom: 0.5rem;
+    padding-top: 2.5em;
+    padding-bottom: 2.5rem;
     height: 6em;   
 }
 
@@ -106,13 +121,36 @@ nav {
 }
 
 .nav-general a {
-    color: #3EACC2;
+    /* color: #3EACC2; */
     font-weight: bolder;
     text-decoration: none;
-}
+} 
 
-.nav-general a:hover {
+ .nav-general a:hover {
     color: #145E8C;
     font-weight: bolder;
     text-decoration: underline #145E8C;
+}
+
+@media screen and (max-width: 768px) {
+    .header-title h2 {
+        display: none;
+}
+    .header-banner {
+    
+	flex-direction: column;
+	
+}
+    .title-logo-container {
+        flex-direction: column;
+}
+    .button-container button {
+    margin: auto;
+    width: 7rem;
+    
+}
+    .button-container {
+        width: 18rem;
+    }
+
 }

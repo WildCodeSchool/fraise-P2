@@ -1,0 +1,77 @@
+.nutri-page {
+    margin: 4rem 0;
+}
+
+.diet-filters {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.filters-result{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.diet-cards {
+    width: 65%;
+    padding: 0 5vw;
+}
+
+.search-bar-countainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.search-form input {
+    padding: 0.5rem 1rem;
+    margin: 0 2rem;
+    border-radius: 30px;
+    border: 2px solid #145e8c;
+    color: #145e8c;
+}
+
+.search-form input::placeholder {
+    color: #3eacc2;
+}
+
+.cancel-search {
+    margin: 0 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .filters-result {
+        flex-direction: column;
+    }
+    .diet-cards {
+        width: 100%;
+    }
+    .search-bar-countainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+    .search-form input {
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    border-radius: 30px;
+    border: 2px solid #145e8c;
+    color: #145e8c;
+}
+    .cancel-search {
+    margin: 1rem;
+}
+    .diet-filters {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    
+}
+}

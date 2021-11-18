@@ -1,0 +1,15 @@
+
+.starContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    fill: #007eff;
+    stroke: white;
+    font-size: 3em;
+    width: 10em;
+  }
+  
+  .input {
+    display: none;
+  }
+  
