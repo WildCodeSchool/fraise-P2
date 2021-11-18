@@ -27,23 +27,28 @@ const NavBar = () => {
             <h2>"Everything you like in 1 click"</h2>
           </div>
         </div>
-        <div className="button-container">
+        <div className="">
           {(!isAuthenticated && (
             <>
+            <div className="button-container">
               <Link to="/Login" style={{ textDecoration: 'none' }} >
                 <button >Login</button>
               </Link>
               <Link to="/Connexion" style={{ textDecoration: 'none' }} >
                 <button>Inscription</button>
               </Link>
+              </div>
             </>
           )) || (
             <>
-            <h4 className="button-container">{`Welcome ${isAuthenticated}`}</h4>
+            
+            <div className="button-container">
             <button> My Space </button>
               <Link to="/Home" style={{ textDecoration: 'none' }} >
                 <button onClick={handleLogout}>Logout</button>
               </Link>
+              </div>
+              <p className="button-container welcom-user">{`Welcome ${isAuthenticated}`}</p>
               
             </>
           )}
