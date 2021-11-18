@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import Toggle, {isToggled, themeToggler, setIsToggled} from "./components/toggle/Toggle";
 import Connexion from "./pages/Connexion";
 import Login from "./pages/Login";
+import Profile from "./pages/Profile";
 import Footer from "./components/footer/Footer";
 import { hasAuthenticated } from "./services/AuthApi";
 import Auth from "./contexte/Auth";

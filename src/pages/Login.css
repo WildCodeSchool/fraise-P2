@@ -1,19 +1,45 @@
 .login {
+  display: flex;
+  margin: 7rem 0;
   text-align: center;
-  background-color: #dcf9ed;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
 }
 
-.name .password {
+.h2-login {
+  color: #145e8c;
+  font-size: 3.5rem;
+
+  font-family: "Poppins", sans-serif;
+}
+
+.form-profil {
+  padding: 0.5rem 1rem;
+  margin-bottom: 2rem;
+  line-height: 3;
+  font-family: "Poppins", sans-serif;
+}
+
+.form-profil input[type="text"],
+.form-profil input[type="password"] {
   width: 40%;
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 2rem;
-  background-color: white;
+  background-color: #3eacc2;
+  color: white;
   border: none;
   box-shadow: 5px 5px 4px rgba(20, 94, 140, 0.25);
 }
 
-.sign hover {
-  background-color: #86e3d5;
-  transition: 1s;
+.sign {
+  padding: 0.5rem 1rem;
+  margin-bottom: 2rem;
+  width: 6rem;
+  background: #145e8c;
+  color: white;
+  border-radius: 6px;
+  border: none;
+  box-shadow: 5px 5px 4px rgba(20, 94, 140, 0.25);
+  font-family: "Poppins", sans-serif;
 }

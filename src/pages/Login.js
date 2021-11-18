@@ -1,37 +1,36 @@
 import React, { useEffect, useState, useContext } from "react";
 import Auth from "../contexte/Auth";
 import "./Login.css";
-import {useForm} from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
-const schema = yup.object({
-  username: yup.string().max(20).required("Please enter your User Name"),
-  password: yup.string().max(200).required("Please enter a password"),
-}).required();
-
+const schema = yup
+  .object({
+    username: yup.string().max(20).required("Please enter your User Name"),
+    password: yup.string().max(200).required("Please enter a password"),
+  })
+  .required();
 
 const Login = ({ history }) => {
   const { isAuthenticated, setIsAuthenticated } = useContext(Auth);
   const [user, setUser] = useState({
     username: "",
-    password: ""
+    password: "",
   });
 
   const handleChange = ({ currentTarget }) => {
     const { name, value } = currentTarget;
-    setUser({...user, [name]: value })
-  }
+    setUser({ ...user, [name]: value });
+  };
 
-  const handleSubmited =  (values) => {
-    
+  const handleSubmited = (values) => {
     try {
       setIsAuthenticated(values.username);
       history.replace("/Home");
     } catch ({ response }) {
       console.log(response);
     }
-  
   };
   useEffect(() => {
     if (isAuthenticated) {
@@ -39,22 +38,28 @@ const Login = ({ history }) => {
     }
   }, [history, isAuthenticated]);
 
-  const { register, formState: {errors}, handleSubmit } = useForm({
-    resolver: yupResolver(schema)
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm({
+    resolver: yupResolver(schema),
   });
   //const onSubmit = (data) => {
-   // alert("👍You are connected👍");
- // }
-const onSubmit = (data, e) => console.log(data, e);
- const onError = (errors, e) => console.log(errors, e);
+  // alert("👍You are connected👍");
+  // }
+  const onSubmit = (data, e) => console.log(data, e);
+  const onError = (errors, e) => console.log(errors, e);
   return (
     <div className="login">
       <h2 className="h2-contact">Login</h2>
-      <form className="form-profil" onSubmit={(e) => {
-        e.preventDefault();
-       handleSubmit(handleSubmited, onError)()
-        }}>
-
+      <form
+        className="form-profil"
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit(handleSubmited, onError)();
+        }}
+      >
         <input
           className="name"
           type="text"
@@ -84,7 +89,6 @@ const onSubmit = (data, e) => console.log(data, e);
           id="buttonsignup"
           type="submit"
           value="Sign in"
-         
         />
       </form>
     </div>
