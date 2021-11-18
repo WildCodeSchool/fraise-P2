@@ -8,7 +8,7 @@ const StyleApp = styled.div
   `color: ${props => props.theme.color}`
 ;
 
-const FilterButton = ({ label, handleClick,handleCheck,rounded = false,isToggled}) => {
+const FilterButton = ({ label, handleClick, handleCheck, value, rounded=false}) => {
 
 
   const sliderCX = cx("slider", {
@@ -22,8 +22,7 @@ const FilterButton = ({ label, handleClick,handleCheck,rounded = false,isToggled
         id={label}
         onChange={handleCheck} 
         onClick={handleClick}
-        checked={isToggled}
-
+        checked={value}
         />
         <span className={sliderCX} />
       </label>

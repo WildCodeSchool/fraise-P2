@@ -111,7 +111,7 @@ const  Contact = () => {
         </div>
 
         <div className="form-message">
-          <label htmlFor="message"> Votre message :</label>
+          <label htmlFor="message"> Your message :</label>
           <textarea placeholder="Please fill in your questions or comments" id="messagecontact" name="message" {...register("message")}
           ></textarea>
           {errors.message && <p id="p-yup">{errors.message.message}</p>}

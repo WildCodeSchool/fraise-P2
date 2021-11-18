@@ -37,7 +37,7 @@ const NavBar = () => {
                 <button >Login</button>
               </Link>
               <Link to="/Connexion" style={{ textDecoration: 'none' }} >
-                <button>Inscription</button>
+                <button>Sign in</button>
               </Link>
               </div>
             </>
@@ -60,8 +60,9 @@ const NavBar = () => {
       </section>
       <nav className="nav-general">
         <ul>
+          <li>
           <Link to="/Home" onClick={handleClickHome}>Home</Link>
-
+          </li>
           <li>
             <Link to="/Contact">Contact</Link>
           </li>

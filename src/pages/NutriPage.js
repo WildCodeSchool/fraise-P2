@@ -83,15 +83,11 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
     return (
     
        <>
-      <section className="diet-filters">
-      {labelsArray.map(label => (
-        <FilterButton key={label}
-        label={label} 
-        handleClick={handleClick}
-        value={onCheck}
-        handleCheck={handleCheckToggle}
-        />
-      ))} 
+       <section className="diet-filters"> {labelsArray.map(label => {console.log(label); 
+        return (
+        <FilterButton  key={label} label={label} handleClick={handleClick} value={mainFilter.includes(`en:${label}`)} handleCheck={handleCheckToggle}/>)})}
+
+
       </section>
       
       
@@ -120,7 +116,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
             onChange={(e) => setRangeValue(e.target.value)}
           />
 
-          {mainFilter.length > 0 && <StyleApp className="cancel-search" onClick={()=> setMainFilter([])}>Annuler la recherche</StyleApp> }                       
+          {mainFilter.length > 0 && <StyleApp className="cancel-search" onClick={()=> setMainFilter([])}>Cancel filter</StyleApp> }                       
         </div>
         
             {
