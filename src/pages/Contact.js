@@ -85,9 +85,11 @@ const  Contact = () => {
         </div>
         <div className="form-suggestion">
           <h4>Suggestions :</h4>
+
           
           <div className="inputext">
           <input id="check-sickness" type="radio" name="sickness" checked {...register("sickness")}/>
+
           <label className="check"  htmlFor="check-sickness">Sickness</label>
           </div>
 
