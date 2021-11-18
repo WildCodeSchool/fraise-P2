@@ -1,8 +1,13 @@
-import React from "react";
+import React,{useContext} from "react";
 import "./FilterButton.css";
 import cx from "classnames";
+import ProductsContext from "../../context/ProductsContext"
 
-const FilterButtonBis = ({ label, handleClick, handleCheck, value, rounded = false}) => {
+
+
+
+const FilterButton = ({ label, handleClick,handleCheck,rounded = false,isToggled}) => {
+  
 
   const sliderCX = cx("slider", {
     rounded: rounded
@@ -14,7 +19,10 @@ const FilterButtonBis = ({ label, handleClick, handleCheck, value, rounded = fal
         <input type="checkbox" 
         id={label}
         onChange={handleCheck} 
-        onClick={handleClick}/>
+        onClick={handleClick}
+        checked={isToggled}
+     
+        />
         <span className={sliderCX} />
       </label>
       <p>{label}</p>
@@ -22,4 +30,4 @@ const FilterButtonBis = ({ label, handleClick, handleCheck, value, rounded = fal
   );
 };
 
-export default FilterButtonBis;
+export default FilterButton;

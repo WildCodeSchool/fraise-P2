@@ -13,11 +13,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
    
     const {productsList,onCheck,setOncheck,mainFilter,setMainFilter} = useContext(ProductsContext)
 
-    const handleCheckToggle = (e)=> {
-      setOncheck(e.target.value === false ? true : false)
-    
-    }
-
+   
    
     // On toggle click set diet value in array Mainfilter of allergens
     const handleClick = (e) => {
@@ -33,8 +29,21 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
 
         }else{
           return [...mainFilter]
+          
         }
+        
+       
+        
+        
     }
+
+    const handleCheckToggle = ()=> {
+      setOncheck(prevCheck => !prevCheck)
+    
+    }
+
+    
+
 
     const [rangeValue, setRangeValue] = useState(20);
     const [query, setQuery] = useState("");
@@ -82,9 +91,12 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
       {labelsArray.map(label => (
         <FilterButton key={label}
         label={label} 
-        handleClick={handleClick}
         value={onCheck}
+        handleClick={handleClick}
         handleCheck={handleCheckToggle}
+        rounded={onCheck}
+        isToggled={onCheck}
+     
         />
       ))} 
       </section>
