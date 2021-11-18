@@ -1,0 +1,21 @@
+.container-home {
+  line-height: 2;
+  padding-top: 3px;
+}
+
+.personals {
+  text-align: center;
+  width: 40%;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  margin-top: 1em;
+  border-radius: 2rem;
+  background-color: #3eacc2;
+  border: none;
+  box-shadow: 5px 5px 4px rgba(20, 94, 140, 0.25);
+  font-family: "Poppins", sans-serif;
+}
+
+.profile {
+  margin-top: 40px;
+}

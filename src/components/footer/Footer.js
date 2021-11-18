@@ -2,7 +2,7 @@ import React from "react";
 import Facebook from "../../Assets/facebook.png";
 import Twitter from "../../Assets/twitter.png";
 import Instagram from "../../Assets/instagram.png";
-import "./Footer.css"
+import "./Footer.css";
 
 const Footer = () => {
   return (
@@ -11,15 +11,19 @@ const Footer = () => {
         <h3>Nutritionnistes </h3>
         <ul>
           <li>
-            <a href="https://menthebanane.com/" target="_blank"><span className="footer-arrow">&gt;</span> Menthe Banane</a>
-          </li>
-          <li>
-            <a href="http://www.nutrition-dietetique.fr/" target="_blank">
-            <span className="footer-arrow">&gt;</span> Nutrition dietetique
+            <a href="https://menthebanane.com/" target="_blank">
+              <span className="footer-arrow">&gt;</span> Menthe Banane
             </a>
           </li>
           <li>
-            <a href="https://minceur-harmonie.com/" target="_blank"><span className="footer-arrow">&gt;</span> Minceur harmonie</a>
+            <a href="http://www.nutrition-dietetique.fr/" target="_blank">
+              <span className="footer-arrow">&gt;</span> Nutrition dietetique
+            </a>
+          </li>
+          <li>
+            <a href="https://minceur-harmonie.com/" target="_blank">
+              <span className="footer-arrow">&gt;</span> Minceur harmonie
+            </a>
           </li>
         </ul>
       </div>
@@ -27,18 +31,25 @@ const Footer = () => {
         <h3>Articles scientifiques </h3>
         <ul>
           <li>
-            <a href="https://www.bibl.ulaval.ca/web/nutrition-humaine/articles" target="_blank">
-            <span className="footer-arrow">&gt;</span> Nutrition Humaine
+            <a
+              href="https://www.bibl.ulaval.ca/web/nutrition-humaine/articles"
+              target="_blank"
+            >
+              <span className="footer-arrow">&gt;</span> Nutrition Humaine
             </a>
           </li>
           <li>
             <a href="http://www.nutrition-dietetique.fr/" target="_blank">
-            <span className="footer-arrow">&gt;</span>  Nutrition dietetique
+              <span className="footer-arrow">&gt;</span> Nutrition dietetique
             </a>
           </li>
           <li>
-            <a href="https://www.nutripro.nestle.fr/article/prise-en-charge-d-allergies-alimentaires" target="_blank">
-            <span className="footer-arrow">&gt;</span>  Prise en charge nutritionelle
+            <a
+              href="https://www.nutripro.nestle.fr/article/prise-en-charge-d-allergies-alimentaires"
+              target="_blank"
+            >
+              <span className="footer-arrow">&gt;</span> Prise en charge
+              nutritionelle
             </a>
           </li>
         </ul>
@@ -47,13 +58,22 @@ const Footer = () => {
         <h3>Santé </h3>
         <ul>
           <li>
-            <a href="https://mangerbouger.com/" target="_blank"><span className="footer-arrow">&gt;</span> Menthe Banane</a>
+            <a href="https://www.mangerbouger.fr/" target="_blank">
+              <span className="footer-arrow">&gt;</span> Menthe Banane
+            </a>
           </li>
           <li>
-            <a href="https://foodmap.fr/" target="_blank"><span className="footer-arrow">&gt;</span> Fodmap</a>
+            <a
+              href="https://www.passeportsante.net/fr/Nutrition/Dietes/Fiche.aspx?doc=diete-fodmap"
+              target="_blank"
+            >
+              <span className="footer-arrow">&gt;</span> Fodmap
+            </a>
           </li>
           <li>
-            <a href="https://foodmap.fr/" target="_blank"><span className="footer-arrow">&gt;</span> Fodmap</a>
+            <a href="https://www.nutritionetsante.com" target="_blank">
+              <span className="footer-arrow">&gt;</span> Nutrition santé
+            </a>
           </li>
         </ul>
       </div>

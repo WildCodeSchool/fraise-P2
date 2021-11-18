@@ -1,29 +1,27 @@
 .connexion {
   text-align: center;
-  background-color: #dcf9ed;
 }
 
 .connexion input[type="name"],
 .connexion input[type="email"],
-.connexion input[type="password"],
-.connexion textarea {
+.connexion input[type="password"] {
   width: 40%;
   padding: 1rem;
   margin-bottom: 1rem;
+  margin-top: 1em;
   border-radius: 2rem;
-  background-color: white;
+  background-color: #3eacc2;
   border: none;
   box-shadow: 5px 5px 4px rgba(20, 94, 140, 0.25);
 }
 
-.connexion input[type="signup"] {
+.connexion input[type="submit"] {
   background: #3eacc2;
-  color: black;
-  border: 3px solid black;
-  border-radius: 4rem;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 2rem;
   border: none;
+  box-shadow: 5px 5px 4px rgba(20, 94, 140, 0.25);
 }
 
 .connexion input[type="connexion"]:hover {

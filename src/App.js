@@ -8,6 +8,7 @@ import PageEggs from "./pages/PageEggs";
 import PageGluten from "./pages/PageGluten";
 import Connexion from "./pages/Connexion";
 import Login from "./pages/Login";
+import Profile from "./pages/Profile";
 import Footer from "./components/footer/Footer";
 import { hasAuthenticated } from "./services/AuthApi";
 import Auth from "./contexte/Auth";
@@ -29,6 +30,7 @@ const App = () => {
             <Route path="/Contact" component={Contact} />
             <Route path="/Login" component={Login} />
             <Route path="/Connexion" component={Connexion} />
+            <Route path="/Profile" component={Profile} />
             <AuthenticatedRoute path="/Home" component={Home} />
           </Switch>
           <Footer />

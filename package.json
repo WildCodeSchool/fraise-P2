@@ -4,6 +4,7 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "dependencies": {
+    "@hookform/resolvers": "^2.8.3",
     "abortcontroller-polyfill": "^1.7.3",
     "ansi-html-community": "^0.0.8",
     "ansi-styles": "^4.3.0",
@@ -152,7 +153,8 @@
     "wrap-ansi": "^5.1.0",
     "xxhash-wasm": "^0.4.2",
     "yargs": "^13.3.2",
-    "yargs-parser": "^20.2.9"
+    "yargs-parser": "^20.2.9",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "dev": "parcel src/index.html"
@@ -161,6 +163,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.0.0"
+    "@parcel/transformer-sass": "^2.0.0",
+    "react-hook-form": "^7.19.5"
   }
 }

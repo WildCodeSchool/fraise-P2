@@ -35,7 +35,13 @@ const NavBar = () => {
             </>
           )) || (
             <>
-              <Link to="/Home">
+              <h4 className="button-container">
+                {`Welcome ${isAuthenticated}`}
+              </h4>
+              <Link to="/Profile">
+                <button> My Space </button>
+              </Link>
+              <Link to="/home">
                 <button onClick={handleLogout}>Logout</button>
               </Link>
             </>

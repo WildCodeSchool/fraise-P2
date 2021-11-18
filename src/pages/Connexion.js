@@ -27,6 +27,6 @@ const Connexion = () => {
       <input id="buttonsignup" type="submit" value="Sign up" />
     </div>
   );
-}
+};
 
 export default Connexion;
