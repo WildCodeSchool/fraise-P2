@@ -4,7 +4,7 @@ import logo from "../../images/logo-ramentafraise.png";
 import Auth from "../../contexte/Auth";
 import "./navbar.css";
 import { logout } from "../../services/AuthApi";
-import {user} from "../../pages/Login"
+
 
 const NavBar = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(Auth);
@@ -39,7 +39,7 @@ const NavBar = () => {
             </>
           )) || (
             <>
-            <h4> {`Bienvenue ${user}`} </h4>
+            <h4 className="button-container">{`Welcome ${isAuthenticated}`}</h4>
             <button> My Space </button>
               <Link to="/Home">
                 <button onClick={handleLogout}>Logout</button>
