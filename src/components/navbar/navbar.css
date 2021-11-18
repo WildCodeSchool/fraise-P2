@@ -48,8 +48,17 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 15rem;
+    width: 19rem;
     padding: 1rem;
+    text-decoration: none;
+    color: white;
+}
+.welcom-user {
+    font-size: 100%;
+    font-weight: bold;
+    height: 1rem;
+    padding: 2%;
+
 }
 
 .button-container button {
@@ -67,6 +76,7 @@
     border-radius: 90px;
     font-size: 1.1rem;
     border: none;
+    text-decoration: none;
 }
 
 .button-container h4 {
@@ -80,6 +90,7 @@
     color:white;
     font-size: 1,1rem;
     height: 2.5rem;
+    text-decoration: none;
    
 }
 
@@ -121,7 +132,7 @@ nav {
 }
 
 .nav-general a {
-    /* color: #3EACC2; */
+    color: #3EACC2;
     font-weight: bolder;
     text-decoration: none;
 } 
