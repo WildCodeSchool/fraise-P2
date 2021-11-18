@@ -5,9 +5,13 @@ import './NutriPage.css'
 import DietCard from "../components/dietCard/DietCard";
 import SpecialDiets from '../components/specialdiets/SpecialDiets';
 import FilterButton from '../components/FilterButton/FilterButton'
-
+import styled,{ ThemeProvider } from "styled-components";
 
 import { ProductsContext } from '../context/ProductsContext';
+
+const StyleApp = styled.div
+  `color: ${props => props.theme.color}`
+;
 
 const NutriPage = ({description, specialDiet, labelsArray}) => {
    
@@ -33,7 +37,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
         }
         
        
-        
+      
         
     }
 
@@ -127,7 +131,7 @@ const NutriPage = ({description, specialDiet, labelsArray}) => {
             onChange={(e) => setRangeValue(e.target.value)}
           />
 
-          {mainFilter.length > 0 && <h5 className="cancel-search" onClick={()=> setMainFilter([])}>Annuler la recherche</h5> }                       
+          {mainFilter.length > 0 && <StyleApp className="cancel-search" onClick={()=> setMainFilter([])}>Annuler la recherche</StyleApp> }                       
         </div>
         
             {
