@@ -23,11 +23,10 @@ const Login = ({ history }) => {
     setUser({...user, [name]: value })
   }
 
-  const handleSubmited =  () => {
+  const handleSubmited =  (values) => {
     
     try {
-      const response = "username";
-      setIsAuthenticated(response);
+      setIsAuthenticated(values.username);
       history.replace("/Home");
     } catch ({ response }) {
       console.log(response);
