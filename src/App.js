@@ -42,7 +42,7 @@ const App = () => {
           <Route path="/Home" component={Home} />
           <Route path="/Contact" component={Contact} />
           <Route path="/Connexion" component={Connexion} />
-          <Route path="/NutriPage" component={NutriPage} />
+          
         </Switch>
         <Footer />
         </StyleApp>

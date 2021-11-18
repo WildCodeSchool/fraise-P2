@@ -56,12 +56,22 @@
   color: white;
 }
 
-
 @media screen and (min-width: 768px) {
   .profil-card:hover {
   height: 16rem;
   width: 13rem;
+  margin: 3%;
+  cursor: pointer;
 }
+  .blue:hover {
+    filter: brightness(1.2);
+  }
+  .creme_blue:hover {
+    filter: brightness(1.08);
+  }
+  .dark_blue:hover {
+    filter: brightness(1.3);
+  }
   
 }
 
