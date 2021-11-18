@@ -51,7 +51,6 @@ const NavBar = () => {
       </section>
       <nav className="nav-general">
         <ul>
-          
             <Link to="/Home">Home</Link>
           
           <li>
