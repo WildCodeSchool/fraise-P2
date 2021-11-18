@@ -85,19 +85,29 @@ const  Contact = () => {
         </div>
         <div className="form-suggestion">
           <h4>Suggestions :</h4>
+          
+          <div className="inputext">
           <input id="check-sickness" type="radio" name="sickness" checked {...register("sickness")}/>
           <label className="check"  htmlFor="check-sickness">Sickness</label>
+          </div>
 
+          <div className="inputext">
           <input id="check-intolerence" type="radio" name="intolerence" {...register("intolerence")} />
           <label className="check"  htmlFor="check-intolerence">Intolerence</label>
-
-          <input id="check-diet" type="radio" name="diet"{...register("diet")}/>
-          <label className="check"  htmlFor="check-diet"  > Diet</label>
+          </div>
           
+          <div className="inputext">
+          <input id="check-diet" type="radio" name="diet"{...register("diet")}/>
+          <label className="check"  htmlFor="check-diet"  >Diet</label>
+          </div>
 
+          <div className="inputext">
           <input id="check-other" type="radio" name="other" {...register("other")} />
           <label className="check"  htmlFor="check-other">Other</label>
+            </div>
+
         </div>
+
         <div className="form-message">
           <label htmlFor="message"> Votre message :</label>
           <textarea placeholder="Please fill in your questions or comments" id="messagecontact" name="message" {...register("message")}

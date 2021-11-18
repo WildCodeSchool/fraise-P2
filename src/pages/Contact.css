@@ -73,7 +73,10 @@
   display: flex;
   align-items: baseline;
 }
-
+.form-suggestion{
+  display: flex;
+  
+}
 .form-suggestion input {
   min-width: auto;
 }
@@ -108,7 +111,7 @@
 
 .check {
   color: #3eacc2;
-  padding: 1rem;
+  padding: 5%;
 }
 
 #p-yup {
@@ -127,7 +130,7 @@
 }
 .form-suggestion {
   display: flex;
-  flex-direction: column;
+  
 }
 
 

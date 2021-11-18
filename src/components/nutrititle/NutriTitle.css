@@ -1,6 +1,22 @@
 .nutri-title {
     display: flex;
     align-items: center;
+    margin: 0 1rem;
+    width: auto;
+    padding: 1rem;
+    background-color: #145E8C;
+    color: #DCF9ED;
+}
+
+.nutri-title h1 {
+    font-size: 2rem;
+    margin: auto;
+}
+
+@media screen and (min-width: 768px) {
+    .nutri-title {
+    display: flex;
+    align-items: center;
     width: 35%;
     max-width: 35%;
     padding: 3rem;
@@ -10,8 +26,18 @@
     text-orientation: sideways;
     background-color: #145E8C;
     color: #DCF9ED;
+    
 }
-
-.nutri-title h1 {
+    .nutri-title h1 {
     font-size: 3rem;
 }
+    
+}
+
+
+
+
+
+
+
+
