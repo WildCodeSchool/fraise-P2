@@ -19,6 +19,9 @@ const App = () => {
   
   return (
     <Auth.Provider value={{ isAuthenticated, setIsAuthenticated}}>
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <GlobalStyles/>
+      <Toggle rounded={true} isToggled={isToggled} onToggle={() => setIsToggled(!isToggled)}  themeToggler={ () =>themeToggler()}/>
       <BrowserRouter>
         <div>
           <NavBar />
@@ -34,7 +37,9 @@ const App = () => {
           <Footer />
         </div>
       </BrowserRouter>
+      </ThemeProvider>
     </Auth.Provider>
+   
   );
 };
 
