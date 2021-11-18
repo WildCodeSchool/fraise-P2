@@ -167,6 +167,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.0.0"
+    "@parcel/transformer-sass": "^2.0.0",
+    "react-hook-form": "^7.19.5"
   }
 }

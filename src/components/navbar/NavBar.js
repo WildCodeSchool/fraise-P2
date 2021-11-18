@@ -5,7 +5,6 @@ import Auth from "../../contexte/Auth";
 import "./navbar.css";
 import { logout } from "../../services/AuthApi";
 
-
 const NavBar = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(Auth);
 
@@ -15,12 +14,12 @@ const NavBar = () => {
   };
 
   return (
-   
     <header>
       <section className="header-banner">
         <div className="title-logo-container">
-
-        <Link to="/Home"><img className="logo" src={logo} alt=""/></Link>
+          <Link to="/Home">
+            <img className="logo" src={logo} alt="" />
+          </Link>
 
           <div className="header-title">
             <h1>GreenBeens</h1>
@@ -41,6 +40,7 @@ const NavBar = () => {
             </>
           )) || (
             <>
+
             
             <div className="button-container">
             <button> My Space </button>
@@ -50,22 +50,21 @@ const NavBar = () => {
               </div>
               <p className="button-container welcom-user">{`Welcome ${isAuthenticated}`}</p>
               
+
             </>
           )}
         </div>
       </section>
       <nav className="nav-general">
         <ul>
-            <Link to="/Home">Home</Link>
-          
+          <Link to="/Home">Home</Link>
+
           <li>
             <Link to="/Contact">Contact</Link>
           </li>
-          
         </ul>
       </nav>
     </header>
-   
   );
 };
 export default NavBar;

@@ -29,14 +29,14 @@ const Home = () => {
   const [homeDisplayed, setHomeDisplayed] = useState(true);
   const [chosenDiet, setChosenDiet] = useState();
 
-  const handleClick = (value) => {
+  const handleClick = (value,e) => {
     setHomeDisplayed(false);
     setChosenDiet(value);
     //==================
     // On diet element click setStateDiet to true 
     setOncheck(prevCheck => !prevCheck)
-    
-    
+   
+  
   };
 
   return (
@@ -64,6 +64,8 @@ const Home = () => {
               }else{
                 return [...mainFilter]
               }
+           
+             
               console.log("Diet selected:",diet.specialDiet);
               }}
                 setChosenDiet={setChosenDiet}
