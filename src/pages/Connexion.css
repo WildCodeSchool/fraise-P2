@@ -37,3 +37,6 @@
   display: inline;
   content: "⚠";
 }
+.connexion input::placeholder {
+  color:white;
+}

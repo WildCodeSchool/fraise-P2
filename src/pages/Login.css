@@ -43,3 +43,7 @@
   box-shadow: 5px 5px 4px rgba(20, 94, 140, 0.25);
   font-family: "Poppins", sans-serif;
 }
+
+.login input::placeholder {
+  color:white;
+}

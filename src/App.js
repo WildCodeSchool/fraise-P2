@@ -53,6 +53,7 @@ const App = () => {
           <Route path="/Contact" component={Contact} />
           <Route path="/Connexion" component={Connexion} />
           <Route path="/Login" component={Login} />
+          <AuthenticatedRoute path="/Profile" component={Profile} />
           <AuthenticatedRoute path="/Home" component={Home} />
           
         </Switch>

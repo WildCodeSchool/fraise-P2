@@ -44,9 +44,10 @@ const NavBar = () => {
           )) || (
             <>
 
-            
             <div className="button-container">
+            <Link to="/Profile" style={{ textDecoration: 'none' }} >
             <button> My Space </button>
+            </Link>
               <Link to="/Home" style={{ textDecoration: 'none' }} >
                 <button onClick={handleLogout}>Logout</button>
               </Link>
